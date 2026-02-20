@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://carbodyshopltd.co.uk'; // Replace with actual domain when live
+    const baseUrl = 'https://carbodyshop.org'; // Replace with actual domain when live
 
     return [
         {

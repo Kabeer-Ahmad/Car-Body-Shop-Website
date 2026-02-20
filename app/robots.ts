@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/api/', // Disallow API routes from being indexed
         },
-        sitemap: 'https://carbodyshopltd.co.uk/sitemap.xml',
+        sitemap: 'https://carbodyshop.org/sitemap.xml',
     };
 }
