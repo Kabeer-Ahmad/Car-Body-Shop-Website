@@ -17,12 +17,12 @@ export default function CTA() {
                     >
                         Call Now
                     </a>
-                    <Link
-                        href="#estimate-form"
+                    <a
+                        href="/#estimate-form"
                         className="w-full md:w-auto px-8 py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold rounded-lg text-xl transition-colors"
                     >
                         Get Free Estimate
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>

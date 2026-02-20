@@ -28,11 +28,12 @@ export default function Navbar() {
     }, [isOpen]);
 
     const navLinks = [
-        { name: 'Services', href: '#services' },
-        { name: 'Gallery', href: '#gallery' },
-        { name: 'Why Us', href: '#why-us' },
-        { name: 'Reviews', href: '#reviews' },
-        { name: 'Contact', href: '#estimate-form' },
+        { name: 'Services', href: '/#services' },
+        { name: 'Gallery', href: '/#gallery' },
+        { name: 'Why Us', href: '/#why-us' },
+        { name: 'Reviews', href: '/#reviews' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Contact', href: '/#estimate-form' },
     ];
 
     return (

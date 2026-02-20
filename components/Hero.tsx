@@ -20,7 +20,7 @@ export default function Hero() {
                         Fast & Affordable Car Body Repairs in <span className="text-blue-400">{BUSINESS_DETAILS.city}</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
-                        No Insurance. No Hassle. Cash Repairs Done Right.
+                        Insurance Quality Repairs. 10 Years Experience. No Hassle.
                     </p>
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -30,12 +30,12 @@ export default function Hero() {
                         >
                             Call Now: {BUSINESS_DETAILS.phone}
                         </a>
-                        <Link
-                            href="#estimate-form"
+                        <a
+                            href="/#estimate-form"
                             className="w-full md:w-auto px-8 py-4 bg-white hover:bg-gray-100 text-blue-900 font-bold rounded-lg text-lg transition-all shadow-lg hover:scale-105"
                         >
                             Get Free Estimate
-                        </Link>
+                        </a>
                     </div>
                 </motion.div>
             </div>

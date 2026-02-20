@@ -1,7 +1,15 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://carbodyshop.org'; // Replace with actual domain when live
+
+    const blogUrls = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
 
     return [
         {
@@ -10,7 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'weekly',
             priority: 1,
         },
-        // Since it's a single page site, we mostly just need the root. 
-        // If we had other pages like /services, we would validly list them here.
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        ...blogUrls,
     ];
 }

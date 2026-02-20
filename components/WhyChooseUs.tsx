@@ -1,6 +1,6 @@
 export default function WhyChooseUs() {
     const reasons = [
-        "Fast turnaround times (often same-day)",
+        "Fast turnaround times (1-2 days)",
         "Affordable cash pricing - no hidden fees",
         "No insurance hassle or premium hikes",
         "Honest estimates via WhatsApp",

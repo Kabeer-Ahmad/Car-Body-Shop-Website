@@ -34,12 +34,12 @@ export default function Pricing() {
                     <p className="text-lg text-blue-900 font-medium mb-4">
                         "Final price depends on the damage. Send us photos for an accurate quote in minutes."
                     </p>
-                    <Link
-                        href="#estimate-form"
+                    <a
+                        href="/#estimate-form"
                         className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors"
                     >
                         Get Accurate Quote
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
