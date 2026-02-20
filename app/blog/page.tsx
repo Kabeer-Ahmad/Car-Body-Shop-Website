@@ -36,29 +36,22 @@ export default function BlogListing() {
             <section className="py-16">
                 <div className="max-w-6xl mx-auto px-4 md:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
+                        {blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post) => (
                             <Link href={`/blog/${post.slug}`} key={post.slug} className="group flex flex-col bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1">
-                                <div className="relative h-48 w-full bg-gray-200 overflow-hidden">
-                                    <Image
-                                        src={post.coverImage}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <div className="text-sm text-blue-600 font-semibold mb-2">
+
+                                <div className="p-8 md:p-10 flex flex-col flex-grow">
+                                    <div className="text-sm text-blue-600 font-bold mb-3 uppercase tracking-wider">
                                         {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                                     </div>
-                                    <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-700 transition-colors">
+                                    <h2 className="text-2xl border-b border-gray-100 pb-4 font-extrabold text-gray-900 mb-6 group-hover:text-blue-700 transition-colors leading-snug">
                                         {post.title}
                                     </h2>
-                                    <p className="text-gray-600 mb-6 line-clamp-3">
+                                    <p className="text-gray-600 mb-8 line-clamp-4 leading-relaxed text-lg">
                                         {post.excerpt}
                                     </p>
-                                    <div className="mt-auto font-medium text-blue-600 group-hover:text-blue-800 flex items-center">
-                                        Read Article
-                                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="mt-auto font-bold text-blue-600 group-hover:text-blue-800 flex items-center text-lg">
+                                        Read Full Article
+                                        <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                         </svg>
                                     </div>

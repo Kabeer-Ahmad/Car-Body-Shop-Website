@@ -30,20 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             type: 'article',
             publishedTime: post.date,
             authors: [BUSINESS_DETAILS.name],
-            images: [
-                {
-                    url: post.coverImage,
-                    width: 1200,
-                    height: 630,
-                    alt: post.title,
-                }
-            ]
         },
         twitter: {
-            card: 'summary_large_image',
+            card: 'summary',
             title: post.title,
             description: post.excerpt,
-            images: [post.coverImage],
         }
     };
 }
@@ -61,9 +52,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": post.title,
-        "image": [
-            `https://carbodyshop.org${post.coverImage}`
-        ],
         "datePublished": post.date,
         "dateModified": post.date,
         "author": [{
@@ -117,25 +105,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         </div>
                     </div>
 
-                    <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-md bg-gray-100 mb-12">
-                        <Image
-                            src={post.coverImage}
-                            alt={post.title}
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                    </div>
+                    {/* Cover image removed for better reading experience */}
                 </header>
 
                 <div
-                    className="prose prose-lg md:prose-xl prose-blue max-w-none text-gray-700 
-                    prose-headings:font-bold prose-headings:text-gray-900 
-                    prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
-                    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                    prose-p:leading-relaxed prose-p:mb-6
-                    prose-li:my-2 prose-ul:my-6
-                    prose-strong:text-gray-900"
+                    className="prose prose-lg md:prose-xl max-w-none text-gray-700 
+                    prose-headings:font-bold prose-headings:text-gray-900 prose-headings:tracking-tight
+                    prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-4
+                    prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-blue-900
+                    prose-p:leading-loose prose-p:mb-8 prose-p:text-lg
+                    prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+                    prose-ul:list-disc prose-ul:pl-6 prose-li:my-3 prose-li:text-lg prose-ul:mb-8
+                    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-8
+                    prose-strong:font-extrabold prose-strong:text-gray-900
+                    marker:text-blue-500"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
 
