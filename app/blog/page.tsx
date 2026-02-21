@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { blogPosts } from '@/lib/blog-data';
+import { getPosts } from '@/lib/blog-data';
 import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
     }
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function BlogListing() {
+    const blogPosts = getPosts();
     return (
         <main className="min-h-screen bg-gray-50 flex flex-col">
             <Navbar />

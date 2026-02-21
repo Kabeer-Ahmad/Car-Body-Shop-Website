@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next';
-import { blogPosts } from '@/lib/blog-data';
+import { getPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://carbodyshop.org'; // Replace with actual domain when live
+    const blogPosts = getPosts();
 
     const blogUrls = blogPosts.map((post) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
+        url: `${baseUrl} /blog/${post.slug} `,
         lastModified: new Date(post.date),
         changeFrequency: 'monthly' as const,
         priority: 0.8,

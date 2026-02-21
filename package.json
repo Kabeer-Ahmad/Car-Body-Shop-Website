@@ -14,7 +14,9 @@
     "next": "16.1.6",
     "nodemailer": "^8.0.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "suneditor": "^2.47.8",
+    "suneditor-react": "^3.6.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

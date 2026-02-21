@@ -1,13 +1,15 @@
-import { getPostBySlug, blogPosts } from '@/lib/blog-data';
+import { getPostBySlug, getPosts } from '@/lib/blog-data';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
+import ReadingProgress from '@/components/ReadingProgress';
+import ShareButtons from '@/components/ShareButtons';
+import 'suneditor/dist/css/suneditor.min.css';
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
+    return getPosts().map((post) => ({
         slug: post.slug,
     }));
 }
@@ -47,6 +49,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         notFound();
     }
 
+    // Calculate reading time estimated at 200 words per minute (stripping html tags for accurate count)
+    const wordCount = post.content.replace(/<[^>]*>?/gm, '').split(/\s+/).length;
+    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+    // Get up to 2 random articles for "Read Next", excluding current post
+    const relatedPosts = [...getPosts()]
+        .filter(p => p.slug !== slug)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 2);
+
     // We can add JSON-LD specifically for the Article here
     const jsonLd = {
         "@context": "https://schema.org",
@@ -70,6 +82,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
     return (
         <main className="min-h-screen bg-white pt-20">
+            <ReadingProgress />
             <Navbar />
 
             <script
@@ -89,38 +102,78 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                         {post.title}
                     </h1>
-                    <div className="flex items-center text-gray-500 mb-8 border-b border-gray-100 pb-8">
-                        <div className="flex items-center">
-                            <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-gray-100 pb-8">
+                        <div className="flex flex-wrap items-center text-gray-500 gap-y-3">
+                            <div className="flex items-center">
+                                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                            </div>
+                            <span className="mx-3 hidden sm:inline">•</span>
+                            <div className="flex items-center">
+                                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                {post.author}
+                            </div>
+                            <span className="mx-3 hidden sm:inline">•</span>
+                            <div className="flex items-center">
+                                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                {readingTime} min read
+                            </div>
                         </div>
-                        <span className="mx-4">•</span>
-                        <div className="flex items-center">
-                            <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            {post.author}
-                        </div>
+
+                        <ShareButtons url={`https://carbodyshop.org/blog/${post.slug}`} title={post.title} />
                     </div>
 
                     {/* Cover image removed for better reading experience */}
                 </header>
 
+                {/* Wrapping the content in sun-editor-editable applies the exact same CSS as the editor */}
                 <div
-                    className="prose prose-lg md:prose-xl max-w-none text-gray-700 
-                    prose-headings:font-bold prose-headings:text-gray-900 prose-headings:tracking-tight
-                    prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-4
-                    prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-blue-900
-                    prose-p:leading-loose prose-p:mb-8 prose-p:text-lg
-                    prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
-                    prose-ul:list-disc prose-ul:pl-6 prose-li:my-3 prose-li:text-lg prose-ul:mb-8
-                    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-8
-                    prose-strong:font-extrabold prose-strong:text-gray-900
-                    marker:text-blue-500"
+                    className="sun-editor-editable !p-0 !bg-transparent text-gray-800 leading-relaxed text-lg"
+                    style={{ fontFamily: 'inherit' }}
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
+
+                <div className="mt-16 pt-12 border-t border-gray-100">
+                    <div className="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center md:flex-row md:text-left md:items-start gap-6 border border-gray-100 mb-16">
+                        <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-2">About {post.author}</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                The team at {BUSINESS_DETAILS.name} brings decades of experience in auto body repair. We are passionate about restoring vehicles to their former glory safely, swiftly, and affordably.
+                            </p>
+                        </div>
+                    </div>
+
+                    {relatedPosts.length > 0 && (
+                        <div>
+                            <h3 className="text-2xl font-extrabold text-gray-900 mb-8 border-b border-gray-100 pb-4">Read Next</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {relatedPosts.map(related => (
+                                    <Link href={`/blog/${related.slug}`} key={related.slug} className="group p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col h-full">
+                                        <h4 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">{related.title}</h4>
+                                        <p className="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">{related.excerpt}</p>
+                                        <div className="text-blue-600 font-bold text-sm tracking-wide flex items-center mt-auto">
+                                            Read Article
+                                            <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
 
                 <div className="mt-16 pt-8 border-t border-gray-100 bg-blue-50 -mx-4 md:-mx-8 px-4 md:px-8 pb-12 rounded-b-3xl">
                     <div className="max-w-2xl mx-auto text-center">
