@@ -6,10 +6,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const blogPosts = getPosts();
 
     const blogUrls = blogPosts.map((post) => ({
-        url: `${baseUrl} /blog/${post.slug} `,
+        url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(post.date),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
+    }));
+
+    const serviceSlugs = [
+        'full-car-respray-rochdale',
+        'trade-motor-dealer-bodyshop-services',
+        'accident-collision-repair-rochdale',
+        'bumper-repair-rochdale',
+        'dent-removal-rochdale',
+        'car-scratch-repair-rochdale',
+        'minor-accident-repair-rochdale',
+        'lease-return-repairs-rochdale'
+    ];
+
+    const serviceUrls = serviceSlugs.map((slug) => ({
+        url: `${baseUrl}/services/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.9,
     }));
 
     return [
@@ -26,5 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         ...blogUrls,
+        ...serviceUrls,
     ];
 }
