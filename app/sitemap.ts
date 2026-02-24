@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://carbodyshop.org'; // Replace with actual domain when live
+    const baseUrl = 'https://carbodyshop.org';
     const blogPosts = getPosts();
 
     const blogUrls = blogPosts.map((post) => ({

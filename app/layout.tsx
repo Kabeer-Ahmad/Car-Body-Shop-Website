@@ -67,6 +67,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://carbodyshop.org",
+  },
   openGraph: {
     title: `${BUSINESS_DETAILS.name} - Expert Car Body Repairs`,
     description: "Get a free estimate today. Bumper scuffs, dents, and scratches repaired quickly and affordably.",
@@ -76,7 +79,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg", // Ensure there is a default OG image if possible, or leave as placeholder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: `${BUSINESS_DETAILS.name} Workshop`,
@@ -87,10 +90,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${BUSINESS_DETAILS.name} | Rochdale`,
     description: "Affordable car body repairs. Text us for a quote.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }, { url: "/logo.png", type: "image/png", sizes: "any" }],
   },
 };
 
@@ -103,7 +106,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "AutoBodyShop",
     "name": BUSINESS_DETAILS.name,
-    "image": "https://carbodyshop.org/og-image.png", // Placeholder
+    "image": "https://carbodyshop.org/og-image.png",
     "telephone": BUSINESS_DETAILS.phone,
     "email": BUSINESS_DETAILS.email,
     "address": {

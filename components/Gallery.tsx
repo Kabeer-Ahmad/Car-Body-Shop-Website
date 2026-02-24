@@ -40,7 +40,7 @@ export default function Gallery() {
                     {galleryItems.map((item) => (
                         <div key={item.id} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
                             <div className="relative w-full h-fit">
-                                <ComparisonSlider before={item.before} after={item.after} />
+                                <ComparisonSlider before={item.before} after={item.after} description={item.description} />
                             </div>
                             <div className="p-5 bg-white border-t border-gray-100">
                                 <p className="font-semibold text-gray-800 text-center">{item.description}</p>

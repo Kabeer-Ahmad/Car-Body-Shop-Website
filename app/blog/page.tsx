@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: `Blog | Car Body Repair Tips & Advice`,
     description: `Read the latest articles on car body repairs, dent removal, scratch repair costs, and local auto news from ${BUSINESS_DETAILS.name}.`,
+    alternates: { canonical: 'https://carbodyshop.org/blog' },
     openGraph: {
         title: `Blog - ${BUSINESS_DETAILS.name}`,
         description: `Car body repair tips, guides, and cost breakdowns from the experts at ${BUSINESS_DETAILS.name}.`,

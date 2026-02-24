@@ -6,9 +6,11 @@ import Image from 'next/image';
 interface ComparisonSliderProps {
     before: string;
     after: string;
+    /** Optional description for SEO/accessibility (e.g. "Fender dent repair & respray") */
+    description?: string;
 }
 
-export default function ComparisonSlider({ before, after }: ComparisonSliderProps) {
+export default function ComparisonSlider({ before, after, description }: ComparisonSliderProps) {
     const [isResizing, setIsResizing] = useState(false);
     const [position, setPosition] = useState(50);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -55,7 +57,7 @@ export default function ComparisonSlider({ before, after }: ComparisonSliderProp
             {/* After Image (Background) */}
             <Image
                 src={after}
-                alt="After repair"
+                alt={description ? `After: ${description}` : "After repair"}
                 fill
                 className="object-cover"
                 draggable={false}
@@ -73,7 +75,7 @@ export default function ComparisonSlider({ before, after }: ComparisonSliderProp
             >
                 <Image
                     src={before}
-                    alt="Before repair"
+                    alt={description ? `Before: ${description}` : "Before repair"}
                     fill
                     className="object-cover"
                     draggable={false}

@@ -6,6 +6,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: `Trade & Motor Dealer Bodyshop Services | Car Body Shop | ${BUSINESS_DETAILS.name}`,
     description: `Trusted trade bodyshop services in Greater Manchester. Fast turnaround, dealer prep & priority slots for motor traders. Call Car Body Shop: 07471512557.`,
+    alternates: { canonical: 'https://carbodyshop.org/services/trade-motor-dealer-bodyshop-services' },
     openGraph: {
         title: `Trade & Motor Dealer Bodyshop Services | Car Body Shop`,
         description: `Trusted trade bodyshop services in Greater Manchester. Fast turnaround, dealer prep & priority slots for motor traders. Call Car Body Shop: 07471512557.`,
@@ -199,12 +200,12 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Full Car Respray</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Complete vehicle resprays with full colour matching and lacquer finish — ideal for pre-sale preparation or cosmetic restoration.</p>
-                            <a href="https://www.carbodyshop.org/blog/full-car-respray-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/full-car-respray-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2">
@@ -215,14 +216,14 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Accident & Collision Repair</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Professional accident repair restoring vehicles to pre-accident condition — fast turnaround available for trade accounts.</p>
-                            <a href="https://www.carbodyshop.org/blog/accident-collision-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/accident-collision-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
+</svg>
+                            </Link>
                         </div>
-                        
+
                         <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2">
                             <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -231,14 +232,14 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Bumper Repair</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Scuffs, cracks, and paint damage on all bumper types repaired and colour-matched to a showroom finish.</p>
-                            <a href="https://www.carbodyshop.org/blog/bumper-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/bumper-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
+</svg>
+                            </Link>
                         </div>
-                        
+
                         <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2">
                             <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -247,12 +248,12 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Dent Removal</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Paintless and traditional dent removal techniques keeping your vehicles looking their best before they hit the forecourt.</p>
-                            <a href="https://www.carbodyshop.org/blog/dent-removal-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/dent-removal-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2">
@@ -263,12 +264,12 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Car Scratch Repair</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Deep and superficial scratch removal with precise colour matching — essential for maintaining retail-ready vehicle presentation.</p>
-                            <a href="https://www.carbodyshop.org/blog/car-scratch-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/car-scratch-repair-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2">
@@ -279,12 +280,12 @@ export default function ServicePage() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Lease Return Repairs</h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">Repairs carried out before vehicle handover to avoid costly end-of-lease penalty charges — available for fleet and leasing companies.</p>
-                            <a href="https://www.carbodyshop.org/blog/lease-return-repairs-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <Link href="/services/lease-return-repairs-rochdale" className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                                 Learn More
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -314,12 +315,12 @@ export default function ServicePage() {
                                 <h3 className="text-xl font-bold">Rochdale</h3>
                             </div>
                             <p className="text-blue-50 leading-relaxed mb-4">Our workshop is based in Whitworth, Rochdale, making us ideally situated for motor traders and dealerships operating across the borough. Priority slots and trade pricing available.</p>
-                            <a href="https://www.carbodyshop.org/blog/trade-motor-dealer-bodyshop-services" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
+                            <Link href="/services/trade-motor-dealer-bodyshop-services" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
                                 Book Trade Services
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                         
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
@@ -331,14 +332,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Oldham</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">We work regularly with motor traders based in Oldham, providing dealer preparation, paint repairs, and accident damage restoration. Our collection service covers the Oldham area directly.</p>
-                            <a href="https://www.carbodyshop.org/blog/accident-collision-repair-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">We work regularly with motor traders based in Oldham, providing dealer preparation, paint repairs, and accident damage restoration. Our collection service covers the Oldham area directly.</p></div>
                         
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                             <div className="flex items-center gap-3 mb-4">
@@ -349,14 +343,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Bury</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">Bury-based dealerships and independent traders trust Car Body Shop for consistent, fast trade bodyshop services. Furthermore, our flexible booking system works around your operational schedule.</p>
-                            <a href="https://www.carbodyshop.org/blog/full-car-respray-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">Bury-based dealerships and independent traders trust Car Body Shop for consistent, fast trade bodyshop services. Furthermore, our flexible booking system works around your operational schedule.</p></div>
 
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                             <div className="flex items-center gap-3 mb-4">
@@ -367,14 +354,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Heywood</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">Heywood motor traders benefit from our close proximity and fast turnaround times. From dealer prep to full resprays, we keep your stock retail-ready at all times.</p>
-                            <a href="https://www.carbodyshop.org/blog/lease-return-repairs-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">Heywood motor traders benefit from our close proximity and fast turnaround times. From dealer prep to full resprays, we keep your stock retail-ready at all times.</p></div>
                         
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                             <div className="flex items-center gap-3 mb-4">
@@ -385,14 +365,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Middleton</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">Motor traders in Middleton regularly use Car Body Shop for pre-sale preparation, scratch repair, and paint correction. Trade accounts and volume pricing available on request.</p>
-                            <a href="https://www.carbodyshop.org/blog/car-scratch-repair-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">Motor traders in Middleton regularly use Car Body Shop for pre-sale preparation, scratch repair, and paint correction. Trade accounts and volume pricing available on request.</p></div>
                         
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                             <div className="flex items-center gap-3 mb-4">
@@ -403,14 +376,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Manchester</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">We serve dealerships and traders from across Manchester and Greater Manchester. Our pricing is significantly lower than city-centre trade bodyshop rates, with no reduction in quality.</p>
-                            <a href="https://www.carbodyshop.org/blog/dent-removal-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">We serve dealerships and traders from across Manchester and Greater Manchester. Our pricing is significantly lower than city-centre trade bodyshop rates, with no reduction in quality.</p></div>
                         
                         <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                             <div className="flex items-center gap-3 mb-4">
@@ -421,14 +387,7 @@ export default function ServicePage() {
                                 </div>
                                 <h3 className="text-xl font-bold">Bolton</h3>
                             </div>
-                            <p className="text-blue-50 leading-relaxed mb-4">Bolton-based motor traders are welcome at Car Body Shop. Our collection and delivery service makes it easy to send vehicles directly from your Bolton site to our Rochdale workshop.</p>
-                            <a href="https://www.carbodyshop.org/blog/bumper-repair-rochdale" className="text-white font-semibold hover:text-blue-200 inline-flex items-center gap-2">
-                                View Services
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
+                            <p className="text-blue-50 leading-relaxed mb-4">Bolton-based motor traders are welcome at Car Body Shop. Our collection and delivery service makes it easy to send vehicles directly from your Bolton site to our Rochdale workshop.</p></div>
                     </div>
                 </div>
             </section>
