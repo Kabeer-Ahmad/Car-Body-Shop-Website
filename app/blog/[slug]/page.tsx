@@ -90,20 +90,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            <article className="max-w-4xl mx-auto px-4 md:px-8 py-16">
-                <Link href="/blog" className="text-blue-600 hover:text-blue-800 font-medium flex items-center mb-8 transition-colors w-fit">
+            <article className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-16">
+                <Link href="/blog" className="text-blue-600 hover:text-blue-800 font-medium flex items-center mb-6 md:mb-8 transition-colors w-fit">
                     <svg className="w-4 h-4 mr-2 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                     Back to Blog
                 </Link>
 
-                <header className="mb-12">
-                    <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                <header className="mb-8 md:mb-12">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                         {post.title}
                     </h1>
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-gray-100 pb-8">
-                        <div className="flex flex-wrap items-center text-gray-500 gap-y-3">
+                        <div className="flex flex-wrap items-center text-sm md:text-base text-gray-500 gap-y-3">
                             <div className="flex items-center">
                                 <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -111,7 +111,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                             </div>
                             <span className="mx-3 hidden sm:inline">•</span>
-                            <div className="flex items-center">
+                            <div className="flex items-center w-full sm:w-auto mt-2 sm:mt-0">
                                 <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
@@ -134,7 +134,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                 {/* Wrapping the content in sun-editor-editable applies the exact same CSS as the editor */}
                 <div
-                    className="sun-editor-editable !p-0 !bg-transparent text-gray-800 leading-relaxed text-lg"
+                    className="sun-editor-editable !p-0 !bg-transparent text-gray-800 leading-relaxed text-base md:text-lg prose prose-blue max-w-none prose-img:rounded-xl prose-img:shadow-md"
                     style={{ fontFamily: 'inherit' }}
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
