@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -71,6 +72,23 @@ export default function ServicePage() {
                         <p className="text-lg leading-relaxed">
                             Minor accident damage is the most common type of bodywork repair we carry out at Car Body Shop, and it is also one of the most cost-effective to address. Furthermore, acting quickly after an accident — however minor — prevents paint damage from developing into rust and stops small dents from worsening under normal driving conditions. Consequently, a prompt repair protects both the appearance and the long-term value of your vehicle. At Car Body Shop, every minor accident repair begins with a thorough, honest assessment of the damage, followed by a free, itemised quote before any work begins. We serve customers across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Example work</h2>
+                    <div className="rounded-2xl overflow-hidden shadow-lg">
+                        <Image
+                            src="/blog-images/service-image.webp"
+                            alt="Minor accident repair — scuffs and dents fixed to a high finish"
+                            width={800}
+                            height={500}
+                            className="w-full h-auto object-cover"
+                            sizes="(max-width: 768px) 100vw, 800px"
+                        />
                     </div>
                 </div>
             </section>

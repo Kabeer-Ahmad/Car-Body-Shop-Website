@@ -3,6 +3,7 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import ComparisonSlider from '@/components/ComparisonSlider';
 
 export const metadata: Metadata = {
     title: `Bumper Repair Rochdale | Car Body Shop | ${BUSINESS_DETAILS.name}`,
@@ -73,6 +74,18 @@ export default function ServicePage() {
                             Bumper damage is by far the most common type of vehicle bodywork repair we carry out. Furthermore, it is also one of the most straightforward to fix when handled by a skilled professional. At Car Body Shop, every bumper repair begins with a thorough assessment of the damage. We then carry out the necessary structural repairs, apply specialist plastic adhesive or body filler where required, and finish with a precisely colour-matched respray inside our enclosed spray booth. Consequently, the repaired bumper is virtually indistinguishable from a brand-new one — and considerably cheaper. We serve customers across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Before & after</h2>
+                    <ComparisonSlider
+                        before="/gallery/Bumper%20Lip%20Before.webp"
+                        after="/gallery/Bumper%20Lip%20After.webp"
+                        description="Bumper lip repair — before and after"
+                    />
                 </div>
             </section>
 

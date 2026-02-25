@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import ComparisonSlider from '@/components/ComparisonSlider';
 
 export const metadata: Metadata = {
     title: `Full Car Respray Rochdale | Car Body Shop | ${BUSINESS_DETAILS.name}`,
@@ -72,6 +73,18 @@ export default function ServicePage() {
                             A full car respray is one of the most effective investments you can make in your vehicle. Furthermore, a properly applied paint system provides lasting protection against rust, UV fading, and general wear. At Car Body Shop, we use industry-grade primer, basecoat, and lacquer — matched precisely to your manufacturer colour code — and complete all paintwork inside an enclosed spray booth to guarantee a smooth, dust-free result. Consequently, the finish is not only visually impressive but also highly durable. We serve customers across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton, making us the go-to choice for car respray across Greater Manchester.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Before & after</h2>
+                    <ComparisonSlider
+                        before="/gallery/Before_VAN_Backdoor.webp"
+                        after="/gallery/After_Van_Backdoor_Complete.webp"
+                        description="Van backdoor respray — full repair"
+                    />
                 </div>
             </section>
 

@@ -3,6 +3,7 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import ComparisonSlider from '@/components/ComparisonSlider';
 
 export const metadata: Metadata = {
     title: `Accident & Collision Repair Rochdale | Car Body Shop | ${BUSINESS_DETAILS.name}`,
@@ -76,6 +77,18 @@ export default function ServicePage() {
                             Accident damage can affect far more than just the appearance of your vehicle. Furthermore, unrepaired bodywork damage can lead to rust, structural weakening, and a reduction in resale value over time. Consequently, getting the repair carried out properly and promptly is always the right decision. At Car Body Shop, we use industry-grade materials, precision colour-matching technology, and an enclosed spray booth to ensure every accident repair meets an insurance-quality standard. We serve customers across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton, making us the trusted choice for collision repair across Greater Manchester.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Before & after</h2>
+                    <ComparisonSlider
+                        before="/gallery/Before_Car_Fender_Dent.webp"
+                        after="/gallery/AfteR_Cad_Fender_paint.webp"
+                        description="Fender dent and respray — collision repair"
+                    />
                 </div>
             </section>
 
