@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -71,6 +72,23 @@ export default function ServicePage() {
                         <p className="text-lg leading-relaxed">
                             Our trade and motor dealer bodyshop services cover everything from dealer preparation and cosmetic paint touch-ups through to full panel resprays, accident damage repair, and scratch removal. Furthermore, every vehicle is treated with the same care and precision that we apply to our retail work — because we know that the condition of your stock directly reflects the reputation of your business. Car Body Shop is trusted by independent traders and established dealerships across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Example work</h2>
+                    <div className="rounded-2xl overflow-hidden shadow-lg">
+                        <Image
+                            src="/blog-images/autobody-repair-808f6942-1920w.webp"
+                            alt="Autobody repair — trade bodyshop work"
+                            width={800}
+                            height={500}
+                            className="w-full h-auto object-cover"
+                            sizes="(max-width: 768px) 100vw, 800px"
+                        />
                     </div>
                 </div>
             </section>

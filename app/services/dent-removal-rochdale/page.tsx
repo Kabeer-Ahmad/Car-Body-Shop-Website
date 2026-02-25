@@ -76,6 +76,23 @@ export default function ServicePage() {
                 </div>
             </section>
 
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Example work</h2>
+                    <div className="rounded-2xl overflow-hidden shadow-lg">
+                        <Image
+                            src="/blog-images/dent-removal-in-rochdale-paintless-vs-traditional-repair-explained-1771704171935.jpeg"
+                            alt="Dent removal before and after — fender repair Rochdale"
+                            width={800}
+                            height={500}
+                            className="w-full h-auto object-cover"
+                            sizes="(max-width: 768px) 100vw, 800px"
+                        />
+                    </div>
+                </div>
+            </section>
+
             {/* Key Benefits Section */}
             <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">

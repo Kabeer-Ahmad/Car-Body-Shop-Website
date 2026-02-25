@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import ComparisonSlider from '@/components/ComparisonSlider';
 
 export const metadata: Metadata = {
     title: `Lease Return Repairs Rochdale | Car Body Shop | ${BUSINESS_DETAILS.name}`,
@@ -72,6 +73,18 @@ export default function ServicePage() {
                             End-of-lease damage charges can be significantly higher than the actual cost of a professional repair. Furthermore, leasing companies and finance providers typically use their own approved assessors who charge premium rates for any remedial work carried out after collection. Consequently, getting your vehicle repaired independently before the return date is almost always the more cost-effective option. At Car Body Shop, we carry out all lease return repairs to a standard that comfortably meets BVRLA fair wear and tear guidelines, giving you the confidence to hand your vehicle back without the worry of unexpected charges. We serve customers across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester, and Bolton.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Example Work Section */}
+            <section className="py-12 sm:py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Before & after</h2>
+                    <ComparisonSlider
+                        before="/gallery/before_Rim_Job.webp"
+                        after="/gallery/AfteR_Rim_Job.webp"
+                        description="Alloy wheel refurbishment — lease return repair"
+                    />
                 </div>
             </section>
 

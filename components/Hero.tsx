@@ -20,7 +20,7 @@ export default function Hero() {
                         Fast & Affordable Car Body Repairs in <span className="text-blue-400">{BUSINESS_DETAILS.city}</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
-                        Insurance Quality Repairs. 10 Years Experience. No Hassle.
+                    Overnight repairs 24/7. 10 Years Experience. Drop off service.
                     </p>
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
