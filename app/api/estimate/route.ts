@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import {
+    escapeHtml,
+    phoneTelHref,
+    trimField,
+    validateEstimateFields,
+    validatePhotos,
+} from '@/lib/estimate-validation';
 
 export async function POST(request: Request) {
     try {
@@ -13,11 +20,24 @@ export async function POST(request: Request) {
         }
 
         const formData = await request.formData();
-        const name = formData.get('name') as string;
-        const phone = formData.get('phone') as string;
-        const vehicle = formData.get('vehicle') as string;
-        const description = formData.get('description') as string;
-        const photos = formData.getAll('photos') as File[];
+        const validation = validateEstimateFields({
+            name: trimField(formData.get('name')),
+            phone: trimField(formData.get('phone')),
+            vehicle: trimField(formData.get('vehicle')),
+            description: trimField(formData.get('description')),
+        });
+
+        if (!validation.ok) {
+            return NextResponse.json({ error: validation.error }, { status: 400 });
+        }
+
+        const { name, phone, vehicle, description } = validation.data;
+        const photos = formData.getAll('photos').filter((entry): entry is File => entry instanceof File);
+
+        const photoError = validatePhotos(photos);
+        if (photoError) {
+            return NextResponse.json({ error: photoError }, { status: 400 });
+        }
 
         // Create transporter
         const transporter = nodemailer.createTransport({
@@ -31,7 +51,7 @@ export async function POST(request: Request) {
         // Prepare attachments only if they are actual files (not empty strings/objects)
         const attachments = await Promise.all(
             photos
-                .filter(photo => photo instanceof File && photo.size > 0)
+                .filter(photo => photo.size > 0)
                 .map(async (photo) => {
                     const buffer = Buffer.from(await photo.arrayBuffer());
                     return {
@@ -41,6 +61,8 @@ export async function POST(request: Request) {
                 })
         );
 
+        const telHref = phoneTelHref(phone);
+
         // Email content
         const mailOptions = {
             from: process.env.EMAIL_USER,
@@ -48,12 +70,12 @@ export async function POST(request: Request) {
             subject: `New Estimate Request from ${name} - ${vehicle}`,
             html: `
                 <h2>New Estimate Request</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
-                <p><strong>Vehicle:</strong> ${vehicle}</p>
+                <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+                <p><strong>Phone:</strong> <a href="tel:${telHref}">${escapeHtml(phone)}</a></p>
+                <p><strong>Vehicle:</strong> ${escapeHtml(vehicle)}</p>
                 <p><strong>Description:</strong></p>
                 <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
-                    ${description || 'No description provided.'}
+                    ${escapeHtml(description || 'No description provided.')}
                 </blockquote>
                 <p><strong>Photos attached:</strong> ${attachments.length}</p>
             `,

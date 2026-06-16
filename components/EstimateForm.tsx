@@ -2,6 +2,13 @@
 
 import { useState, FormEvent, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import {
+    MAX_PHOTOS,
+    MAX_PHOTO_SIZE_BYTES,
+    trimField,
+    validateEstimateFields,
+    validatePhotos,
+} from '@/lib/estimate-validation';
 
 export default function EstimateForm() {
     const [submitted, setSubmitted] = useState(false);
@@ -22,9 +29,24 @@ export default function EstimateForm() {
         if (e.target.files && e.target.files.length > 0) {
             const newFiles = Array.from(e.target.files);
 
+            const oversized = newFiles.find(file => file.size > MAX_PHOTO_SIZE_BYTES);
+            if (oversized) {
+                setError(`Each photo must be under 10MB ("${oversized.name}" is too large).`);
+                e.target.value = '';
+                return;
+            }
+
+            const invalidType = newFiles.find(file => !file.type.startsWith('image/'));
+            if (invalidType) {
+                setError('Only image files are allowed.');
+                e.target.value = '';
+                return;
+            }
+
             // Combine with existing files but limit to 3 total
-            const combinedFiles = [...selectedFiles, ...newFiles].slice(0, 3);
+            const combinedFiles = [...selectedFiles, ...newFiles].slice(0, MAX_PHOTOS);
             setSelectedFiles(combinedFiles);
+            setError(null);
 
             // Generate previews
             const newPreviews = combinedFiles.map(file => URL.createObjectURL(file));
@@ -56,6 +78,31 @@ export default function EstimateForm() {
         setError(null);
 
         const formData = new FormData(e.currentTarget);
+
+        const validation = validateEstimateFields({
+            name: trimField(formData.get('name')),
+            phone: trimField(formData.get('phone')),
+            vehicle: trimField(formData.get('vehicle')),
+            description: trimField(formData.get('description')),
+        });
+
+        if (!validation.ok) {
+            setError(validation.error);
+            setLoading(false);
+            return;
+        }
+
+        const photoError = validatePhotos(selectedFiles);
+        if (photoError) {
+            setError(photoError);
+            setLoading(false);
+            return;
+        }
+
+        formData.set('name', validation.data.name);
+        formData.set('phone', validation.data.phone);
+        formData.set('vehicle', validation.data.vehicle);
+        formData.set('description', validation.data.description);
 
         // Remove the default 'photos' entry from the inputs (which might be empty or partial)
         formData.delete('photos');
@@ -134,6 +181,9 @@ export default function EstimateForm() {
                             id="name"
                             name="name"
                             required
+                            minLength={2}
+                            maxLength={100}
+                            autoComplete="name"
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow bg-gray-50"
                             placeholder="John Smith"
                         />
@@ -148,6 +198,12 @@ export default function EstimateForm() {
                             id="phone"
                             name="phone"
                             required
+                            minLength={10}
+                            maxLength={20}
+                            autoComplete="tel"
+                            inputMode="tel"
+                            pattern="[\d\s+\-()]{10,}"
+                            title="Enter a valid UK phone number, e.g. 07700 900000"
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow bg-gray-50"
                             placeholder="07700 900000"
                         />
@@ -162,6 +218,8 @@ export default function EstimateForm() {
                             id="vehicle"
                             name="vehicle"
                             required
+                            minLength={3}
+                            maxLength={150}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow bg-gray-50"
                             placeholder="e.g. Audi A3 2018 Black"
                         />
@@ -175,6 +233,7 @@ export default function EstimateForm() {
                             id="description"
                             name="description"
                             rows={4}
+                            maxLength={2000}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow bg-gray-50"
                             placeholder="E.g. Scrape on rear bumper passenger side..."
                         ></textarea>
