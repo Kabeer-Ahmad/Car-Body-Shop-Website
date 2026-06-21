@@ -1,14 +1,26 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
     return (
         <section className="relative bg-gray-900 text-white min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
-            {/* Background - simple gradient/overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-gray-900 to-black opacity-90 z-0"></div>
+            {/* Background photo */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/hero-bg-v2.jpg"
+                    alt="Car Body Shop Workshop"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    quality={90}
+                />
+                {/* Dark gradient overlay so text stays legible */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-950/80 via-gray-900/70 to-black/75" />
+            </div>
 
             <div className="relative z-10 max-w-4xl mx-auto text-center px-4 md:px-8">
                 <motion.div
@@ -17,7 +29,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                        Fast & Affordable Car Body Repairs in <span className="text-blue-400">{BUSINESS_DETAILS.city}</span>
+                        Fast &amp; Affordable Car Body Repairs in <span className="text-blue-400">{BUSINESS_DETAILS.city}</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
                     Overnight repairs 24/7. 10 Years Experience. Drop off service.
