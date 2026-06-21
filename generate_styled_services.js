@@ -87,6 +87,8 @@ serviceUrls.forEach(slug => {
     }
 
     let pageCode = `import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import StatsBar from '@/components/StatsBar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -127,6 +129,8 @@ export default function ServicePage() {
                     </h1>
                 </div>
             </section>
+
+            <StatsBar />
 
             {/* Introduction Section */}
             ${parsedData.intro ? `<section className="py-20 bg-white">
@@ -231,16 +235,7 @@ export default function ServicePage() {
                 </div>
             </section>
 
-            <footer className="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-                <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col items-center">
-                    <p className="mb-6">&copy; {new Date().getFullYear()} {BUSINESS_DETAILS.name}. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                        <Link href="/blog" className="hover:text-white transition-colors">Advice & Tips</Link>
-                        <a href={\`tel:\${BUSINESS_DETAILS.phone}\`} className="hover:text-white transition-colors">Contact</a>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </main>
     );
 }

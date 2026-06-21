@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { BUSINESS_DETAILS } from "./constants";
+import StickyMobileBar from "@/components/StickyMobileBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carbodyshop.org"), // Fallback/Canonical URL
@@ -159,8 +160,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="antialiased">
+      <body className="antialiased pb-16 md:pb-0">
         {children}
+        <StickyMobileBar />
       </body>
     </html>
   );

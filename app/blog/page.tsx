@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPosts } from '@/lib/blog-data';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import StatsBar from '@/components/StatsBar';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { Metadata } from 'next';
 
@@ -36,6 +38,8 @@ export default function BlogListing() {
                     </p>
                 </div>
             </section>
+            
+            <StatsBar />
 
             <section className="py-16">
                 <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -66,12 +70,7 @@ export default function BlogListing() {
                 </div>
             </section>
 
-            <footer className="bg-gray-900 text-gray-400 py-8 text-center border-t border-gray-800 mt-auto">
-                <p>&copy; {new Date().getFullYear()} {BUSINESS_DETAILS.name}. All rights reserved.</p>
-                <div className="mt-4">
-                    <Link href="/" className="hover:text-white transition-colors">Back to Home</Link>
-                </div>
-            </footer>
+            <Footer />
         </main>
     );
 }

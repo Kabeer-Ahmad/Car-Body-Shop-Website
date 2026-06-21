@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+import StatsBar from "@/components/StatsBar";
 import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -18,6 +20,7 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+      <StatsBar />
 
       <AnimatedSection delay={0.1}>
         <Services />
@@ -51,10 +54,7 @@ export default function Home() {
         <EstimateForm />
       </AnimatedSection>
 
-      <footer className="bg-gray-900 text-gray-400 py-8 text-center border-t border-gray-800">
-        <p>&copy; {new Date().getFullYear()} {BUSINESS_DETAILS.name}. All rights reserved.</p>
-        <p className="mt-2 text-sm">Serving {BUSINESS_DETAILS.city} and surrounding areas.</p>
-      </footer>
+      <Footer />
 
       <WhatsAppButton />
     </main>

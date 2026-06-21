@@ -2,6 +2,7 @@
 
 import { useState, FormEvent, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
     MAX_PHOTOS,
     MAX_PHOTO_SIZE_BYTES,
@@ -330,9 +331,19 @@ export default function EstimateForm() {
                             'Send Estimate Request'
                         )}
                     </button>
-                    <p className="text-xs text-center text-gray-500 mt-4">
-                        By submitting this form, you agree to being contacted regarding your estimate.
-                    </p>
+                    <div className="flex items-start gap-2 mt-4">
+                        <input
+                            type="checkbox"
+                            id="gdpr"
+                            name="gdpr"
+                            required
+                            className="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                        <label htmlFor="gdpr" className="text-xs text-gray-600">
+                            I consent to having this website store my submitted information so they can respond to my inquiry. 
+                            See our <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link> for details. <span className="text-red-500">*</span>
+                        </label>
+                    </div>
                 </form>
             </div>
         </section>

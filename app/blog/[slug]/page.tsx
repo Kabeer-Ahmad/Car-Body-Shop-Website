@@ -54,11 +54,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const wordCount = post.content.replace(/<[^>]*>?/gm, '').split(/\s+/).length;
     const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
-    // Get up to 2 random articles for "Read Next", excluding current post
-    const relatedPosts = [...getPosts()]
-        .filter(p => p.slug !== slug)
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 2);
+    // Get up to 2 related articles for "Read Next" deterministically
+    const allPosts = getPosts();
+    const currentIndex = allPosts.findIndex(p => p.slug === slug);
+    const relatedPosts = [];
+    if (allPosts.length > 1) {
+        relatedPosts.push(allPosts[(currentIndex + 1) % allPosts.length]);
+        if (allPosts.length > 2) {
+            relatedPosts.push(allPosts[(currentIndex + 2) % allPosts.length]);
+        }
+    }
 
     // We can add JSON-LD specifically for the Article here
     const jsonLd = {
