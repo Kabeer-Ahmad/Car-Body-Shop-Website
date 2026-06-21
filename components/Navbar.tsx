@@ -65,18 +65,15 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto px-4 md:px-8 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group z-50 relative" onClick={() => setIsOpen(false)}>
-                    <div className="relative w-12 h-12 md:w-14 md:h-14">
+                    <div className="relative w-16 h-16 md:w-20 md:h-20">
                         <Image
-                            src="/logo.png"
+                            src="/cbs-logo.png"
                             alt={BUSINESS_DETAILS.name}
                             fill
                             className="object-contain"
-                            sizes="(max-width: 768px) 48px, 56px"
+                            sizes="(max-width: 768px) 64px, 80px"
                         />
                     </div>
-                    <span className={`font-bold text-xl transition-colors duration-300 ${effectiveScrolled || isOpen ? 'text-gray-900' : 'text-white drop-shadow-md'}`}>
-                        {BUSINESS_DETAILS.name}
-                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
