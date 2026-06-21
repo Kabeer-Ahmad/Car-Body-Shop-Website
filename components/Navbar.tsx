@@ -59,19 +59,19 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${effectiveScrolled || isOpen ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${effectiveScrolled || isOpen ? 'bg-white/95 backdrop-blur-md shadow-md py-4' : 'bg-transparent py-6'
                 }`}
         >
-            <div className="max-w-6xl mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div className="max-w-6xl mx-auto px-6 md:px-12 flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group z-50 relative" onClick={() => setIsOpen(false)}>
-                    <div className="relative w-16 h-16 md:w-20 md:h-20">
+                <Link href="/" className="flex items-center z-50 relative" onClick={() => setIsOpen(false)}>
+                    <div className="relative w-[150px] h-[45px] md:w-[180px] md:h-[54px]">
                         <Image
-                            src="/cbs-logo.png"
+                            src="/cbs-logo-transparent.png"
                             alt={BUSINESS_DETAILS.name}
                             fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 64px, 80px"
+                            className="object-contain object-left"
+                            sizes="(max-width: 768px) 150px, 180px"
                         />
                     </div>
                 </Link>
