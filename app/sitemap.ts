@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://carbodyshop.org';
+    const baseUrl = 'https://www.carbodyshop.org';
     const blogPosts = getPosts();
 
     const blogUrls = blogPosts.map((post) => ({
@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'weekly',
             priority: 1,
         },
+        ...serviceUrls,
         {
             url: `${baseUrl}/blog`,
             lastModified: new Date(),
@@ -44,6 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         ...blogUrls,
-        ...serviceUrls,
     ];
 }

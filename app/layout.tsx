@@ -5,7 +5,7 @@ import { BUSINESS_DETAILS } from "./constants";
 import StickyMobileBar from "@/components/StickyMobileBar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://carbodyshop.org"), // Fallback/Canonical URL
+  metadataBase: new URL("https://www.carbodyshop.org"), // Fallback/Canonical URL
   title: {
     default: `Car Body Shop Rochdale | Denting, Painting & Body Repairs`,
     template: `%s | ${BUSINESS_DETAILS.name}`,
@@ -69,12 +69,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://carbodyshop.org",
+    canonical: "https://www.carbodyshop.org",
   },
   openGraph: {
     title: `${BUSINESS_DETAILS.name} - Expert Car Body Repairs`,
     description: "Get a free estimate today. Bumper scuffs, dents, and scratches repaired quickly and affordably.",
-    url: "https://carbodyshop.org",
+    url: "https://www.carbodyshop.org",
     siteName: BUSINESS_DETAILS.name,
     locale: "en_GB",
     type: "website",
@@ -107,7 +107,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "AutoBodyShop",
     "name": BUSINESS_DETAILS.name,
-    "image": "https://carbodyshop.org/og-image.png",
+    "image": "https://www.carbodyshop.org/og-image.png",
     "telephone": BUSINESS_DETAILS.phone,
     "email": BUSINESS_DETAILS.email,
     "address": {

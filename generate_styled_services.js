@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: \`${titleFromPost.replace(/`/g, '\\`')}\`,
         description: \`${post.excerpt.replace(/`/g, '\\`')}\`,
-        url: \`https://carbodyshop.org/services/${slug}\`,
+        url: \`https://www.carbodyshop.org/services/${slug}\`,
         type: 'website',
     },
 };

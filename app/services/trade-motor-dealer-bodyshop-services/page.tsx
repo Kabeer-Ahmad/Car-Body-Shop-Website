@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Trade & Motor Dealer Bodyshop Services | Car Body Shop`,
         description: `Trusted trade bodyshop services in Greater Manchester. Fast turnaround, dealer prep & priority slots for motor traders. Call Car Body Shop: 07471512557.`,
-        url: `https://carbodyshop.org/services/trade-motor-dealer-bodyshop-services`,
+        url: `https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services`,
         type: 'website',
     },
 };

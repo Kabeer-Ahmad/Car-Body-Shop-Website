@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import ComparisonSlider from './ComparisonSlider';
 
 export default function WhyChooseUs() {
     const reasons = [
@@ -46,9 +47,17 @@ export default function WhyChooseUs() {
                         </div>
                     </div>
                     
-                    {/* Real Workshop Photo Placeholder */}
-                    <div className="relative h-96 lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-gray-800 flex items-center justify-center">
-                        <span className="text-gray-400 font-medium tracking-widest uppercase">Workshop Image Placeholder</span>
+                    {/* Interactive Before/After Image Slider */}
+                    <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-gray-800 flex flex-col">
+                        <ComparisonSlider
+                            before="/gallery/Before_Car_Fender_Dent.webp"
+                            after="/gallery/AfteR_Cad_Fender_paint.webp"
+                            description="Fender dent repair & respray"
+                            className="relative w-full h-[400px] lg:h-[500px] overflow-hidden cursor-ew-resize select-none group"
+                        />
+                        <div className="p-4 bg-blue-950/80 border-t border-blue-800 text-center">
+                            <span className="text-sm font-semibold text-blue-200">Real Transformation: Fender Dent Repair &amp; Respray (1-2 Days)</span>
+                        </div>
                     </div>
                 </div>
             </div>

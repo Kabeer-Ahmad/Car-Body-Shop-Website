@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Bumper Repair Rochdale | Car Body Shop`,
         description: `Expert bumper repair in Rochdale. Scuffs, cracks & dents repaired and colour-matched to a showroom finish. Call Car Body Shop: 07471512557.`,
-        url: `https://carbodyshop.org/services/bumper-repair-rochdale`,
+        url: `https://www.carbodyshop.org/services/bumper-repair-rochdale`,
         type: 'website',
     },
 };

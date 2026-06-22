@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Accident & Collision Repair Rochdale | Car Body Shop`,
         description: `Professional accident & collision repair in Rochdale. Insurance-quality results, fast turnaround & no fuss. Call Car Body Shop on 07471512557 today.`,
-        url: `https://carbodyshop.org/services/accident-collision-repair-rochdale`,
+        url: `https://www.carbodyshop.org/services/accident-collision-repair-rochdale`,
         type: 'website',
     },
 };

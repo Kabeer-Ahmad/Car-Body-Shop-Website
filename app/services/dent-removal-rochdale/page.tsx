@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Dent Removal Rochdale | Car Body Shop`,
         description: `Professional dent removal in Rochdale. Paintless & traditional techniques for all dent sizes. Fast turnaround. Call Car Body Shop: 07471512557.`,
-        url: `https://carbodyshop.org/services/dent-removal-rochdale`,
+        url: `https://www.carbodyshop.org/services/dent-removal-rochdale`,
         type: 'website',
     },
 };

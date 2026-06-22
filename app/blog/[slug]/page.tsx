@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${post.title} | ${BUSINESS_DETAILS.name}`,
         description: post.excerpt,
-        alternates: { canonical: `https://carbodyshop.org/blog/${post.slug}` },
+        alternates: { canonical: `https://www.carbodyshop.org/blog/${post.slug}` },
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            url: `https://carbodyshop.org/blog/${post.slug}`,
+            url: `https://www.carbodyshop.org/blog/${post.slug}`,
             type: 'article',
             publishedTime: post.date,
             authors: [BUSINESS_DETAILS.name],
@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             "name": BUSINESS_DETAILS.name,
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://carbodyshop.org/logo.png"
+                "url": "https://www.carbodyshop.org/logo.png"
             }
         }
     };
@@ -132,7 +132,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             </div>
                         </div>
 
-                        <ShareButtons url={`https://carbodyshop.org/blog/${post.slug}`} title={post.title} />
+                        <ShareButtons url={`https://www.carbodyshop.org/blog/${post.slug}`} title={post.title} />
                     </div>
 
                     {/* Cover image removed for better reading experience */}

@@ -8,9 +8,10 @@ interface ComparisonSliderProps {
     after: string;
     /** Optional description for SEO/accessibility (e.g. "Fender dent repair & respray") */
     description?: string;
+    className?: string;
 }
 
-export default function ComparisonSlider({ before, after, description }: ComparisonSliderProps) {
+export default function ComparisonSlider({ before, after, description, className }: ComparisonSliderProps) {
     const [isResizing, setIsResizing] = useState(false);
     const [position, setPosition] = useState(50);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ export default function ComparisonSlider({ before, after, description }: Compari
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-64 md:h-80 overflow-hidden rounded-xl cursor-ew-resize select-none group"
+            className={className || "relative w-full h-64 md:h-80 overflow-hidden rounded-xl cursor-ew-resize select-none group"}
         >
             {/* After Image (Background) */}
             <Image

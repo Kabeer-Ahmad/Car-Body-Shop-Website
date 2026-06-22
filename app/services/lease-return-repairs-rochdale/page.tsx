@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Lease Return Repairs in Rochdale | Car Body Shop`,
         description: `Avoid end-of-lease penalty charges with professional lease return repairs in Rochdale. Fast turnaround & fair pricing. Call Car Body Shop: 07471512557.`,
-        url: `https://carbodyshop.org/services/lease-return-repairs-rochdale`,
+        url: `https://www.carbodyshop.org/services/lease-return-repairs-rochdale`,
         type: 'website',
     },
 };

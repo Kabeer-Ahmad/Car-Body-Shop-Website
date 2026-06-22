@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Minor Accident Repair Rochdale | Car Body Shop`,
         description: `Fast, affordable minor accident repair in Rochdale. Scuffs, dents & paint damage fixed to an insurance-quality finish. Call 07471512557 today.`,
-        url: `https://carbodyshop.org/services/minor-accident-repair-rochdale`,
+        url: `https://www.carbodyshop.org/services/minor-accident-repair-rochdale`,
         type: 'website',
     },
 };

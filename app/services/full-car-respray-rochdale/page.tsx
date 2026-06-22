@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Full Car Respray in Rochdale | Car Body Shop`,
         description: `Looking for a full car respray in Rochdale? Car Body Shop delivers expert colour matching & a flawless finish. Call 07471512557 for a free quote.`,
-        url: `https://carbodyshop.org/services/full-car-respray-rochdale`,
+        url: `https://www.carbodyshop.org/services/full-car-respray-rochdale`,
         type: 'website',
     },
 };

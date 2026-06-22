@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: `Car Scratch Repair Rochdale | Car Body Shop`,
         description: `Expert car scratch repair in Rochdale. All scratch depths treated & colour-matched to a flawless finish. Call Car Body Shop: 07471512557.`,
-        url: `https://carbodyshop.org/services/car-scratch-repair-rochdale`,
+        url: `https://www.carbodyshop.org/services/car-scratch-repair-rochdale`,
         type: 'website',
     },
 };
