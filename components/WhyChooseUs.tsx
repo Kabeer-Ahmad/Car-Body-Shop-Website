@@ -34,15 +34,33 @@ export default function WhyChooseUs() {
                                 </div>
                             ))}
                         </div>
-                        {/* Trust Badges Placeholder */}
+                        {/* Trust Badges */}
                         <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-blue-800">
-                            <div className="bg-blue-950/50 px-4 py-2 rounded-lg flex items-center gap-2 border border-blue-800">
-                                <span className="w-8 h-8 bg-gray-500 rounded flex items-center justify-center text-xs font-bold text-white">[LOGO]</span>
-                                <span className="text-sm font-semibold text-blue-100">Vetted & Approved</span>
+                            {/* Vetted & Approved */}
+                            <div className="bg-blue-950/60 px-4 py-2.5 rounded-xl flex items-center gap-3 border border-yellow-500/40 shadow-md">
+                                <span className="w-9 h-9 rounded-full bg-yellow-400/15 border border-yellow-400/40 flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        <path d="M9 12l2 2 4-4" />
+                                    </svg>
+                                </span>
+                                <div className="flex flex-col leading-tight">
+                                    <span className="text-xs text-yellow-400 font-semibold uppercase tracking-wider">Vetted &amp; Approved</span>
+                                    <span className="text-xs text-blue-300">Trusted Local Business</span>
+                                </div>
                             </div>
-                            <div className="bg-blue-950/50 px-4 py-2 rounded-lg flex items-center gap-2 border border-blue-800">
-                                <span className="w-8 h-8 bg-gray-500 rounded flex items-center justify-center text-xs font-bold text-white">[LOGO]</span>
-                                <span className="text-sm font-semibold text-blue-100">100% Guaranteed</span>
+                            {/* 100% Guaranteed */}
+                            <div className="bg-blue-950/60 px-4 py-2.5 rounded-xl flex items-center gap-3 border border-green-500/40 shadow-md">
+                                <span className="w-9 h-9 rounded-full bg-green-400/15 border border-green-400/40 flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-5 h-5 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="12" cy="8" r="6" />
+                                        <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+                                    </svg>
+                                </span>
+                                <div className="flex flex-col leading-tight">
+                                    <span className="text-xs text-green-400 font-semibold uppercase tracking-wider">100% Guaranteed</span>
+                                    <span className="text-xs text-blue-300">Quality You Can Count On</span>
+                                </div>
                             </div>
                         </div>
                     </div>

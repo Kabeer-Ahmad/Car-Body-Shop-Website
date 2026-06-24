@@ -10,6 +10,7 @@ import Reviews from "@/components/Reviews";
 import Location from "@/components/Location";
 import CTA from "@/components/CTA";
 import EstimateForm from "@/components/EstimateForm";
+import FAQ from "@/components/FAQ";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedSection from "@/components/AnimatedSection";
 import { BUSINESS_DETAILS } from "./constants";
@@ -48,6 +49,10 @@ export default function Home() {
 
       <AnimatedSection delay={0.1}>
         <CTA />
+      </AnimatedSection>
+
+      <AnimatedSection delay={0.1}>
+        <FAQ />
       </AnimatedSection>
 
       <AnimatedSection delay={0.1}>

@@ -1,93 +1,159 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { BUSINESS_DETAILS } from '@/app/constants';
+
 const services = [
     {
-        title: "Bumper Repairs",
-        description: "Fix scuffs, cracks, and dents on all bumper types.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-        ),
+        title: 'Full Car Respray',
+        description: 'Give your vehicle a flawless, factory-quality finish. Our complete respray services tackle deep scratches, fading, and exact color matching with precision.',
+        slug: 'full-car-respray-rochdale',
+        image: '/services/full-car-respray.jpg',
     },
     {
-        title: "Dent Removal",
-        description: "Restoring panels to their original shape quickly.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        ),
+        title: 'Trade & Motor Dealer Bodyshop Services',
+        description: 'Fast-turnaround fleet and dealer repair services. We keep your commercial vehicles and stock in pristine condition to maximize resale value.',
+        slug: 'trade-motor-dealer-bodyshop-services',
+        image: '/services/trade-dealer-bodyshop.jpg',
     },
     {
-        title: "Scratch Repair",
-        description: "Deep scratch removal and paint matching.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-            </svg>
-        ),
+        title: 'Accident & Collision Repair',
+        description: 'From major structural realignments to minor impact fixes, our team safely restores your vehicle back to manufacturer safety and aesthetic standards.',
+        slug: 'accident-collision-repair-rochdale',
+        image: '/services/accident-collision-repair.jpg',
     },
     {
-        title: "Paint Correction",
-        description: "Buffing and polishing for a showroom shine.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-        ),
+        title: 'Bumper Repair',
+        description: 'Fix scuffs, cracks, and deep scrapes quickly. Our localized bumper repairs eliminate unsightly damage without needing a costly total replacement.',
+        slug: 'bumper-repair-rochdale',
+        image: '/services/bumper-repair.jpg',
     },
     {
-        title: "Minor Collision",
-        description: "Fixing damage from low-speed accidents.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-        ),
+        title: 'Dent Removal',
+        description: 'Erase unsightly door dings, creases, and hail damage. Our precise dent removal techniques smooth out the panels to seamlessly restore clean body lines.',
+        slug: 'dent-removal-rochdale',
+        image: '/services/dent-removal.jpg',
     },
     {
-        title: "Lease Return",
-        description: "Get your car ready for lease return to avoid fees.",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        ),
+        title: 'Car Scratch Repair',
+        description: "Don't let key scratches or paint scrapes lead to rust. We patch, blend, and polish localized paint damage to match your car's original body paint.",
+        slug: 'car-scratch-repair-rochdale',
+        image: '/services/car-scratch-repair.jpg',
     },
     {
-        title: "Mechanical Services",
-        description: "Servicing, Brakes, Suspension and Diagnostics",
-        icon: (
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-        ),
+        title: 'Minor Accident Repair',
+        description: 'Fast, affordable fixes for everyday scuffs, scrapes, and minor wing damage. Get your car back on the road looking pristine without the long wait times.',
+        slug: 'minor-accident-repair-rochdale',
+        image: '/services/minor-accident-repair.jpg',
+    },
+    {
+        title: 'Lease Return Repairs',
+        description: 'Avoid hefty penalty charges from your leasing company. We fix standard wear-and-tear, scratches, and wheel scuffs to meet strict return guidelines.',
+        slug: 'lease-return-repairs-rochdale',
+        image: '/services/lease-return-repairs.jpg',
     },
 ];
 
 export default function Services() {
     return (
-        <section className="py-16 bg-white" id="services">
-            <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Services</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className={`bg-gray-50 rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow ${index === services.length - 1 && services.length % 2 !== 0
-                                    ? 'md:col-span-2 md:w-[calc(50%-1rem)] md:mx-auto lg:col-span-1 lg:col-start-2 lg:w-full lg:mx-0'
-                                    : ''
-                                }`}
-                        >
-                            <div className="mb-4 bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center">
-                                {service.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                            <p className="text-gray-600">{service.description}</p>
-                        </div>
+        <section className="py-20 bg-gray-50" id="services">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+                {/* Section Header */}
+                <div className="text-center mb-14">
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Auto Body Repair Services Offered in Rochdale</h2>
+                    <p className="text-gray-500 max-w-xl mx-auto text-lg">
+                        Expert car body repairs in Rochdale, from a single dent to a full respray, we restore vehicles to factory condition.
+                    </p>
+                </div>
+
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {services.map((service) => (
+                        <ServiceCard key={service.slug} {...service} />
                     ))}
+                </div>
+
+                {/* Bottom CTA */}
+                <div className="mt-14 text-center">
+                    <p className="text-gray-500 mb-4">Not sure which service you need?</p>
+                    <a
+                        href={`tel:${BUSINESS_DETAILS.phone}`}
+                        className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Call for Free Advice — {BUSINESS_DETAILS.phone}
+                    </a>
                 </div>
             </div>
         </section>
+    );
+}
+
+// ── Individual Service Card ────────────────────────────────────────────────────
+function ServiceCard({ title, description, slug, image }: {
+    title: string;
+    description: string;
+    slug: string;
+    image: string;
+}) {
+    return (
+        <Link
+            href={`/services/${slug}`}
+            className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+            {/* Image with fade-to-white gradient at bottom */}
+            <div className="relative h-48 w-full overflow-hidden bg-gray-200 flex-shrink-0">
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    onError={(e) => {
+                        // Show placeholder if image missing
+                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                />
+                {/* Fade gradient from transparent → white */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90 pointer-events-none" />
+
+                {/* Placeholder icon shown when no image */}
+                <div className="absolute inset-0 flex items-center justify-center text-gray-300">
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </div>
+            </div>
+
+            {/* Card Body */}
+            <div className="flex flex-col flex-1 p-5 pt-3">
+                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+                    {title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed flex-1">
+                    {description}
+                </p>
+
+                {/* Footer row */}
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+                    <span className="text-blue-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn more
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                    <span className="flex items-center gap-1 text-gray-400 text-xs">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Call for service
+                    </span>
+                </div>
+            </div>
+        </Link>
     );
 }
