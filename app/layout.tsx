@@ -7,10 +7,10 @@ import StickyMobileBar from "@/components/StickyMobileBar";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.carbodyshop.org"), // Fallback/Canonical URL
   title: {
-    default: `Car Body Shop Rochdale | Denting, Painting & Body Repairs`,
+    default: `Car Body Repairs Rochdale | Local Car Body Shop Near You`,
     template: `%s | ${BUSINESS_DETAILS.name}`,
   },
-  description: "Fast, affordable, and high-quality car body repairs in Rochdale. Bumper scuffs, dents, scratches, and accident repairs. Cash prices, no insurance hassle.",
+  description: "Expert car body repair in Rochdale. We fix dents, scratches, accident damage and bodywork issues. Trusted local car body shop with fast quotes.",
   keywords: [
     "Car Body Shop Rochdale",
     "Car Body Repair Rochdale",
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
     canonical: "https://www.carbodyshop.org",
   },
   openGraph: {
-    title: `${BUSINESS_DETAILS.name} - Expert Car Body Repairs`,
-    description: "Get a free estimate today. Bumper scuffs, dents, and scratches repaired quickly and affordably.",
+    title: `Car Body Repairs Rochdale | Local Car Body Shop Near You`,
+    description: "Expert car body repair in Rochdale. We fix dents, scratches, accident damage and bodywork issues. Trusted local car body shop with fast quotes.",
     url: "https://www.carbodyshop.org",
     siteName: BUSINESS_DETAILS.name,
     locale: "en_GB",
@@ -89,8 +89,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BUSINESS_DETAILS.name} | Rochdale`,
-    description: "Affordable car body repairs. Text us for a quote.",
+    title: `Car Body Repairs Rochdale | Local Car Body Shop Near You`,
+    description: "Expert car body repair in Rochdale. We fix dents, scratches, accident damage and bodywork issues. Trusted local car body shop with fast quotes.",
     images: ["/og-image.png"],
   },
   icons: {
