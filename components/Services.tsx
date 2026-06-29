@@ -6,7 +6,7 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 
 const services = [
     {
-        title: 'Full Car Respray',
+        title: 'Full Car Respray Services',
         description: 'Give your vehicle a flawless, factory-quality finish. Our complete respray services tackle deep scratches, fading, and exact color matching with precision.',
         slug: 'full-car-respray-rochdale',
         image: '/services/full-car-respray.jpg',
@@ -18,42 +18,43 @@ const services = [
         image: '/services/trade-dealer-bodyshop.jpg',
     },
     {
-        title: 'Accident & Collision Repair',
+        title: 'Accident & Collision Repair Services',
         description: 'From major structural realignments to minor impact fixes, our team safely restores your vehicle back to manufacturer safety and aesthetic standards.',
         slug: 'accident-collision-repair-rochdale',
         image: '/services/accident-collision-repair.jpg',
     },
     {
-        title: 'Bumper Repair',
+        title: 'Bumper Repair Services',
         description: 'Fix scuffs, cracks, and deep scrapes quickly. Our localized bumper repairs eliminate unsightly damage without needing a costly total replacement.',
         slug: 'bumper-repair-rochdale',
         image: '/services/bumper-repair.jpg',
     },
     {
-        title: 'Dent Removal',
+        title: 'Dent Removal Services',
         description: 'Erase unsightly door dings, creases, and hail damage. Our precise dent removal techniques smooth out the panels to seamlessly restore clean body lines.',
         slug: 'dent-removal-rochdale',
         image: '/services/dent-removal.jpg',
     },
     {
-        title: 'Car Scratch Repair',
+        title: 'Car Scratch Repair Services',
         description: "Don't let key scratches or paint scrapes lead to rust. We patch, blend, and polish localized paint damage to match your car's original body paint.",
         slug: 'car-scratch-repair-rochdale',
         image: '/services/car-scratch-repair.jpg',
     },
     {
-        title: 'Minor Accident Repair',
+        title: 'Minor Accident Repair Services',
         description: 'Fast, affordable fixes for everyday scuffs, scrapes, and minor wing damage. Get your car back on the road looking pristine without the long wait times.',
         slug: 'minor-accident-repair-rochdale',
         image: '/services/minor-accident-repair.jpg',
     },
     {
-        title: 'Lease Return Repairs',
+        title: 'Lease Return Repair Services',
         description: 'Avoid hefty penalty charges from your leasing company. We fix standard wear-and-tear, scratches, and wheel scuffs to meet strict return guidelines.',
         slug: 'lease-return-repairs-rochdale',
         image: '/services/lease-return-repairs.jpg',
     },
 ];
+
 
 export default function Services() {
     return (
@@ -101,11 +102,8 @@ function ServiceCard({ title, description, slug, image }: {
     image: string;
 }) {
     return (
-        <Link
-            href={`/services/${slug}`}
-            className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-        >
-            {/* Image with fade-to-white gradient at bottom */}
+        <div className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            {/* Image */}
             <div className="relative h-48 w-full overflow-hidden bg-gray-200 flex-shrink-0">
                 <Image
                     src={image}
@@ -114,46 +112,41 @@ function ServiceCard({ title, description, slug, image }: {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     onError={(e) => {
-                        // Show placeholder if image missing
                         (e.currentTarget as HTMLImageElement).style.display = 'none';
                     }}
                 />
                 {/* Fade gradient from transparent → white */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90 pointer-events-none" />
-
-                {/* Placeholder icon shown when no image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-300">
-                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                </div>
             </div>
 
             {/* Card Body */}
             <div className="flex flex-col flex-1 p-5 pt-3">
-                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
-                    {title}
+                <h3 className="text-base font-bold mb-2 leading-snug">
+                    <Link
+                        href={`/services/${slug}`}
+                        className="text-gray-900 hover:text-blue-600 transition-colors"
+                    >
+                        {title}
+                    </Link>
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed flex-1">
                     {description}
                 </p>
 
                 {/* Footer row */}
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                    <span className="text-blue-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Learn more
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </span>
-                    <span className="flex items-center gap-1 text-gray-400 text-xs">
+                <div className="flex items-center mt-4 pt-4 border-t border-gray-100">
+                    <a
+                        href={`tel:${BUSINESS_DETAILS.phone}`}
+                        className="flex items-center gap-1 text-gray-400 hover:text-blue-600 text-xs transition-colors"
+                    >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                         Call for service
-                    </span>
+                    </a>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
+
