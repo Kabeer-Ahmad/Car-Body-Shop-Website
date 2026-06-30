@@ -33,8 +33,8 @@ export default function Gallery() {
     return (
         <section className="py-20 bg-gray-50" id="gallery">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Recent Work</h2>
-                <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">Drag the slider to see the transformation.</p>
+                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">See Why We're Trusted for Car Body Repair in Rochdale</h2>
+                <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">Explore before and after transformations completed by our Rochdale car body shop, from minor scratches and dents to full accident damage repairs.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {galleryItems.map((item) => (

@@ -4,7 +4,10 @@ export default function Location() {
     return (
         <section className="py-16 bg-white" id="location">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">Find Us</h2>
+                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Visit Our Car Body Repair Shop in Rochdale</h2>
+                <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
+                    Conveniently located in Whitworth, our car body repair shop in Rochdale provides professional dent repair, scratch repair, bumper repairs, accident damage restoration, and vehicle bodywork services for drivers across Rochdale and the surrounding areas.
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div className="text-center md:text-left">
                         <div className="mb-6">

@@ -4,29 +4,29 @@ export default function Pricing() {
     return (
         <section className="py-16 bg-white" id="pricing">
             <div className="max-w-4xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Typical Repair Ranges</h2>
+                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Car Body Repair Costs in Rochdale</h2>
                 <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-                    Every dent is different. These are guide prices to give you an idea of our affordable rates.
+                    Get an idea of our typical car body repair costs for dents, scratches, bumper repairs, and vehicle bodywork. Every repair is different, so we provide free, accurate quotes based on your vehicle&apos;s condition.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                     <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
-                        <h3 className="font-bold text-gray-800 text-lg mb-2">Small Scuff / Scratch</h3>
+                        <h3 className="font-bold text-gray-800 text-lg mb-2">Scratch &amp; Scuff Repair</h3>
                         <p className="text-3xl font-bold text-blue-600">£200 – £400</p>
-                        <p className="text-sm text-gray-500 mt-2">Perfect for bumper corners & panels</p>
+                        <p className="text-sm text-gray-500 mt-2">Professional repair of scratches, scuffs, paint damage, and minor panel imperfections.</p>
                     </div>
 
                     <div className="bg-gray-50 p-6 rounded-xl border border-blue-100 shadow-sm text-center relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
                         <h3 className="font-bold text-gray-800 text-lg mb-2">Dent Repair</h3>
                         <p className="text-3xl font-bold text-blue-600">£200 – £800</p>
-                        <p className="text-sm text-gray-500 mt-2">Dents pulled and painted</p>
+                        <p className="text-sm text-gray-500 mt-2">Expert dent removal and panel restoration with a seamless factory-quality finish.</p>
                     </div>
 
                     <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
-                        <h3 className="font-bold text-gray-800 text-lg mb-2">Bumper Respray</h3>
+                        <h3 className="font-bold text-gray-800 text-lg mb-2">Bumper Repair &amp; Respray</h3>
                         <p className="text-3xl font-bold text-blue-600">£150 – £800</p>
-                        <p className="text-sm text-gray-500 mt-2">Full bumper refurbishment</p>
+                        <p className="text-sm text-gray-500 mt-2">Complete bumper repairs, crack repairs, paint restoration, and full bumper resprays.</p>
                     </div>
                 </div>
 
