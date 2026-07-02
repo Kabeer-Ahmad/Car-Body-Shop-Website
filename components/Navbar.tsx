@@ -37,7 +37,7 @@ export default function Navbar() {
     const navLinks = [
         {
             name: 'Services',
-            href: '#',
+            href: '/services',
             dropdown: [
                 { name: 'Full Car Respray Rochdale', href: '/services/full-car-respray-rochdale' },
                 { name: 'Trade & Motor Dealer Bodyshop Services', href: '/services/trade-motor-dealer-bodyshop-services' },
@@ -83,14 +83,15 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         link.dropdown ? (
                             <div key={link.name} className="relative group">
-                                <button
+                                <Link
+                                    href={link.href}
                                     className={`font-medium hover:text-blue-500 transition-colors flex items-center gap-1 ${effectiveScrolled ? 'text-gray-700' : 'text-gray-100 hover:text-white drop-shadow-sm'}`}
                                 >
                                     {link.name}
                                     <svg className="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
-                                </button>
+                                </Link>
                                 <div className="absolute left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                     <div className="w-72 max-h-[80vh] overflow-y-auto flex flex-col bg-white rounded-xl shadow-xl border border-gray-100 py-2">
                                         {link.dropdown.map((sublink) => (
@@ -183,15 +184,27 @@ export default function Navbar() {
                                     >
                                         {link.dropdown ? (
                                             <div className="flex flex-col items-center w-full">
-                                                <button
-                                                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                                    className="flex items-center gap-2 text-3xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
-                                                >
-                                                    {link.name}
-                                                    <svg className={`w-6 h-6 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                    </svg>
-                                                </button>
+                                                <div className="flex items-center justify-center gap-3">
+                                                    <Link
+                                                        href={link.href}
+                                                        onClick={() => {
+                                                            setIsOpen(false);
+                                                            setMobileServicesOpen(false);
+                                                        }}
+                                                        className="text-3xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+                                                    >
+                                                        {link.name}
+                                                    </Link>
+                                                    <button
+                                                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                                                        className="p-2 text-gray-800 hover:text-blue-600 transition-colors bg-gray-100 rounded-full"
+                                                        aria-label="Toggle Submenu"
+                                                    >
+                                                        <svg className={`w-6 h-6 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                                 <AnimatePresence>
                                                     {mobileServicesOpen && (
                                                         <motion.div
