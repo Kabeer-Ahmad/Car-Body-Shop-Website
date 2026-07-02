@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const blogUrls = blogPosts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(post.date),
-        changeFrequency: 'monthly' as const,
+        changeFrequency: 'weekly' as const,
         priority: 0.8,
     }));
 
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const serviceUrls = serviceSlugs.map((slug) => ({
         url: `${baseUrl}/services/${slug}`,
         lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
+        changeFrequency: 'daily' as const,
         priority: 0.9,
     }));
 
@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'weekly',
+            changeFrequency: 'daily',
             priority: 1,
         },
         ...serviceUrls,

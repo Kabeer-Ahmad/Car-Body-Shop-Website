@@ -115,7 +115,7 @@ export default function Hero() {
 }
 
 // ── Booking Form Component ────────────────────────────────────────────────────
-function BookingForm({ whatsapp }: { whatsapp: string }) {
+export function BookingForm({ whatsapp }: { whatsapp: string }) {
     const services = [
         'Dent Removal',
         'Car Scratch Repair',
