@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BUSINESS_DETAILS } from '@/app/constants';
-import Image from 'next/image';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
     return (
@@ -8,16 +8,8 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 {/* Column 1: Business Identity */}
                 <div className="flex flex-col">
-                    <Link href="/" className="flex items-center gap-2 mb-4 group inline-block w-max">
-                        <div className="relative w-10 h-10">
-                            <Image
-                                src="/logo.png"
-                                alt={BUSINESS_DETAILS.name}
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                        <span className="font-bold text-xl text-white tracking-tight">{BUSINESS_DETAILS.name}</span>
+                    <Link href="/" className="flex items-center mb-4 inline-block w-max" aria-label="Car Body Shop Home">
+                        <Logo light={true} height={68} />
                     </Link>
                     <p className="text-sm leading-relaxed mb-6">
                         Fast, affordable, and high-quality car body repairs in Rochdale. Cash prices, no insurance hassle. Get back on the road looking brand new.

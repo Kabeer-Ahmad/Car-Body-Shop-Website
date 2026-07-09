@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -67,15 +67,16 @@ export default function Navbar() {
                     setIsOpen(false);
                     setMobileServicesOpen(false);
                 }}>
-                    <div className="relative w-[150px] h-[45px] md:w-[180px] md:h-[54px]">
-                        <Image
-                            src="/cbs-logo-transparent.png"
-                            alt={BUSINESS_DETAILS.name}
-                            fill
-                            className="object-contain object-left"
-                            sizes="(max-width: 768px) 150px, 180px"
-                        />
-                    </div>
+                <Logo
+                    light={!effectiveScrolled && !isOpen}
+                    height={44}
+                    className="md:hidden"
+                />
+                <Logo
+                    light={!effectiveScrolled && !isOpen}
+                    height={56}
+                    className="hidden md:block"
+                />
                 </Link>
 
                 {/* Desktop Nav */}
