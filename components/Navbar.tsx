@@ -69,13 +69,7 @@ export default function Navbar() {
                 }}>
                 <Logo
                     light={!effectiveScrolled && !isOpen}
-                    height={44}
-                    className="md:hidden"
-                />
-                <Logo
-                    light={!effectiveScrolled && !isOpen}
-                    height={56}
-                    className="hidden md:block"
+                    height={50}
                 />
                 </Link>
 

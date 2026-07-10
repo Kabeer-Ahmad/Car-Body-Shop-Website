@@ -1,12 +1,11 @@
 /**
  * Car Body Shop – Logo component
- * Uses the official PNG logo. On dark backgrounds (light=true),
- * a white pill container is applied so the white-bg PNG reads cleanly.
+ * Uses the official PNG logo from /public/logo.png.
  *
  * Props
- *   light     – true → wrap in white rounded container (for dark nav/footer)
- *   height    – rendered height in px
- *   className – additional classes on the outer element
+ *   light     – true → wraps in a white rounded container for dark backgrounds (footer/hero)
+ *   height    – rendered height in px (logo is square, so width = height)
+ *   className – additional classes applied to the outer wrapper
  */
 import Image from 'next/image';
 
@@ -16,40 +15,36 @@ interface LogoProps {
     height?: number;
 }
 
-export default function Logo({ light = false, className = '', height = 52 }: LogoProps) {
-    // The PNG is square (1080×1080). Maintain aspect ratio.
-    const width = height;
+export default function Logo({ light = false, className = '', height = 50 }: LogoProps) {
+    const img = (
+        <Image
+            src="/logo.png"
+            alt="Car Body Shop"
+            width={height}
+            height={height}
+            priority
+            style={{ width: 'auto', height: `${height}px`, display: 'block' }}
+        />
+    );
 
     if (light) {
-        // On dark backgrounds: render inside a white rounded pill so the
-        // white-background PNG sits naturally without an odd square border.
+        // On dark backgrounds: white rounded pill so the PNG reads cleanly.
         return (
             <span
-                className={`inline-flex items-center justify-center rounded-xl bg-white px-1.5 py-0.5 ${className}`}
-                style={{ lineHeight: 0 }}
+                className={`rounded-xl bg-white px-1.5 py-0.5 ${className}`.trim()}
+                style={{ lineHeight: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
             >
-                <Image
-                    src="/logo.png"
-                    alt="Car Body Shop"
-                    width={width}
-                    height={height}
-                    priority
-                    style={{ width: 'auto', height: `${height}px` }}
-                />
+                {img}
             </span>
         );
     }
 
     return (
-        <span className={`inline-flex items-center ${className}`} style={{ lineHeight: 0 }}>
-            <Image
-                src="/logo.png"
-                alt="Car Body Shop"
-                width={width}
-                height={height}
-                priority
-                style={{ width: 'auto', height: `${height}px` }}
-            />
+        <span
+            className={className}
+            style={{ lineHeight: 0, display: 'inline-flex', alignItems: 'center' }}
+        >
+            {img}
         </span>
     );
 }
