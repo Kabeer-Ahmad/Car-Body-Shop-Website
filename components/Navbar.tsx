@@ -53,7 +53,7 @@ export default function Navbar() {
         { name: 'Why Us', href: '/#why-us' },
         { name: 'Reviews', href: '/#reviews' },
         { name: 'Blog', href: '/blog' },
-        { name: 'Contact', href: '/#estimate-form' },
+        { name: 'Contact', href: '/contact-us' },
     ];
 
     return (
