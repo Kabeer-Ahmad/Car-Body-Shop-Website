@@ -50,7 +50,7 @@ export default function Navbar() {
             ]
         },
         { name: 'Gallery', href: '/#gallery' },
-        { name: 'Why Us', href: '/#why-us' },
+        { name: 'About Us', href: '/about' },
         { name: 'Reviews', href: '/#reviews' },
         { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact-us' },

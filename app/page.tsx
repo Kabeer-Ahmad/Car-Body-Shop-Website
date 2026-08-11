@@ -5,7 +5,6 @@ import StatsBar from "@/components/StatsBar";
 import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import Location from "@/components/Location";
 import CTA from "@/components/CTA";
@@ -13,6 +12,7 @@ import EstimateForm from "@/components/EstimateForm";
 import FAQ from "@/components/FAQ";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedSection from "@/components/AnimatedSection";
+import { HubEstimator } from "@/app/services/ClientSections";
 import { BUSINESS_DETAILS } from "./constants";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
       </AnimatedSection>
 
       <AnimatedSection delay={0.1}>
-        <Pricing />
+        <HubEstimator whatsapp={BUSINESS_DETAILS.whatsapp} />
       </AnimatedSection>
 
       <AnimatedSection delay={0.1}>
