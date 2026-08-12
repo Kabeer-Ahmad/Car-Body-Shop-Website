@@ -10,7 +10,6 @@ import Location from "@/components/Location";
 import CTA from "@/components/CTA";
 import EstimateForm from "@/components/EstimateForm";
 import FAQ from "@/components/FAQ";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedSection from "@/components/AnimatedSection";
 import { HubEstimator } from "@/app/services/ClientSections";
 import { BUSINESS_DETAILS } from "./constants";
@@ -60,8 +59,6 @@ export default function Home() {
       </AnimatedSection>
 
       <Footer />
-
-      <WhatsAppButton />
     </main>
   );
 }

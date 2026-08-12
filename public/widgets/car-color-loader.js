@@ -4,7 +4,7 @@
  * Optional: <script ... data-shop="your-shop-id"></script> to identify the shop later.
  * No dependencies, no build step — self-contained vanilla JS.
  *
- * Positioned above the site's WhatsApp button / mobile sticky bar so they don't overlap.
+ * Positioned above the mobile sticky bar so they don't overlap.
  */
 (function () {
   var thisScript = document.currentScript;
@@ -27,13 +27,13 @@
     var style = document.createElement("style");
     style.id = STYLE_ID;
     style.textContent =
-      ".ccw-launcher{position:fixed;bottom:96px;right:20px;z-index:999999;" +
+      ".ccw-launcher{position:fixed;bottom:24px;right:20px;z-index:999999;" +
       "background:#155dfc;color:#fff;border:none;border-radius:999px;" +
       "padding:14px 20px;font-family:-apple-system,system-ui,sans-serif;" +
       "font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.25);" +
       "cursor:pointer;transition:transform .15s ease;}" +
       ".ccw-launcher:hover{transform:scale(1.04);}" +
-      ".ccw-panel{position:fixed;bottom:96px;right:20px;z-index:999999;" +
+      ".ccw-panel{position:fixed;bottom:24px;right:20px;z-index:999999;" +
       "width:380px;max-width:92vw;height:600px;max-height:70vh;" +
       "background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);" +
       "overflow:hidden;display:none;flex-direction:column;}" +
@@ -49,8 +49,8 @@
 
   var launcher = document.createElement("button");
   launcher.className = "ccw-launcher";
-  launcher.textContent = "See your car's colors";
-  launcher.setAttribute("aria-label", "Open car color visualizer");
+  launcher.textContent = "Customise Car Colour";
+  launcher.setAttribute("aria-label", "Customise car colour");
 
   var panel = document.createElement("div");
   panel.className = "ccw-panel";
