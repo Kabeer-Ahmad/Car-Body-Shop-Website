@@ -1,21 +1,14 @@
 /**
- * Embeddable car-color widget loader. Drop this on any site:
+ * Embeddable car-color widget loader.
  *   <script src="https://YOUR-DOMAIN/widgets/car-color-loader.js" async></script>
- * Optional: <script ... data-shop="your-shop-id"></script> to identify the shop later.
- * No dependencies, no build step — self-contained vanilla JS.
- *
- * Positioned above the mobile sticky bar so they don't overlap.
  */
 (function () {
   var thisScript = document.currentScript;
 
-  // Don't load the floating launcher on the widget page itself (iframe or direct)
   if (/\/widget\/car-color/.test(window.location.pathname)) {
     return;
   }
 
-  // Prefer the script URL origin (cross-site embeds); fall back to page origin
-  // when Next.js Script (or similar) leaves currentScript null.
   var origin = thisScript && thisScript.src
     ? new URL(thisScript.src).origin
     : window.location.origin;
@@ -28,37 +21,76 @@
     style.id = STYLE_ID;
     style.textContent =
       ".ccw-launcher{position:fixed;bottom:24px;right:20px;z-index:999999;" +
-      "background:#155dfc;color:#fff;border:none;border-radius:999px;" +
-      "padding:14px 20px;font-family:-apple-system,system-ui,sans-serif;" +
-      "font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.25);" +
-      "cursor:pointer;transition:transform .15s ease;}" +
-      ".ccw-launcher:hover{transform:scale(1.04);}" +
+      "display:inline-flex;align-items:center;gap:8px;" +
+      "background:linear-gradient(135deg,#1d4ed8,#155dfc);color:#fff;border:none;border-radius:999px;" +
+      "padding:14px 20px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;" +
+      "font-size:14px;font-weight:600;letter-spacing:.01em;" +
+      "box-shadow:0 8px 24px rgba(21,93,252,.35);cursor:pointer;" +
+      "transition:transform .18s ease,box-shadow .18s ease;}" +
+      ".ccw-launcher:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 12px 28px rgba(21,93,252,.42);}" +
+      ".ccw-launcher:active{transform:scale(.98);}" +
+      ".ccw-launcher svg{width:18px;height:18px;flex-shrink:0;}" +
+      ".ccw-backdrop{position:fixed;inset:0;z-index:999998;background:rgba(15,23,42,.45);" +
+      "opacity:0;pointer-events:none;transition:opacity .2s ease;}" +
+      ".ccw-backdrop.open{opacity:1;pointer-events:auto;}" +
       ".ccw-panel{position:fixed;bottom:24px;right:20px;z-index:999999;" +
-      "width:380px;max-width:92vw;height:600px;max-height:70vh;" +
-      "background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);" +
-      "overflow:hidden;display:none;flex-direction:column;}" +
-      ".ccw-panel.open{display:flex;}" +
-      ".ccw-panel iframe{flex:1;border:none;width:100%;height:100%;}" +
-      ".ccw-close{position:absolute;top:8px;right:8px;z-index:1000000;" +
-      "background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:999px;" +
-      "width:28px;height:28px;font-size:16px;line-height:1;cursor:pointer;}" +
-      "@media (max-width:767px){.ccw-launcher,.ccw-panel{bottom:80px;right:12px;}" +
-      ".ccw-panel{max-height:calc(100vh - 100px);}}";
+      "width:400px;max-width:calc(100vw - 24px);height:640px;max-height:calc(100vh - 48px);" +
+      "background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(15,23,42,.28);" +
+      "overflow:hidden;display:none;flex-direction:column;" +
+      "transform:translateY(12px) scale(.98);opacity:0;" +
+      "transition:transform .22s ease,opacity .22s ease;}" +
+      ".ccw-panel.open{display:flex;transform:translateY(0) scale(1);opacity:1;}" +
+      ".ccw-header{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;" +
+      "gap:12px;padding:14px 16px;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;}" +
+      ".ccw-header-title{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;" +
+      "font-size:15px;font-weight:700;line-height:1.2;}" +
+      ".ccw-header-sub{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;" +
+      "font-size:11px;opacity:.7;margin-top:2px;}" +
+      ".ccw-close{flex-shrink:0;background:rgba(255,255,255,.15);color:#fff;border:none;" +
+      "border-radius:999px;width:32px;height:32px;font-size:20px;line-height:1;" +
+      "cursor:pointer;display:flex;align-items:center;justify-content:center;}" +
+      ".ccw-close:hover{background:rgba(255,255,255,.25);}" +
+      ".ccw-panel iframe{flex:1;border:none;width:100%;height:100%;background:#f8fafc;}" +
+      "@media (max-width:767px){" +
+      ".ccw-launcher{bottom:80px;right:12px;left:12px;justify-content:center;" +
+      "padding:15px 18px;font-size:15px;}" +
+      ".ccw-panel{top:auto;left:0;right:0;bottom:0;width:100%;max-width:100%;" +
+      "height:min(92vh,720px);max-height:calc(100dvh - 8px);" +
+      "border-radius:20px 20px 0 0;transform:translateY(100%);opacity:1;}" +
+      ".ccw-panel.open{transform:translateY(0);}" +
+      "}";
     document.head.appendChild(style);
   }
 
   var launcher = document.createElement("button");
   launcher.className = "ccw-launcher";
-  launcher.textContent = "Customise Car Colour";
   launcher.setAttribute("aria-label", "Customise car colour");
+  launcher.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>' +
+    '<circle cx="12" cy="12" r="4"/></svg>' +
+    "<span>Customise Car Colour</span>";
+
+  var backdrop = document.createElement("div");
+  backdrop.className = "ccw-backdrop";
 
   var panel = document.createElement("div");
   panel.className = "ccw-panel";
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-modal", "true");
+  panel.setAttribute("aria-label", "Customise Car Colour");
+
+  var header = document.createElement("div");
+  header.className = "ccw-header";
+  header.innerHTML =
+    '<div><div class="ccw-header-title">Customise Car Colour</div>' +
+    '<div class="ccw-header-sub">Preview a new paint finish on your car</div></div>';
 
   var close = document.createElement("button");
   close.className = "ccw-close";
-  close.textContent = "×";
+  close.innerHTML = "&times;";
   close.setAttribute("aria-label", "Close");
+  header.appendChild(close);
 
   var iframe = null;
 
@@ -66,22 +98,32 @@
     if (!iframe) {
       iframe = document.createElement("iframe");
       iframe.src = widgetSrc;
-      iframe.title = "Car color visualizer";
+      iframe.title = "Customise Car Colour";
+      iframe.allow = "clipboard-write";
       panel.appendChild(iframe);
     }
+    backdrop.classList.add("open");
     panel.classList.add("open");
     launcher.style.display = "none";
+    document.documentElement.style.overflow = "hidden";
   }
 
   function close_() {
+    backdrop.classList.remove("open");
     panel.classList.remove("open");
-    launcher.style.display = "block";
+    launcher.style.display = "";
+    document.documentElement.style.overflow = "";
   }
 
   launcher.addEventListener("click", open);
   close.addEventListener("click", close_);
+  backdrop.addEventListener("click", close_);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && panel.classList.contains("open")) close_();
+  });
 
-  panel.appendChild(close);
+  panel.appendChild(header);
   document.body.appendChild(launcher);
+  document.body.appendChild(backdrop);
   document.body.appendChild(panel);
 })();

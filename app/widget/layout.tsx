@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Car Color Visualizer",
-  description: "See your car in a different color before you commit.",
+  title: "Customise Car Colour",
+  description: "Preview a new paint finish on your car before you commit.",
   robots: {
     index: false,
     follow: false,
