@@ -13,6 +13,7 @@
     "framer-motion": "^12.34.2",
     "next": "16.1.6",
     "nodemailer": "^8.0.1",
+    "openai": "^7.4.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "suneditor": "^2.47.8",

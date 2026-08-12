@@ -1,9 +1,11 @@
 'use client';
 
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function StickyMobileBar() {
+    const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -22,6 +24,11 @@ export default function StickyMobileBar() {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
+
+    // Hide inside the car-color widget iframe
+    if (pathname?.startsWith('/widget')) {
+        return null;
+    }
 
     return (
         <div 

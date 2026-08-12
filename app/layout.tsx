@@ -163,6 +163,7 @@ export default function RootLayout({
       <body className="antialiased pb-16 md:pb-0">
         {children}
         <StickyMobileBar />
+        <Script src="/widgets/car-color-loader.js" strategy="lazyOnload" />
       </body>
     </html>
   );
