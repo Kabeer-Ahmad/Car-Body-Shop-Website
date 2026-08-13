@@ -52,8 +52,9 @@
       ".ccw-close:hover{background:rgba(255,255,255,.25);}" +
       ".ccw-panel iframe{flex:1;border:none;width:100%;height:100%;background:#f8fafc;}" +
       "@media (max-width:767px){" +
-      ".ccw-launcher{bottom:80px;right:12px;left:12px;justify-content:center;" +
-      "padding:15px 18px;font-size:15px;}" +
+      ".ccw-launcher{bottom:80px;right:12px;left:auto;max-width:calc(100vw - 24px);" +
+      "padding:10px 14px;font-size:12px;gap:6px;box-shadow:0 6px 18px rgba(21,93,252,.3);}" +
+      ".ccw-launcher svg{width:14px;height:14px;}" +
       ".ccw-panel{top:auto;left:0;right:0;bottom:0;width:100%;max-width:100%;" +
       "height:min(92vh,720px);max-height:calc(100dvh - 8px);" +
       "border-radius:20px 20px 0 0;transform:translateY(100%);opacity:1;}" +
