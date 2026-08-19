@@ -1,4 +1,4 @@
-import { getPostBySlug, getPosts } from '@/lib/blog-data';
+import { getPostBySlugAsync, getPosts, getPostsAsync } from '@/lib/blog-data';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -16,13 +16,15 @@ const GALLERY_COVERS = [
     '/gallery/Before_Car_Fender_Dent.webp',
 ];
 
+export const dynamic = 'force-dynamic';
+
 export async function generateStaticParams() {
     return getPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlugAsync(slug);
     if (!post) return { title: 'Post Not Found' };
 
     return {
@@ -47,10 +49,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlugAsync(slug);
     if (!post) notFound();
 
-    const allPosts = getPosts();
+    const allPosts = await getPostsAsync();
     const postIndex = allPosts.findIndex(p => p.slug === slug);
     const coverIndex = Math.max(0, postIndex) % GALLERY_COVERS.length;
     const wordCount = post.content.replace(/<[^>]*>?/gm, '').split(/\s+/).length;

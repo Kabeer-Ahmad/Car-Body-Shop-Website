@@ -1,90 +1,77 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { NextResponse } from "next/server";
+import { assertBlogAdminAuthorized } from "@/lib/blog-admin-auth";
+import {
+  getAllPostsForAdmin,
+  isEffectivelyEmptyHtml,
+  replaceEmbeddedImages,
+  saveBlogPost,
+  slugifyTitle,
+} from "@/lib/blog-storage";
+
+export const runtime = "nodejs";
+export const maxDuration = 60;
+
+export async function GET(request: Request) {
+  const unauthorized = assertBlogAdminAuthorized(request);
+  if (unauthorized) return unauthorized;
+
+  try {
+    const posts = await getAllPostsForAdmin();
+    const summary = posts.map(({ slug, title, date, author, excerpt }) => ({
+      slug,
+      title,
+      date,
+      author,
+      excerpt,
+    }));
+    return NextResponse.json({ posts: summary });
+  } catch (error) {
+    console.error("Error listing blog posts:", error);
+    return NextResponse.json({ error: "Failed to load blog posts." }, { status: 500 });
+  }
+}
 
 export async function POST(request: Request) {
-    try {
-        const body = await request.json();
-        const { title, excerpt, content, author } = body;
+  const unauthorized = assertBlogAdminAuthorized(request);
+  if (unauthorized) return unauthorized;
 
-        // Basic validation
-        if (!title || !excerpt || !content || !author) {
-            return NextResponse.json(
-                { error: 'Missing required fields' },
-                { status: 400 }
-            );
-        }
+  try {
+    const body = await request.json();
+    const title = typeof body.title === "string" ? body.title.trim() : "";
+    const excerpt = typeof body.excerpt === "string" ? body.excerpt.trim() : "";
+    const content = typeof body.content === "string" ? body.content.trim() : "";
+    const author = typeof body.author === "string" ? body.author.trim() : "";
 
-        // Generate a URL-friendly slug from the title
-        const slug = title
-            .toLowerCase()
-            .replace(/ /g, '-')
-            .replace(/[^\w-]+/g, '');
-
-        // Extract base64 images and save them to /public/blog-images
-        let processedContent = content;
-        const imgRegex = /<img[^>]+src="data:image\/([^;]+);base64,([^"]+)"[^>]*>/g;
-        let match;
-
-        const imagesDir = path.join(process.cwd(), 'public', 'blog-images');
-        if (!fs.existsSync(imagesDir)) {
-            fs.mkdirSync(imagesDir, { recursive: true });
-        }
-
-        while ((match = imgRegex.exec(content)) !== null) {
-            const ext = match[1];
-            const base64Data = match[2];
-            const fileName = `${slug}-${Date.now()}.${ext}`;
-            const filePath = path.join(imagesDir, fileName);
-
-            fs.writeFileSync(filePath, base64Data, 'base64');
-            const publicUrl = `/blog-images/${fileName}`;
-
-            // Replace the base64 src with the new public URL string
-            const fullMatch = match[0];
-            const newImgTag = fullMatch.replace(`data:image/${ext};base64,${base64Data}`, publicUrl);
-            processedContent = processedContent.replace(fullMatch, newImgTag);
-        }
-
-        // Get current date in YYYY-MM-DD format
-        const date = new Date().toISOString().split('T')[0];
-
-        const newPost = {
-            slug,
-            title,
-            date,
-            excerpt,
-            content: processedContent,
-            author,
-        };
-
-        // Read the existing posts
-        const dataDir = path.join(process.cwd(), 'data');
-        const postsFile = path.join(dataDir, 'posts.json');
-
-        let posts = [];
-        if (fs.existsSync(postsFile)) {
-            const fileContent = fs.readFileSync(postsFile, 'utf-8');
-            posts = JSON.parse(fileContent);
-        } else {
-            // Ensure the data directory exists
-            if (!fs.existsSync(dataDir)) {
-                fs.mkdirSync(dataDir);
-            }
-        }
-
-        // Append the new post
-        posts.push(newPost);
-
-        // Write the updated posts array back to the file
-        fs.writeFileSync(postsFile, JSON.stringify(posts, null, 4));
-
-        return NextResponse.json({ success: true, post: newPost }, { status: 201 });
-    } catch (error) {
-        console.error('Error saving blog post:', error);
-        return NextResponse.json(
-            { error: 'Failed to save blog post' },
-            { status: 500 }
-        );
+    if (!title || !excerpt || !author) {
+      return NextResponse.json({ error: "Title, excerpt, and author are required." }, { status: 400 });
     }
+
+    if (!content || isEffectivelyEmptyHtml(content)) {
+      return NextResponse.json({ error: "Article content cannot be empty." }, { status: 400 });
+    }
+
+    const slug = slugifyTitle(title);
+    if (!slug) {
+      return NextResponse.json({ error: "Could not generate a valid URL from the title." }, { status: 400 });
+    }
+
+    const processedContent = await replaceEmbeddedImages(content, slug);
+    const date = new Date().toISOString().split("T")[0];
+
+    const newPost = await saveBlogPost({
+      slug,
+      title,
+      date,
+      excerpt,
+      content: processedContent,
+      author,
+    });
+
+    return NextResponse.json({ success: true, post: newPost }, { status: 201 });
+  } catch (error) {
+    console.error("Error saving blog post:", error);
+    const message = error instanceof Error ? error.message : "Failed to save blog post";
+    const status = message.includes("already exists") ? 409 : 500;
+    return NextResponse.json({ error: message }, { status });
+  }
 }

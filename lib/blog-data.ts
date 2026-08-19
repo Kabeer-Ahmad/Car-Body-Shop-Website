@@ -9,9 +9,9 @@ export interface BlogPost {
 
 import fs from 'fs';
 import path from 'path';
+import { getGitHubPostsRawUrl } from '@/lib/github-storage';
 
-// Read posts from disk dynamically (runs on the server during SSG/SSR)
-export const getPosts = (): BlogPost[] => {
+function readLocalPosts(): BlogPost[] {
     try {
         const dataPath = path.join(process.cwd(), 'data', 'posts.json');
         if (fs.existsSync(dataPath)) {
@@ -22,9 +22,36 @@ export const getPosts = (): BlogPost[] => {
         console.error("Error reading blog posts:", e);
     }
     return [];
-};
+}
+
+async function readRemotePosts(): Promise<BlogPost[] | null> {
+    const url = getGitHubPostsRawUrl();
+    if (!url) return null;
+
+    try {
+        const res = await fetch(url, { next: { revalidate: 60 } });
+        if (!res.ok) return null;
+        return (await res.json()) as BlogPost[];
+    } catch (e) {
+        console.error("Error fetching remote blog posts:", e);
+        return null;
+    }
+}
+
+// Sync read for build-time/static generation fallback.
+export const getPosts = (): BlogPost[] => readLocalPosts();
+
+export async function getPostsAsync(): Promise<BlogPost[]> {
+    const remote = await readRemotePosts();
+    if (remote && remote.length > 0) return remote;
+    return readLocalPosts();
+}
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
     return getPosts().find(post => post.slug === slug);
 }
 
+export async function getPostBySlugAsync(slug: string): Promise<BlogPost | undefined> {
+    const posts = await getPostsAsync();
+    return posts.find(post => post.slug === slug);
+}

@@ -1,4 +1,4 @@
-import { getPosts } from '@/lib/blog-data';
+import { getPostsAsync } from '@/lib/blog-data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
-export default function BlogListing() {
-    const posts = getPosts();
+export default async function BlogListing() {
+    const posts = await getPostsAsync();
     return (
         <main className="min-h-screen bg-gray-50 flex flex-col">
             <Navbar />
