@@ -9,7 +9,7 @@ export interface BlogPost {
 
 import fs from 'fs';
 import path from 'path';
-import { getGitHubPostsRawUrl } from '@/lib/github-storage';
+import { getGitHubPostsRawUrl, githubReadText, isGitHubStorageEnabled } from '@/lib/github-storage';
 
 function readLocalPosts(): BlogPost[] {
     try {
@@ -25,15 +25,27 @@ function readLocalPosts(): BlogPost[] {
 }
 
 async function readRemotePosts(): Promise<BlogPost[] | null> {
+    // Private repos cannot be read via raw.githubusercontent.com — use the API when configured.
+    if (isGitHubStorageEnabled()) {
+        try {
+            const remote = await githubReadText('data/posts.json');
+            if (remote?.content) {
+                return JSON.parse(remote.content) as BlogPost[];
+            }
+        } catch (e) {
+            console.error('Error fetching blog posts from GitHub API:', e);
+        }
+    }
+
     const url = getGitHubPostsRawUrl();
     if (!url) return null;
 
     try {
-        const res = await fetch(url, { next: { revalidate: 60 } });
+        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) return null;
         return (await res.json()) as BlogPost[];
     } catch (e) {
-        console.error("Error fetching remote blog posts:", e);
+        console.error('Error fetching remote blog posts:', e);
         return null;
     }
 }
