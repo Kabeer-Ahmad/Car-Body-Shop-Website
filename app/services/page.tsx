@@ -8,8 +8,11 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import { HubEstimator, HubFaq, HubHero, HubReviews } from './ClientSections';
 
 export const metadata: Metadata = {
-    title: 'Car Body Repairs Rochdale | Auto Body Shop | Car Body Shop',
+    title: 'Car Body Repair Services | Auto Body Shop Rochdale',
     description: 'All car body repair services in Rochdale under one roof. Resprays, dents, scratches, bumpers and accident repair. Cash prices, no insurance needed.',
+    alternates: {
+        canonical: 'https://www.carbodyshop.org/services',
+    },
 };
 
 export default function ServicesHubPage() {
