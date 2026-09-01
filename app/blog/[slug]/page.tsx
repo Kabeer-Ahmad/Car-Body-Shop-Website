@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!post) return { title: 'Post Not Found' };
 
     return {
-        title: `${post.title} | ${BUSINESS_DETAILS.name}`,
+        title: post.title,
         description: post.excerpt,
         alternates: { canonical: `https://www.carbodyshop.org/blog/${post.slug}` },
         openGraph: {
