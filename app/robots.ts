@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/api/', // Disallow API routes from being indexed
+            disallow: ['/api/', '/admin/'], // Disallow API routes and the internal admin form from being indexed
         },
         sitemap: 'https://www.carbodyshop.org/sitemap.xml',
     };
