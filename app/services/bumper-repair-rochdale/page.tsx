@@ -33,20 +33,11 @@ const jsonLd = {
             ],
             "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale",
             "offers": [
-                {
-                    "@type": "Offer",
-                    "name": "Light scuffs and paint scrapes",
-                    "priceSpecification": { "@type": "PriceSpecification", "minPrice": 150, "maxPrice": 300, "priceCurrency": "GBP" },
-                    "availability": "https://schema.org/InStock",
-                    "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale"
-                },
-                {
-                    "@type": "Offer",
-                    "name": "Significant bumper damage (cracks, splits, dents)",
-                    "priceSpecification": { "@type": "PriceSpecification", "minPrice": 300, "maxPrice": 600, "priceCurrency": "GBP" },
-                    "availability": "https://schema.org/InStock",
-                    "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale"
-                }
+                { "@type": "Offer", "name": "Light scuff or scrape", "price": "150", "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" },
+                { "@type": "Offer", "name": "Scratch, colour matched", "price": "200", "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" },
+                { "@type": "Offer", "name": "Crack or split repair", "price": "250", "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" },
+                { "@type": "Offer", "name": "Dent, pulled and painted", "price": "200", "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" },
+                { "@type": "Offer", "name": "Multiple areas or full bumper", "price": "350", "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" }
             ]
         },
         breadcrumbList([
