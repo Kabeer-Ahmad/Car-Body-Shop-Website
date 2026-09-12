@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import type { BlogPost } from '@/lib/blog-data';
 import { BUSINESS_DETAILS } from '@/app/constants';
-import 'suneditor/dist/css/suneditor.min.css';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface TocItem { id: string; text: string; level: number; }
@@ -287,7 +286,7 @@ export default function BlogPostClient({
                             </Link>
 
                             <div
-                                className="sun-editor-editable !p-0 !bg-transparent blog-content"
+                                className="blog-content"
                                 style={{ fontFamily: 'inherit' }}
                                 dangerouslySetInnerHTML={{ __html: processed }}
                             />
