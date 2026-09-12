@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { BUSINESS_DETAILS } from "./constants";
 import StickyMobileBar from "@/components/StickyMobileBar";
+import { businessNode } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.carbodyshop.org"), // Fallback/Canonical URL
@@ -62,38 +63,61 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "AutoBodyShop",
-    "name": BUSINESS_DETAILS.name,
-    "image": "https://www.carbodyshop.org/og-image.png",
-    "telephone": BUSINESS_DETAILS.phone,
-    "email": BUSINESS_DETAILS.email,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2 Whitworth",
-      "addressLocality": BUSINESS_DETAILS.city,
-      "postalCode": "OL12 8HN",
-      "addressCountry": "UK"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 53.6668735,
-      "longitude": -2.1736736
-    },
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:30",
-        "closes": "17:30"
+        ...businessNode(),
+        "image": "https://www.carbodyshop.org/og-image.png",
+        "logo": "https://www.carbodyshop.org/logo.png",
+        "areaServed": [
+          { "@type": "City", "name": "Rochdale" },
+          { "@type": "City", "name": "Whitworth" },
+          { "@type": "City", "name": "Bacup" },
+          { "@type": "City", "name": "Littleborough" },
+          { "@type": "City", "name": "Milnrow" },
+          { "@type": "City", "name": "Heywood" },
+          { "@type": "City", "name": "Bury" },
+          { "@type": "City", "name": "Oldham" },
+          { "@type": "City", "name": "Middleton" },
+          { "@type": "City", "name": "Manchester" },
+          { "@type": "City", "name": "Bolton" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:30",
+            "closes": "17:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Car Body Repair Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Car Respray", "url": "https://www.carbodyshop.org/services/full-car-respray-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accident & Collision Repair", "url": "https://www.carbodyshop.org/services/accident-collision-repair-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bumper Repair", "url": "https://www.carbodyshop.org/services/bumper-repair-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dent Removal", "url": "https://www.carbodyshop.org/services/dent-removal-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Scratch Repair", "url": "https://www.carbodyshop.org/services/car-scratch-repair-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Minor Accident Repair", "url": "https://www.carbodyshop.org/services/minor-accident-repair-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lease Return Repairs", "url": "https://www.carbodyshop.org/services/lease-return-repairs-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trade & Motor Dealer Bodyshop Services", "url": "https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services" } }
+          ]
+        }
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "13:00"
+        "@type": "WebSite",
+        "@id": "https://www.carbodyshop.org/#website",
+        "name": "Car Body Shop",
+        "url": "https://www.carbodyshop.org",
+        "publisher": { "@id": "https://www.carbodyshop.org/#business" }
       }
-    ],
-    "priceRange": "£"
+    ]
   };
 
   return (

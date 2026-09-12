@@ -7,10 +7,44 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
+
+// ─── JSON-LD Schema ───────────────────────────────────────────────────────────
+// The FAQPage schema for this page is emitted separately, inside TradeFaqSection below.
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        businessNode(),
+        {
+            "@type": "Service",
+            "serviceType": "Trade & Motor Dealer Bodyshop Services",
+            "name": "Trade & Motor Dealer Bodyshop Services",
+            "description": "Trusted trade bodyshop services in Greater Manchester. Fast turnaround, dealer prep and priority slots for motor traders.",
+            "provider": { "@id": BUSINESS_ID },
+            "areaServed": [
+                { "@type": "City", "name": "Rochdale" },
+                { "@type": "City", "name": "Oldham" },
+                { "@type": "City", "name": "Bury" },
+                { "@type": "City", "name": "Heywood" },
+                { "@type": "City", "name": "Middleton" },
+                { "@type": "City", "name": "Manchester" },
+                { "@type": "City", "name": "Bolton" }
+            ],
+            "url": "https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services",
+            "audience": { "@type": "BusinessAudience", "audienceType": "Motor dealers and trade fleets" }
+        },
+        breadcrumbList([
+            { name: "Home", url: "https://www.carbodyshop.org/" },
+            { name: "Services", url: "https://www.carbodyshop.org/services" },
+            { name: "Trade & Motor Dealer Bodyshop Services", url: "https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services" }
+        ])
+    ]
+};
 
 export default function TradeBodyshopServicesPage() {
     return (
         <main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Navbar />
 
             {/* ── Hero Section ── */}

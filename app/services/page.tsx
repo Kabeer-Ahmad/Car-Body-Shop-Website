@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Gallery from '@/components/Gallery';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { HubEstimator, HubFaq, HubHero, HubReviews } from './ClientSections';
+import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 export const metadata: Metadata = {
     title: 'Car Body Repair Services | Auto Body Shop Rochdale',
@@ -15,9 +16,50 @@ export const metadata: Metadata = {
     },
 };
 
+const SERVICE_LINKS = [
+    { name: 'Full Car Respray', url: 'https://www.carbodyshop.org/services/full-car-respray-rochdale' },
+    { name: 'Accident & Collision Repair', url: 'https://www.carbodyshop.org/services/accident-collision-repair-rochdale' },
+    { name: 'Bumper Repair', url: 'https://www.carbodyshop.org/services/bumper-repair-rochdale' },
+    { name: 'Dent Removal', url: 'https://www.carbodyshop.org/services/dent-removal-rochdale' },
+    { name: 'Car Scratch Repair', url: 'https://www.carbodyshop.org/services/car-scratch-repair-rochdale' },
+    { name: 'Minor Accident Repair', url: 'https://www.carbodyshop.org/services/minor-accident-repair-rochdale' },
+    { name: 'Lease Return Repairs', url: 'https://www.carbodyshop.org/services/lease-return-repairs-rochdale' },
+    { name: 'Trade & Motor Dealer Bodyshop Services', url: 'https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services' },
+];
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        businessNode(),
+        {
+            '@type': 'CollectionPage',
+            '@id': 'https://www.carbodyshop.org/services#webpage',
+            name: 'Car Body Repair Services in Rochdale',
+            description: 'All car body repair services in Rochdale under one roof. Resprays, dents, scratches, bumpers and accident repair. Cash prices, no insurance needed.',
+            url: 'https://www.carbodyshop.org/services',
+            isPartOf: { '@id': 'https://www.carbodyshop.org/#website' },
+            about: { '@id': BUSINESS_ID },
+        },
+        breadcrumbList([
+            { name: 'Home', url: 'https://www.carbodyshop.org/' },
+            { name: 'Services', url: 'https://www.carbodyshop.org/services' },
+        ]),
+        {
+            '@type': 'ItemList',
+            itemListElement: SERVICE_LINKS.map((s, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: s.name,
+                url: s.url,
+            })),
+        },
+    ],
+};
+
 export default function ServicesHubPage() {
     return (
         <main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Navbar />
             <HubHero />
             <ServiceGrid />
