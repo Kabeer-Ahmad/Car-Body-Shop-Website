@@ -7,10 +7,51 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
+
+// ─── JSON-LD Schema ───────────────────────────────────────────────────────────
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        businessNode(),
+        {
+            "@type": "Service",
+            "serviceType": "Full Car Respray",
+            "name": "Full Car Respray Rochdale",
+            "description": "Full car respray in Rochdale with factory colour matching. Prices from £800 for a standard-sized car.",
+            "provider": { "@id": BUSINESS_ID },
+            "areaServed": [
+                { "@type": "City", "name": "Rochdale" },
+                { "@type": "City", "name": "Whitworth" },
+                { "@type": "City", "name": "Littleborough" },
+                { "@type": "City", "name": "Milnrow" },
+                { "@type": "City", "name": "Heywood" },
+                { "@type": "City", "name": "Oldham" },
+                { "@type": "City", "name": "Bury" },
+                { "@type": "City", "name": "Manchester" },
+                { "@type": "City", "name": "Bolton" }
+            ],
+            "url": "https://www.carbodyshop.org/services/full-car-respray-rochdale",
+            "offers": {
+                "@type": "Offer",
+                "price": "800",
+                "priceCurrency": "GBP",
+                "availability": "https://schema.org/InStock",
+                "url": "https://www.carbodyshop.org/services/full-car-respray-rochdale"
+            }
+        },
+        breadcrumbList([
+            { name: "Home", url: "https://www.carbodyshop.org/" },
+            { name: "Services", url: "https://www.carbodyshop.org/services" },
+            { name: "Full Car Respray Rochdale", url: "https://www.carbodyshop.org/services/full-car-respray-rochdale" }
+        ])
+    ]
+};
 
 export default function ServicePage() {
     return (
         <main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Navbar />
 
             {/* ── Hero Section ── */}

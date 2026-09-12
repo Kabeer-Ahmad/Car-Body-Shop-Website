@@ -6,10 +6,43 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
+
+// ─── JSON-LD Schema ───────────────────────────────────────────────────────────
+// The FAQPage schema for this page is emitted separately, inside SplitFaqSection below.
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        businessNode(),
+        {
+            "@type": "Service",
+            "serviceType": "Accident & Collision Repair",
+            "name": "Accident & Collision Repair Rochdale",
+            "description": "Professional accident and collision repair in Rochdale. Insurance-quality results, fast turnaround, no insurance claim required.",
+            "provider": { "@id": BUSINESS_ID },
+            "areaServed": [
+                { "@type": "City", "name": "Rochdale" },
+                { "@type": "City", "name": "Oldham" },
+                { "@type": "City", "name": "Bury" },
+                { "@type": "City", "name": "Heywood" },
+                { "@type": "City", "name": "Middleton" },
+                { "@type": "City", "name": "Manchester" },
+                { "@type": "City", "name": "Bolton" }
+            ],
+            "url": "https://www.carbodyshop.org/services/accident-collision-repair-rochdale"
+        },
+        breadcrumbList([
+            { name: "Home", url: "https://www.carbodyshop.org/" },
+            { name: "Services", url: "https://www.carbodyshop.org/services" },
+            { name: "Accident & Collision Repair Rochdale", url: "https://www.carbodyshop.org/services/accident-collision-repair-rochdale" }
+        ])
+    ]
+};
 
 export default function AccidentCollisionRepairPage() {
     return (
         <main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Navbar />
 
             {/* ── Hero Section ── */}
