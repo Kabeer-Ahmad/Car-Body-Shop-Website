@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Gallery from '@/components/Gallery';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import MapEmbed from '@/components/MapEmbed';
 import { HubEstimator, HubFaq, HubHero, HubReviews } from './ClientSections';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
@@ -245,12 +246,7 @@ function AreasCovered() {
             <div className="max-w-6xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
                     <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-gray-800 border border-gray-700 shadow-2xl">
-                        <iframe
-                            title="Car Body Shop Rochdale location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2365.9!2d-2.1608!3d53.6452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ba77b4d1d1c4b%3A0x7b3e2e2e2e2e2e2e!2sWhitworth%2C%20Rochdale!5e0!3m2!1sen!2suk!4v1700000000000"
-                            className="w-full h-full border-0 opacity-80"
-                            loading="lazy"
-                        />
+                        <MapEmbed />
                         <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-3xl" />
                     </div>
                     <div>
@@ -284,7 +280,7 @@ function ContactHub({ whatsapp }: { whatsapp: string }) {
                                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                                 </div>
-                                <div><p className="font-bold text-gray-900">Address</p><p className="text-gray-500 text-sm">Whitworth, Rochdale, OL12 8HN</p></div>
+                                <div><p className="font-bold text-gray-900">Address</p><p className="text-gray-500 text-sm">{BUSINESS_DETAILS.address}</p></div>
                             </div>
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">

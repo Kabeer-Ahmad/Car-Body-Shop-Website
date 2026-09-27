@@ -9,6 +9,8 @@
  * has to happen once, instead of drifting across nine separate page files.
  */
 
+import { BUSINESS_DETAILS } from '@/app/constants';
+
 export const BUSINESS_ID = 'https://www.carbodyshop.org/#business';
 
 /**
@@ -30,13 +32,14 @@ export function businessNode() {
         priceRange: '££',
         address: {
             '@type': 'PostalAddress',
-            streetAddress: '2 Whitworth',
+            streetAddress: 'Peel Mill, Market Street, Shawforth',
             addressLocality: 'Rochdale',
             addressRegion: 'Greater Manchester',
             postalCode: 'OL12 8HN',
             addressCountry: 'GB',
         },
         geo: { '@type': 'GeoCoordinates', latitude: 53.684267, longitude: -2.166254 },
+        hasMap: BUSINESS_DETAILS.mapsPlaceLink,
     };
 }
 

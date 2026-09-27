@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import MapEmbed from '@/components/MapEmbed';
 
 // Image URLs for real workshop feel
 const IMAGES = {
@@ -762,14 +763,7 @@ export default function AboutPage() {
                         
                         {/* LEFT SIDE: Interactive Google Map */}
                         <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-80 md:h-[480px]">
-                            <iframe
-                                src={BUSINESS_DETAILS.mapsLink}
-                                className="w-full h-full"
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Car Body Shop Rochdale Map"
-                            />
+                            <MapEmbed />
                         </div>
 
                         {/* RIGHT SIDE: Content */}
@@ -809,7 +803,7 @@ export default function AboutPage() {
                             <div className="bg-gray-50 border border-gray-200/80 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
                                 <div>
                                     <p className="font-extrabold text-gray-900 text-sm">Car Body Shop</p>
-                                    <p className="text-xs text-gray-600">Whitworth, Rochdale, OL12 8HN</p>
+                                    <p className="text-xs text-gray-600">{BUSINESS_DETAILS.address}</p>
                                 </div>
                                 <div className="text-xs text-gray-600 border-t sm:border-t-0 sm:border-l border-gray-200 pt-2 sm:pt-0 sm:pl-4">
                                     <p><span className="font-bold text-gray-800">Mon–Fri:</span> 8:30 – 5:30</p>

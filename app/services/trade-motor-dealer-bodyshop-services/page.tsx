@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StatsBar from '@/components/StatsBar';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
@@ -885,13 +886,7 @@ function TradeServiceAreasSection() {
             <div className="max-w-6xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
                     <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-gray-800 border border-gray-700 shadow-2xl">
-                        <iframe
-                            title="Car Body Shop Rochdale location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2365.9!2d-2.1608!3d53.6452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ba77b4d1d1c4b%3A0x7b3e2e2e2e2e2e2e!2sWhitworth%2C%20Rochdale!5e0!3m2!1sen!2suk!4v1700000000000"
-                            className="w-full h-full border-0 opacity-80"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        />
+                        <MapEmbed />
                         <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-3xl" />
                     </div>
 
@@ -1016,7 +1011,7 @@ function TradeFinalCTASection({ whatsapp }: { whatsapp: string }) {
                     </div>
                     
                     <p className="text-gray-400 text-sm relative z-10 flex flex-wrap justify-center gap-4">
-                        <span>📍 Whitworth, Rochdale, OL12 8HN</span>
+                        <span>📍 {BUSINESS_DETAILS.address}</span>
                         <span className="hidden sm:inline">·</span>
                         <span>📞 07471512557</span>
                         <span className="hidden sm:inline">·</span>

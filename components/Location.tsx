@@ -1,4 +1,5 @@
 import { BUSINESS_DETAILS } from '@/app/constants';
+import MapEmbed from '@/components/MapEmbed';
 
 interface LocationProps {
     title?: string;
@@ -56,16 +57,7 @@ export default function Location({
                     </div>
 
                     <div className="h-80 bg-gray-200 rounded-xl overflow-hidden shadow-md">
-                        <iframe
-                            src={BUSINESS_DETAILS.mapsLink}
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Car Body Shop Location"
-                        ></iframe>
+                        <MapEmbed />
                     </div>
                 </div>
             </div>

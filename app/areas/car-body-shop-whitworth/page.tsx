@@ -19,7 +19,7 @@ import { breadcrumbList, businessNode, BUSINESS_ID } from '@/lib/schema';
 
 const PAGE_URL = `${BASE_URL}/areas/car-body-shop-whitworth`;
 const TITLE = 'Car Body Shop Whitworth | Car Body Repairs, Rochdale OL12';
-const DESCRIPTION = 'Car body shop in Whitworth, OL12 8HN. Dent removal from £80, bumper repair from £150, full resprays from £800. Cash prices, same day on most repairs.';
+const DESCRIPTION = 'Car body shop at Peel Mill, Shawforth, Whitworth OL12 8HN. Dents from £80, bumpers from £150, resprays from £800. Cash prices, same day on most repairs.';
 
 export const metadata: Metadata = {
     title: { absolute: TITLE },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const FAQS: FaqItem[] = [
     {
         question: 'Where is your car body shop in Whitworth?',
-        answer: 'Car Body Shop is in Whitworth, Rochdale, OL12 8HN, between Rochdale and Bacup. The workshop is open Monday to Friday 8:30am to 5:30pm and Saturday 9am to 1pm.',
+        answer: 'Car Body Shop is at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN, on the Whitworth side between Rochdale and Bacup. The workshop is open Monday to Friday 8:30am to 5:30pm and Saturday 9am to 1pm.',
     },
     {
         question: 'How much does car body repair cost in Whitworth?',
@@ -106,7 +106,7 @@ export default function WhitworthPage() {
             <Hero
                 title="Car Body Shop Whitworth"
                 highlight="Dent, Scratch, Bumper & Accident Repairs"
-                subtitle="Our workshop is in Whitworth, OL12 8HN, between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery."
+                subtitle="Our workshop is at Peel Mill, Market Street, Shawforth, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery."
                 imageAlt="Car body shop workshop in Whitworth, Rochdale"
                 formSubtitle="Free estimate, no obligation. We confirm within the hour."
                 locationPlaceholder="e.g. Whitworth, OL12"
@@ -147,7 +147,7 @@ export default function WhitworthPage() {
             <AnimatedSection delay={0.1}>
                 <Location
                     title="Car Body Shop in Whitworth, Rochdale"
-                    description="Find us in Whitworth, OL12 8HN, between Rochdale and Bacup. Drive in for a free assessment during opening hours, or send photos on WhatsApp first for a cash price."
+                    description="Find us at Peel Mill, Market Street, Shawforth OL12 8HN, between Rochdale and Bacup. Click the map to open us in Google Maps. Drive in for a free assessment during opening hours, or send photos on WhatsApp first for a cash price."
                 />
             </AnimatedSection>
 
