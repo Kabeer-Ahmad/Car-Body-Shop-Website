@@ -7,34 +7,42 @@ const galleryItems = [
         id: 1,
         before: "/gallery/Before_Car_Fender_Dent.webp",
         after: "/gallery/AfteR_Cad_Fender_paint.webp",
-        description: "Fender dent repair & respray – 1-2 days",
+        description: "Fender dent repair & respray, 1-2 days",
     },
     {
         id: 2,
         before: "/gallery/Before_VAN_Backdoor.webp",
         after: "/gallery/After_Van_Backdoor_Complete.webp",
-        description: "Van door restoration – 1-2 days",
+        description: "Van door restoration, 1-2 days",
     },
     {
         id: 3,
         before: "/gallery/before_Rim_Job.webp",
         after: "/gallery/AfteR_Rim_Job.webp",
-        description: "Alloy wheel refurbishment – 1-2 days",
+        description: "Alloy wheel refurbishment, 1-2 days",
     },
     {
         id: 4,
         before: "/gallery/Bumper%20Lip%20Before.webp",
         after: "/gallery/Bumper%20Lip%20After.webp",
-        description: "Bumper lip repair and paint – 1-2 days",
+        description: "Bumper lip repair and paint, 1-2 days",
     },
 ];
 
-export default function Gallery() {
+interface GalleryProps {
+    title?: string;
+    subtitle?: string;
+}
+
+export default function Gallery({
+    title = "See Why We're Trusted for Car Body Repair in Rochdale",
+    subtitle = 'Explore before and after transformations completed by our Rochdale car body shop, from minor scratches and dents to full accident damage repairs.',
+}: GalleryProps = {}) {
     return (
         <section className="py-20 bg-gray-50" id="gallery">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">See Why We're Trusted for Car Body Repair in Rochdale</h2>
-                <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">Explore before and after transformations completed by our Rochdale car body shop, from minor scratches and dents to full accident damage repairs.</p>
+                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">{title}</h2>
+                <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">{subtitle}</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {galleryItems.map((item) => (

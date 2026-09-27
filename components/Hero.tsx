@@ -4,7 +4,23 @@ import Image from 'next/image';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { motion } from 'framer-motion';
 
-export default function Hero() {
+interface HeroProps {
+    title?: string;
+    highlight?: string;
+    subtitle?: string;
+    imageAlt?: string;
+    formSubtitle?: string;
+    locationPlaceholder?: string;
+}
+
+export default function Hero({
+    title = 'Car Body Repair Rochdale',
+    highlight = 'Expert Car Body Shop & Accident Repairs',
+    subtitle = 'Professional car body repair and vehicle bodywork services in Rochdale. From dents and scratches to accident repairs and full resprays, we restore your vehicle to showroom condition.',
+    imageAlt = 'CBS Car Body Shop Workshop',
+    formSubtitle = 'Free estimate — no obligation. We\'ll confirm within the hour.',
+    locationPlaceholder = 'e.g. Rochdale, OL12',
+}: HeroProps = {}) {
     return (
         <section className="relative bg-gray-900 text-white min-h-[90vh] flex items-center overflow-hidden pt-20">
 
@@ -12,7 +28,7 @@ export default function Hero() {
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/hero-bg-v2.jpg"
-                    alt="CBS Car Body Shop Workshop"
+                    alt={imageAlt}
                     fill
                     className="object-cover object-center"
                     priority
@@ -32,12 +48,12 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                     >
                         <h1 className="text-3xl md:text-4xl xl:text-5xl font-extrabold mb-4 leading-tight">
-                            Car Body Repair Rochdale<br />
-                            <span className="text-blue-400">Expert Car Body Shop &amp; Accident Repairs</span>
+                            {title}<br />
+                            <span className="text-blue-400">{highlight}</span>
                         </h1>
 
                         <p className="text-base md:text-lg text-gray-300 mb-6 font-light leading-relaxed max-w-lg">
-                            Professional car body repair and vehicle bodywork services in Rochdale. From dents and scratches to accident repairs and full resprays, we restore your vehicle to showroom condition.
+                            {subtitle}
                         </p>
 
                         {/* CTA Buttons */}
@@ -102,9 +118,9 @@ export default function Hero() {
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 md:p-8 shadow-2xl">
                             <div className="mb-5">
                                 <h2 className="text-2xl font-extrabold text-white mb-1">Book Your Appointment</h2>
-                                <p className="text-gray-300 text-sm">Free estimate — no obligation. We&apos;ll confirm within the hour.</p>
+                                <p className="text-gray-300 text-sm">{formSubtitle}</p>
                             </div>
-                            <BookingForm whatsapp={BUSINESS_DETAILS.whatsapp} />
+                            <BookingForm whatsapp={BUSINESS_DETAILS.whatsapp} locationPlaceholder={locationPlaceholder} />
                         </div>
                     </motion.div>
 
@@ -115,7 +131,7 @@ export default function Hero() {
 }
 
 // ── Booking Form Component ────────────────────────────────────────────────────
-export function BookingForm({ whatsapp }: { whatsapp: string }) {
+export function BookingForm({ whatsapp, locationPlaceholder = 'e.g. Rochdale, OL12' }: { whatsapp: string; locationPlaceholder?: string }) {
     const services = [
         'Dent Removal',
         'Car Scratch Repair',
@@ -184,7 +200,7 @@ export function BookingForm({ whatsapp }: { whatsapp: string }) {
             {/* Location */}
             <div>
                 <label htmlFor="hf-location" className={label}>Your Location / Postcode</label>
-                <input id="hf-location" name="location" type="text" required placeholder="e.g. Rochdale, OL12" className={input} />
+                <input id="hf-location" name="location" type="text" required placeholder={locationPlaceholder} className={input} />
             </div>
 
             {/* Date + Time */}
