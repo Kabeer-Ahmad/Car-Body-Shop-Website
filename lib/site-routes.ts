@@ -78,7 +78,7 @@ export interface ServedArea {
 export const SERVED_AREAS: readonly ServedArea[] = [
     { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Our workshop, Peel Mill, Shawforth' },
     { name: 'Rochdale' },
-    { name: 'Littleborough' },
+    { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Free collection, OL15' },
     { name: 'Milnrow' },
     { name: 'Heywood' },
     { name: 'Middleton' },

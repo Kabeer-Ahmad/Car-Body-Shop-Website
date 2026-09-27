@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import AreaLink from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 
 // ── WhatsApp icon path ──────────────────────────────────────────────────────
@@ -246,7 +247,7 @@ export default function ContactPage() {
                                 <p className="text-gray-500 text-sm mb-3">We provide car body repairs across:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {AREAS.map(a => (
-                                        <span key={a} className="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">{a}</span>
+                                        <AreaLink key={a} name={a} className="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full" linkClassName="underline decoration-blue-300 underline-offset-2 hover:bg-blue-600 hover:text-white transition-colors" />
                                     ))}
                                 </div>
                             </div>
@@ -339,7 +340,7 @@ export default function ContactPage() {
                     <div className="text-center mb-10">
                         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Visit Our Rochdale Workshop</h2>
                         <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                            Our workshop is conveniently located in Whitworth, Rochdale, making it easy for customers across Greater Manchester to visit us for inspections, quotations and vehicle repairs.
+                            Our workshop is conveniently located in <AreaLink name="Whitworth" />, Rochdale, making it easy for customers across Greater Manchester to visit us for inspections, quotations and vehicle repairs.
                         </p>
                         <a href={BUSINESS_DETAILS.mapsDirectionLink} target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-md transition-all hover:-translate-y-0.5">

@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { AreaPageLinks } from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -888,6 +889,7 @@ function CoverageSection() {
                             <p className="text-gray-500 text-sm leading-relaxed">
                                 We serve dent removal customers in {activeArea} with the same fast turnaround and cash pricing as our Rochdale workshop. Paintless dent removal available. Free collection and delivery available.
                             </p>
+                            <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
                     </div>
                 </div>

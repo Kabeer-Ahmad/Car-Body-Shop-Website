@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StatsBar from '@/components/StatsBar';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { AreaPageLinks } from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -910,6 +911,7 @@ function TradeServiceAreasSection() {
                                 </button>
                             ))}
                         </div>
+                        <AreaPageLinks className="text-blue-400 hover:text-blue-300" />
 
                         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
                             <p className="text-gray-400 text-sm leading-relaxed">

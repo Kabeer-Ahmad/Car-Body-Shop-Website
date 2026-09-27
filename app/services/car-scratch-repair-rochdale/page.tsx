@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { AreaPageLinks } from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -893,6 +894,7 @@ function CoverageSection() {
                             <p className="text-gray-500 text-sm leading-relaxed">
                                 We serve scratch repair customers in {activeArea} from our enclosed workshop in Whitworth, Rochdale. Free collection and delivery available. Same day turnaround on most repairs.
                             </p>
+                            <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
                     </div>
                 </div>

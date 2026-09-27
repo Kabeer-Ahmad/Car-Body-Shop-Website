@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import AreaLink from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -742,9 +743,9 @@ function ServiceAreasSection() {
                     </h2>
                     <div className="flex flex-wrap justify-center gap-4 mb-8">
                         {['Rochdale', 'Whitworth', 'Littleborough', 'Heywood', 'Oldham', 'Bury', 'Milnrow', 'Middleton', 'Manchester', 'Bolton'].map((a) => (
-                            <div key={a} className="flex items-center gap-2 text-gray-300 font-medium bg-gray-900 px-4 py-2 rounded-full border border-gray-800">
+                            <AreaLink key={a} name={a} className="flex items-center gap-2 text-gray-300 font-medium bg-gray-900 px-4 py-2 rounded-full border border-gray-800" linkClassName="underline decoration-blue-400 underline-offset-2 hover:border-blue-500 hover:text-white transition-colors">
                                 <span className="text-blue-500">📍</span> {a}
-                            </div>
+                            </AreaLink>
                         ))}
                     </div>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">

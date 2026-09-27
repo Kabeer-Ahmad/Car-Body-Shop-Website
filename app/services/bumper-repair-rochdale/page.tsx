@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { AreaPageLinks } from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -1009,6 +1010,7 @@ function CoverageSection() {
                             <p className="text-gray-400 text-sm leading-relaxed">
                                 We serve bumper repair and dent repair customers in {activeArea} with the same fast turnaround and cash pricing as our Rochdale workshop. Paintless dent removal available. Free collection and delivery available.
                             </p>
+                            <AreaPageLinks className="text-blue-400 hover:text-blue-300" />
                         </div>
                     </div>
                 </div>

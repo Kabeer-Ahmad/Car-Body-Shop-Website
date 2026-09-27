@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StatsBar from '@/components/StatsBar';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { AreaPageLinks } from '@/components/AreaLink';
 import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -679,6 +680,7 @@ function ServiceAreasSection() {
                                 </button>
                             ))}
                         </div>
+                        <AreaPageLinks className="text-blue-400 hover:text-blue-300" />
 
                         <p className="text-gray-500 text-sm leading-relaxed">
                             Wherever you&apos;re located in or around Rochdale, our experienced technicians deliver the same high standards of workmanship, premium materials and meticulous attention to detail.
