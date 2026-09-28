@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import AreaLink from '@/components/AreaLink';
+import MapEmbed from '@/components/MapEmbed';
 
 // Image URLs for real workshop feel
 const IMAGES = {
@@ -762,14 +764,7 @@ export default function AboutPage() {
                         
                         {/* LEFT SIDE: Interactive Google Map */}
                         <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-80 md:h-[480px]">
-                            <iframe
-                                src={BUSINESS_DETAILS.mapsLink}
-                                className="w-full h-full"
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Car Body Shop Rochdale Map"
-                            />
+                            <MapEmbed />
                         </div>
 
                         {/* RIGHT SIDE: Content */}
@@ -780,7 +775,7 @@ export default function AboutPage() {
 
                             <div className="space-y-4 text-gray-600 leading-relaxed text-base">
                                 <p>
-                                    Our workshop is based in Whitworth, Rochdale, making it convenient for customers throughout Greater Manchester to access professional car body repairs, dent removal, scratch repairs and full car resprays.
+                                    Our workshop is based in <AreaLink name="Whitworth" />, Rochdale, making it convenient for customers throughout Greater Manchester to access professional car body repairs, dent removal, scratch repairs and full car resprays.
                                 </p>
                                 <p>
                                     Customers regularly visit us from surrounding towns because they value honest advice, quality workmanship and repairs completed to a high standard.
@@ -795,12 +790,12 @@ export default function AboutPage() {
                                 <p className="text-xs font-extrabold text-gray-400 uppercase tracking-widest mb-3">Service Areas</p>
                                 <div className="flex flex-wrap gap-2">
                                     {AREAS.map((town) => (
-                                        <span
+                                        <AreaLink
                                             key={town}
-                                            className="bg-gray-50 border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 text-gray-800 text-xs font-bold px-3.5 py-1.5 rounded-full transition-all cursor-default"
-                                        >
-                                            {town}
-                                        </span>
+                                            name={town}
+                                            className="bg-gray-50 border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 text-gray-800 text-xs font-bold px-3.5 py-1.5 rounded-full transition-all"
+                                            linkClassName="underline decoration-blue-300 underline-offset-2"
+                                        />
                                     ))}
                                 </div>
                             </div>
@@ -809,7 +804,7 @@ export default function AboutPage() {
                             <div className="bg-gray-50 border border-gray-200/80 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
                                 <div>
                                     <p className="font-extrabold text-gray-900 text-sm">Car Body Shop</p>
-                                    <p className="text-xs text-gray-600">Whitworth, Rochdale, OL12 8HN</p>
+                                    <p className="text-xs text-gray-600">{BUSINESS_DETAILS.address}</p>
                                 </div>
                                 <div className="text-xs text-gray-600 border-t sm:border-t-0 sm:border-l border-gray-200 pt-2 sm:pt-0 sm:pl-4">
                                     <p><span className="font-bold text-gray-800">Mon–Fri:</span> 8:30 – 5:30</p>

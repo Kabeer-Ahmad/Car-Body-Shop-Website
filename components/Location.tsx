@@ -1,12 +1,26 @@
 import { BUSINESS_DETAILS } from '@/app/constants';
+import MapEmbed from '@/components/MapEmbed';
+import AreaLink from '@/components/AreaLink';
 
-export default function Location() {
+interface LocationProps {
+    title?: string;
+    description?: React.ReactNode;
+}
+
+export default function Location({
+    title = 'Visit Our Car Body Repair Shop in Rochdale',
+    description = (
+        <>
+            Conveniently located in <AreaLink name="Whitworth" />, our car body repair shop in Rochdale provides professional dent repair, scratch repair, bumper repairs, accident damage restoration, and vehicle bodywork services for drivers across Rochdale and the surrounding areas.
+        </>
+    ),
+}: LocationProps = {}) {
     return (
         <section className="py-16 bg-white" id="location">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Visit Our Car Body Repair Shop in Rochdale</h2>
+                <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">{title}</h2>
                 <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
-                    Conveniently located in Whitworth, our car body repair shop in Rochdale provides professional dent repair, scratch repair, bumper repairs, accident damage restoration, and vehicle bodywork services for drivers across Rochdale and the surrounding areas.
+                    {description}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div className="text-center md:text-left">
@@ -30,9 +44,12 @@ export default function Location() {
                             <p className="text-gray-600 mb-2">Serving {BUSINESS_DETAILS.city} and surrounding areas including:</p>
                             <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                                 {['Rochdale', 'Whitworth', 'Bacup', 'Littleborough', 'Milnrow', 'Heywood', 'Bury', 'Oldham'].map((area) => (
-                                    <span key={area} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100">
-                                        {area}
-                                    </span>
+                                    <AreaLink
+                                        key={area}
+                                        name={area}
+                                        className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100"
+                                        linkClassName="underline decoration-blue-300 underline-offset-2 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors"
+                                    />
                                 ))}
                             </div>
                         </div>
@@ -48,16 +65,7 @@ export default function Location() {
                     </div>
 
                     <div className="h-80 bg-gray-200 rounded-xl overflow-hidden shadow-md">
-                        <iframe
-                            src={BUSINESS_DETAILS.mapsLink}
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Car Body Shop Location"
-                        ></iframe>
+                        <MapEmbed />
                     </div>
                 </div>
             </div>

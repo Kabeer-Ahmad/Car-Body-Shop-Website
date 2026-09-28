@@ -2,7 +2,12 @@
 
 import { useState } from 'react';
 
-const faqs = [
+export interface FaqItem {
+    question: string;
+    answer: string;
+}
+
+const DEFAULT_FAQS: FaqItem[] = [
     {
         question: 'How Much Does Car Body Repair Cost?',
         answer: 'The cost of car body repair depends on the extent of the damage, the parts affected, and the repair method required. Minor scratches and dents are typically less expensive than major accident damage repairs. Contact Car Body Shop Rochdale for a free, no-obligation quote.',
@@ -25,7 +30,15 @@ const faqs = [
     },
 ];
 
-export default function FAQ() {
+interface FAQProps {
+    faqs?: FaqItem[];
+    subtitle?: string;
+}
+
+export default function FAQ({
+    faqs = DEFAULT_FAQS,
+    subtitle = 'Common questions about car body repair in Rochdale, answered by our team.',
+}: FAQProps = {}) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const jsonLd = {
@@ -59,7 +72,7 @@ export default function FAQ() {
                         Frequently Asked Questions
                     </h2>
                     <p className="text-gray-500 text-base max-w-xl mx-auto">
-                        Common questions about car body repair in Rochdale, answered by our team.
+                        {subtitle}
                     </p>
                 </div>
 

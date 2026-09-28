@@ -56,16 +56,26 @@ const services = [
 ];
 
 
-export default function Services() {
+interface ServicesProps {
+    title?: string;
+    subtitle?: string;
+    ctaLabel?: string;
+}
+
+export default function Services({
+    title = 'Auto Body Repair Services Offered in Rochdale',
+    subtitle = 'Expert car body repairs in Rochdale, from a single dent to a full respray, we restore vehicles to factory condition.',
+    ctaLabel = `Call for Free Advice — ${BUSINESS_DETAILS.phone}`,
+}: ServicesProps = {}) {
     return (
         <section className="py-20 bg-gray-50" id="services">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
 
                 {/* Section Header */}
                 <div className="text-center mb-14">
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Auto Body Repair Services Offered in Rochdale</h2>
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">{title}</h2>
                     <p className="text-gray-500 max-w-xl mx-auto text-lg">
-                        Expert car body repairs in Rochdale, from a single dent to a full respray, we restore vehicles to factory condition.
+                        {subtitle}
                     </p>
                 </div>
 
@@ -86,7 +96,7 @@ export default function Services() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        Call for Free Advice — {BUSINESS_DETAILS.phone}
+                        {ctaLabel}
                     </a>
                 </div>
             </div>

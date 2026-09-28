@@ -3,7 +3,31 @@ import Image from 'next/image';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import ComparisonSlider from './ComparisonSlider';
 
-export default function WhyChooseUs() {
+interface WhyPoint {
+    title: string;
+    text: string;
+}
+
+const DEFAULT_POINTS: WhyPoint[] = [
+    { title: 'Fast Car Body Repairs', text: 'Most dent, scratch, and bodywork repairs are completed within 1 to 2 days.' },
+    { title: 'Affordable Pricing', text: 'Competitive rates with transparent quotes and no hidden charges.' },
+    { title: 'Accident Damage Specialists', text: 'Professional vehicle bodywork restoration for insurance and private repairs.' },
+    { title: 'Free Quotes via WhatsApp', text: 'Send photos of your vehicle for a fast, no-obligation estimate.' },
+    { title: 'Experienced Body Repair Technicians', text: 'Skilled specialists delivering high-quality car body repairs for all makes and models.' },
+    { title: 'Trusted Local Car Body Shop', text: 'Serving Rochdale with reliable car body repairs and outstanding customer service.' },
+];
+
+interface WhyChooseUsProps {
+    title?: string;
+    description?: string;
+    points?: WhyPoint[];
+}
+
+export default function WhyChooseUs({
+    title = 'Why Choose Our Car Body Repair Shop in Rochdale?',
+    description = 'Choose a trusted car body repair shop in Rochdale for expert dent removal, scratch repairs, bumper repairs, accident damage restoration, and professional vehicle bodywork. We deliver high-quality repairs, fast turnaround times, and transparent pricing.',
+    points = DEFAULT_POINTS,
+}: WhyChooseUsProps = {}) {
     const reasons = [
         "Fast turnaround times (1-2 days)",
         "Affordable cash pricing - no hidden fees",
@@ -19,26 +43,19 @@ export default function WhyChooseUs() {
             <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Our Car Body Repair Shop in Rochdale?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
                         <p className="text-blue-200 mb-10 text-lg">
-                            Choose a trusted car body repair shop in Rochdale for expert dent removal, scratch repairs, bumper repairs, accident damage restoration, and professional vehicle bodywork. We deliver high-quality repairs, fast turnaround times, and transparent pricing.
+                            {description}
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
-                            {[
-                                { title: 'Fast Car Body Repairs', text: 'Most dent, scratch, and bodywork repairs are completed within 1 to 2 days.' },
-                                { title: 'Affordable Pricing', text: 'Competitive rates with transparent quotes and no hidden charges.' },
-                                { title: 'Accident Damage Specialists', text: 'Professional vehicle bodywork restoration for insurance and private repairs.' },
-                                { title: 'Free Quotes via WhatsApp', text: 'Send photos of your vehicle for a fast, no-obligation estimate.' },
-                                { title: 'Experienced Body Repair Technicians', text: 'Skilled specialists delivering high-quality car body repairs for all makes and models.' },
-                                { title: 'Trusted Local Car Body Shop', text: 'Serving Rochdale with reliable car body repairs and outstanding customer service.' },
-                            ].map(({ title, text }, index) => (
+                            {points.map((point, index) => (
                                 <div key={index} className="flex items-start space-x-3 bg-blue-800/40 p-4 rounded-xl border border-blue-700/50 hover:bg-blue-800/60 transition-colors">
                                     <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                     <div>
-                                        <p className="font-semibold text-white text-sm">{title}</p>
-                                        <p className="text-blue-200 text-sm mt-0.5">{text}</p>
+                                        <p className="font-semibold text-white text-sm">{point.title}</p>
+                                        <p className="text-blue-200 text-sm mt-0.5">{point.text}</p>
                                     </div>
                                 </div>
                             ))}

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getPostsAsync } from '@/lib/blog-data';
-import { BASE_URL, PAGE_ROUTES, REDIRECTED_BLOG_SLUGS, SERVICE_SLUGS } from '@/lib/site-routes';
+import { AREA_PAGES, BASE_URL, PAGE_ROUTES, REDIRECTED_BLOG_SLUGS, SERVICE_SLUGS } from '@/lib/site-routes';
 
 /**
  * Blog posts are published through the admin panel, which writes data/posts.json
@@ -30,6 +30,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9,
     }));
 
+    const areaUrls = AREA_PAGES.map((area) => ({
+        url: `${BASE_URL}/areas/${area.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly' as const,
+        priority: 0.9,
+    }));
+
     // Skip posts that permanently redirect to their service page — listing a
     // redirecting URL wastes crawl budget and sends a mixed canonical signal.
     const redirected = new Set<string>(REDIRECTED_BLOG_SLUGS);
@@ -44,5 +51,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         }));
 
-    return [...pageUrls, ...serviceUrls, ...blogUrls];
+    return [...pageUrls, ...serviceUrls, ...areaUrls, ...blogUrls];
 }

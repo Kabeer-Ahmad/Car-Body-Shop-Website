@@ -1,13 +1,23 @@
 import Link from 'next/link';
 import { BUSINESS_DETAILS } from '@/app/constants';
 
-export default function CTA() {
+interface CTAProps {
+    title?: string;
+    subtitle?: string;
+    estimateHref?: string;
+}
+
+export default function CTA({
+    title = 'Need Your Car Fixed Fast?',
+    subtitle = "Don't stress. We'll get you back on the road looking good as new.",
+    estimateHref = '/#estimate-form',
+}: CTAProps = {}) {
     return (
         <section className="py-20 bg-blue-900 text-white text-center">
             <div className="max-w-4xl mx-auto px-4 md:px-8">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">Need Your Car Fixed Fast?</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6">{title}</h2>
                 <p className="text-xl text-blue-100 mb-10">
-                    Don't stress. We'll get you back on the road looking good as new.
+                    {subtitle}
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -18,7 +28,7 @@ export default function CTA() {
                         Call Now
                     </a>
                     <a
-                        href="/#estimate-form"
+                        href={estimateHref}
                         className="w-full md:w-auto px-8 py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold rounded-lg text-xl transition-colors"
                     >
                         Get Free Estimate

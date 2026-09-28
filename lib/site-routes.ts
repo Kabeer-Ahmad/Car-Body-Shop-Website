@@ -66,3 +66,28 @@ export const PAGE_ROUTES: readonly PageRoute[] = [
     { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3 },
     { path: '/terms-of-service', changeFrequency: 'yearly', priority: 0.3 },
 ];
+
+export interface ServedArea {
+    name: string;
+    /** Set once /areas/<slug> exists; the mega menu links it and the sitemap lists it. */
+    slug?: string;
+    note?: string;
+}
+
+/** Every area the business serves. Adding an area page means adding its slug here. */
+export const SERVED_AREAS: readonly ServedArea[] = [
+    { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Our workshop, Peel Mill, Shawforth' },
+    { name: 'Rochdale' },
+    { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Free collection, OL15' },
+    { name: 'Milnrow' },
+    { name: 'Heywood' },
+    { name: 'Middleton' },
+    { name: 'Bury' },
+    { name: 'Oldham' },
+    { name: 'Manchester' },
+    { name: 'Bolton' },
+];
+
+export const AREA_PAGES = SERVED_AREAS.filter(
+    (area): area is ServedArea & { slug: string } => Boolean(area.slug),
+);

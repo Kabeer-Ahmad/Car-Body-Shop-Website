@@ -3,6 +3,8 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import AreaLink from '@/components/AreaLink';
+import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
@@ -741,14 +743,17 @@ function ServiceAreasSection() {
                     </h2>
                     <div className="flex flex-wrap justify-center gap-4 mb-8">
                         {['Rochdale', 'Whitworth', 'Littleborough', 'Heywood', 'Oldham', 'Bury', 'Milnrow', 'Middleton', 'Manchester', 'Bolton'].map((a) => (
-                            <div key={a} className="flex items-center gap-2 text-gray-300 font-medium bg-gray-900 px-4 py-2 rounded-full border border-gray-800">
+                            <AreaLink key={a} name={a} className="flex items-center gap-2 text-gray-300 font-medium bg-gray-900 px-4 py-2 rounded-full border border-gray-800" linkClassName="underline decoration-blue-400 underline-offset-2 hover:border-blue-500 hover:text-white transition-colors">
                                 <span className="text-blue-500">📍</span> {a}
-                            </div>
+                            </AreaLink>
                         ))}
                     </div>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
                         Wherever you are across Greater Manchester, Car Body Shop provides professional car accident repairs with free collection and delivery so your vehicle comes to us and returns to you.
                     </p>
+                </div>
+                <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden aspect-[16/9] bg-gray-800 border border-gray-700 shadow-2xl">
+                    <MapEmbed />
                 </div>
             </div>
         </section>
@@ -860,7 +865,7 @@ function FinalCTASection({ whatsapp }: { whatsapp: string }) {
                                 </a>
                             </div>
                             <div className="text-gray-400 text-sm">
-                                📍 Whitworth, Rochdale, OL12 8HN &nbsp;|&nbsp; 📞 {BUSINESS_DETAILS.phone} &nbsp;|&nbsp; 📧 {BUSINESS_DETAILS.email}
+                                📍 {BUSINESS_DETAILS.address} &nbsp;|&nbsp; 📞 {BUSINESS_DETAILS.phone} &nbsp;|&nbsp; 📧 {BUSINESS_DETAILS.email}
                             </div>
                         </div>
                         <div>

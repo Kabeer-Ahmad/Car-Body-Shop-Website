@@ -249,7 +249,7 @@ export default function TermsOfServicePage() {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Location</p>
-                                        <p className="text-gray-700 text-sm font-medium">Whitworth, Rochdale, OL12 8HN</p>
+                                        <p className="text-gray-700 text-sm font-medium">Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
