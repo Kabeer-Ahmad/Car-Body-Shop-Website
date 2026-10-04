@@ -78,7 +78,7 @@ export interface ServedArea {
 export const SERVED_AREAS: readonly ServedArea[] = [
     { name: 'Shawforth', slug: 'car-body-shop-shawforth', note: 'Our workshop, Peel Mill' },
     { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Whitworth Valley, OL12' },
-    { name: 'Facit' },
+    { name: 'Facit', slug: 'car-body-shop-facit', note: '1.2 miles up Market Street' },
     { name: 'Healey' },
     { name: 'Bacup' },
     { name: 'Stacksteads' },

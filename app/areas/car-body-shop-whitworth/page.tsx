@@ -31,7 +31,7 @@ const content: AreaPageContent = {
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
             { title: 'Enclosed Spray Booth', text: 'Panels are primed and painted inside our workshop booth, not on a driveway.' },
             { title: 'Photo Quotes Within the Hour', text: 'Send photos on WhatsApp for an itemised cash price.' },
-            { title: 'Free Collection and Delivery', text: <>Across Whitworth, Facit, <AreaLink name="Shawforth" />, Healey and the rest of OL12.</> },
+            { title: 'Free Collection and Delivery', text: <>Across Whitworth, <AreaLink name="Facit" />, <AreaLink name="Shawforth" />, Healey and the rest of OL12.</> },
         ],
     },
     location: {

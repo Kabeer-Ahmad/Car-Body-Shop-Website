@@ -32,7 +32,7 @@ const content: AreaPageContent = {
         points: [
             { title: 'Drop Off and Walk Home', text: 'The workshop is under half a mile from the centre of Shawforth. Leave the car with us and we call when it is ready.' },
             { title: 'Same Day on Most Repairs', text: 'Most dents, scratches and bumper scuffs are finished the same day.' },
-            { title: 'Stone Chips Fixed Before Rust', text: 'Shawforth sits around 270 metres up. Winter grit and salt chip paint on bonnets and sills, so we repair chips before the metal rusts.' },
+            { title: 'Free Collection and Delivery', text: <>Across the Whitworth Valley, from <AreaLink name="Facit" /> up to Bacup.</> },
             { title: 'Cash Prices, No Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code in our enclosed spray booth.' },
             { title: 'Photo Quotes Within the Hour', text: 'Send photos on WhatsApp for an itemised cash price.' },
@@ -50,6 +50,52 @@ const content: AreaPageContent = {
         title: 'Book Your Repair in Shawforth',
         subtitle: 'Send photos on WhatsApp for a cash price within the hour, or call to book a free assessment at Peel Mill.',
     },
+    localSections: [
+        {
+            eyebrow: 'Local Roads',
+            title: 'Peel Mill Sits Near the Top of the A671',
+            intro: 'Market Street (the A671) climbs about 160 metres over the 5.7 miles from Rochdale town centre to our workshop, then peaks at around 307 metres a third of a mile further north before dropping into Bacup. At this height Shawforth runs roughly 1°C colder than Rochdale, at the standard rate air cools with altitude. Here is what that does to a car.',
+            points: [
+                { title: 'Stone chips', text: 'Gritted winter roads throw stones at bonnets, front bumpers and mirrors.' },
+                { title: 'Salt on sills and arches', text: 'Road salt gets into chips and scratches and starts rust on the bare metal.' },
+                { title: 'Kerb scuffs on ice', text: 'Low-speed slides on ice scuff bumpers and kerb alloy wheels.' },
+            ],
+            outro: 'Get chips and scratches sealed before the first frosts and winter salt has no bare metal to work on.',
+            table: {
+                caption: 'Height Along the A671',
+                headers: ['Place', 'Miles from Rochdale', 'Height'],
+                rows: [
+                    ['Rochdale town centre', '0', '124 m'],
+                    [<AreaLink key="h" name="Healey" />, '1.7', '191 m'],
+                    [<AreaLink key="w" name="Whitworth" />, '4.0', '227 m'],
+                    [<AreaLink key="f" name="Facit" />, '4.5', '240 m'],
+                    ['Peel Mill, our workshop', '5.7', '285 m'],
+                    ['Summit, north of Shawforth', '6.0', '307 m'],
+                    [<AreaLink key="b" name="Bacup" />, '7.7', '256 m'],
+                ],
+            },
+        },
+        {
+            eyebrow: 'Directions',
+            title: 'Getting to Peel Mill From Around the Valley',
+            intro: 'Peel Mill is on Market Street, the A671, so most of the valley reaches us along one road. Drive times are without traffic.',
+            table: {
+                caption: 'Drive Times to Peel Mill',
+                headers: ['From', 'Route', 'Drive'],
+                rows: [
+                    ['Shawforth village', 'Market Street (A671)', '1 min, 0.3 mi'],
+                    [<AreaLink key="f" name="Facit" />, 'North on Market Street (A671)', '3 min, 1.2 mi'],
+                    [<AreaLink key="w" name="Whitworth" />, 'North on Market Street (A671)', '5 min, 1.8 mi'],
+                    [<AreaLink key="b" name="Bacup" />, 'South on Rochdale Road, which becomes Market Street', '5 min, 2.1 mi'],
+                    [<AreaLink key="s" name="Stacksteads" />, 'A681 and New Line (A6066) to the A671', '8 min, 3.0 mi'],
+                    [<AreaLink key="h" name="Healey" />, 'Whitworth Road, then Market Street (A671)', '10 min, 4.0 mi'],
+                    [<AreaLink key="r" name="Rochdale" />, 'Whitworth Road, then Market Street (A671)', '15 min, 5.8 mi'],
+                    [<AreaLink key="wa" name="Wardle" />, 'Over Whitworth Rake to Market Street', '18 min, 4.4 mi'],
+                ],
+            },
+            outro: <>Would rather not drive a damaged car? Collection and delivery is free from every place on this list, and from <AreaLink name="Littleborough" />.</>,
+        },
+    ],
     faqSubtitle: 'Common questions from Shawforth drivers, answered by our team.',
     faqs: [
         {
