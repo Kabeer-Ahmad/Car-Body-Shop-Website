@@ -1,4 +1,5 @@
 import AreaPage, { areaMetadata, type AreaPageContent } from '@/components/AreaPage';
+import AreaLink from '@/components/AreaLink';
 import { BUSINESS_DETAILS } from '@/app/constants';
 
 const content: AreaPageContent = {
@@ -9,7 +10,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Shop Whitworth',
         highlight: 'Dent, Scratch, Bumper & Accident Repairs',
-        subtitle: 'Our workshop is at Peel Mill, Market Street, Shawforth, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery.',
+        subtitle: <>Our workshop is at Peel Mill, Market Street, <AreaLink name="Shawforth" />, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery.</>,
         imageAlt: 'Car body shop workshop in Whitworth, Rochdale',
         locationPlaceholder: 'e.g. Whitworth, OL12',
     },
@@ -30,12 +31,12 @@ const content: AreaPageContent = {
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
             { title: 'Enclosed Spray Booth', text: 'Panels are primed and painted inside our workshop booth, not on a driveway.' },
             { title: 'Photo Quotes Within the Hour', text: 'Send photos on WhatsApp for an itemised cash price.' },
-            { title: 'Free Collection and Delivery', text: 'Across Whitworth, Facit, Shawforth, Healey and the rest of OL12.' },
+            { title: 'Free Collection and Delivery', text: <>Across Whitworth, Facit, <AreaLink name="Shawforth" />, Healey and the rest of OL12.</> },
         ],
     },
     location: {
         title: 'Car Body Shop in Whitworth, Rochdale',
-        description: 'Find us at Peel Mill, Market Street, Shawforth OL12 8HN, between Rochdale and Bacup. Click the map to open us in Google Maps. Drive in for a free assessment during opening hours, or send photos on WhatsApp first for a cash price.',
+        description: <>Find us at Peel Mill, Market Street, <AreaLink name="Shawforth" /> OL12 8HN, between Rochdale and Bacup. Click the map to open us in Google Maps. Drive in for a free assessment during opening hours, or send photos on WhatsApp first for a cash price.</>,
     },
     cta: {
         title: 'Car Body Repairs in Whitworth',
@@ -65,7 +66,7 @@ const content: AreaPageContent = {
         },
         {
             question: 'Can I get a quote without bringing my car in?',
-            answer: `Yes. Send clear photos of the damage on WhatsApp to ${BUSINESS_DETAILS.phone} and we reply with an itemised cash price within the hour.`,
+            answer: `Yes. Send clear photos of the damage on WhatsApp to ${BUSINESS_DETAILS.whatsappDisplay} and we reply with an itemised cash price within the hour.`,
         },
     ],
 };

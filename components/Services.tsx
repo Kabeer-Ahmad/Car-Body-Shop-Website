@@ -65,7 +65,7 @@ interface ServicesProps {
 export default function Services({
     title = 'Auto Body Repair Services Offered in Rochdale',
     subtitle = 'Expert car body repairs in Rochdale, from a single dent to a full respray, we restore vehicles to factory condition.',
-    ctaLabel = `Call for Free Advice — ${BUSINESS_DETAILS.phone}`,
+    ctaLabel = `Call for Free Advice: ${BUSINESS_DETAILS.phoneDisplay}`,
 }: ServicesProps = {}) {
     return (
         <section className="py-20 bg-gray-50" id="services">

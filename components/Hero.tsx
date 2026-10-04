@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 interface HeroProps {
     title?: string;
     highlight?: string;
-    subtitle?: string;
+    subtitle?: React.ReactNode;
     imageAlt?: string;
     formSubtitle?: string;
     locationPlaceholder?: string;

@@ -26,7 +26,7 @@ export function businessNode() {
         '@type': 'AutoBodyShop',
         '@id': BUSINESS_ID,
         name: 'Car Body Shop',
-        telephone: '+447471512557',
+        telephone: BUSINESS_DETAILS.phone,
         email: 'carbodyshopltd@gmail.com',
         url: 'https://www.carbodyshop.org',
         priceRange: '££',

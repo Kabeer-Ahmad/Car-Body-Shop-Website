@@ -5,7 +5,7 @@ import ComparisonSlider from './ComparisonSlider';
 
 interface WhyPoint {
     title: string;
-    text: string;
+    text: React.ReactNode;
 }
 
 const DEFAULT_POINTS: WhyPoint[] = [

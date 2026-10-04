@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import AreaLink from '@/components/AreaLink';
+import { SERVED_AREAS } from '@/lib/site-routes';
 import MapEmbed from '@/components/MapEmbed';
 
 // ── WhatsApp icon path ──────────────────────────────────────────────────────
@@ -21,7 +22,7 @@ const HOURS = [
     { day: 'Sunday', hours: 'Closed' },
 ];
 
-const AREAS = ['Rochdale', 'Whitworth', 'Littleborough', 'Heywood', 'Oldham', 'Bury', 'Milnrow', 'Middleton', 'Manchester', 'Bolton'];
+const AREAS = SERVED_AREAS.map((area) => area.name);
 
 const WHY_US = ['Free Estimates', '5-Star Rated', 'Fast Turnaround', 'Fully Insured', 'Experienced Technicians', 'Premium Paint Systems'];
 
@@ -123,7 +124,7 @@ export default function ContactPage() {
                             <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            Call 07471 512557
+                            Call {BUSINESS_DETAILS.phoneDisplay}
                         </a>
                     </div>
                 </div>
@@ -281,7 +282,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Phone</p>
-                                            <a href="tel:07471512557" className="text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">07471 512557</a>
+                                            <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">{BUSINESS_DETAILS.phoneDisplay}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
@@ -379,7 +380,7 @@ export default function ContactPage() {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            Call 07471 512557
+                            Call {BUSINESS_DETAILS.phoneDisplay}
                         </a>
                         <a href={`https://wa.me/${BUSINESS_DETAILS.whatsapp}?text=Hi%2C%20I'd%20like%20a%20free%20quote.`}
                             target="_blank" rel="noopener noreferrer"

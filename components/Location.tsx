@@ -1,6 +1,7 @@
 import { BUSINESS_DETAILS } from '@/app/constants';
 import MapEmbed from '@/components/MapEmbed';
 import AreaLink from '@/components/AreaLink';
+import { SERVED_AREAS } from '@/lib/site-routes';
 
 interface LocationProps {
     title?: string;
@@ -43,7 +44,7 @@ export default function Location({
                             <h3 className="text-xl font-bold text-gray-900 mb-2">Service Area</h3>
                             <p className="text-gray-600 mb-2">Serving {BUSINESS_DETAILS.city} and surrounding areas including:</p>
                             <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                                {['Rochdale', 'Whitworth', 'Bacup', 'Littleborough', 'Milnrow', 'Heywood', 'Bury', 'Oldham'].map((area) => (
+                                {SERVED_AREAS.map(({ name: area }) => (
                                     <AreaLink
                                         key={area}
                                         name={area}

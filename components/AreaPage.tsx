@@ -24,10 +24,10 @@ export interface AreaPageContent {
     /** Full <title>, used as-is (skips the site-wide suffix). */
     title: string;
     description: string;
-    hero: { title: string; highlight: string; subtitle: string; imageAlt: string; locationPlaceholder: string };
+    hero: { title: string; highlight: string; subtitle: React.ReactNode; imageAlt: string; locationPlaceholder: string };
     services: { title: string; subtitle: string };
     gallery: { title: string; subtitle: string };
-    why: { title: string; description: string; points: { title: string; text: string }[] };
+    why: { title: string; description: string; points: { title: string; text: React.ReactNode }[] };
     location: { title: string; description: React.ReactNode };
     cta: { title: string; subtitle: string };
     faqs: FaqItem[];
@@ -93,7 +93,7 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             <StatsBar />
 
             <AnimatedSection delay={0.1}>
-                <Services {...content.services} ctaLabel={`Call for Free Advice: ${BUSINESS_DETAILS.phone}`} />
+                <Services {...content.services} ctaLabel={`Call for Free Advice: ${BUSINESS_DETAILS.phoneDisplay}`} />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
@@ -113,10 +113,6 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <Location {...content.location} />
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.1}>
                 <CTA {...content.cta} estimateHref="#estimate-form" />
             </AnimatedSection>
 
@@ -126,6 +122,10 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
 
             <AnimatedSection delay={0.1}>
                 <EstimateForm />
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+                <Location {...content.location} />
             </AnimatedSection>
 
             <Footer />

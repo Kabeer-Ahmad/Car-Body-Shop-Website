@@ -5,10 +5,12 @@ const MAPS_QUERY = encodeURIComponent('Car Body Shop, Peel Mill, Market Street, 
 export const BUSINESS_DETAILS = {
   name: "Car Body Shop",
   address: "Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN",
-  phone: "07471512557",
+  phone: "+441706394989", // E.164, for tel: links
+  phoneDisplay: "+44 1706 394989",
   email: "carbodyshopltd@gmail.com",
   city: "Rochdale",
-  whatsapp: "447471512557", // International format without +
+  whatsapp: "447471512557", // International format without +. Mobile: the landline above cannot take WhatsApp.
+  whatsappDisplay: "07471 512557",
   mapsLink: `https://maps.google.com/maps?q=${MAPS_QUERY}&z=16&output=embed`,
   mapsPlaceLink: `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`,
   mapsDirectionLink: `https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`,

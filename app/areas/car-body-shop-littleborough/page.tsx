@@ -13,7 +13,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Repairs Littleborough',
         highlight: 'Free Collection and Delivery Across OL15',
-        subtitle: 'Our workshop at Peel Mill, Shawforth is about 20 minutes from Littleborough. We collect your car free of charge, repair it and bring it back, with cash prices and no insurance claim.',
+        subtitle: <>Our workshop at Peel Mill, <AreaLink name="Shawforth" /> is about 20 minutes from Littleborough. We collect your car free of charge, repair it and bring it back, with cash prices and no insurance claim.</>,
         imageAlt: 'Car body repair workshop serving Littleborough',
         locationPlaceholder: 'e.g. Littleborough, OL15',
     },
@@ -41,7 +41,7 @@ const content: AreaPageContent = {
         title: 'Our Workshop, 20 Minutes From Littleborough',
         description: (
             <>
-                Our <AreaLink name="Whitworth">Whitworth workshop</AreaLink> at Peel Mill, Market Street, Shawforth OL12 8HN is around 8 miles from Littleborough centre. Book free collection, or drive over for a free assessment. Click the map to open us in Google Maps.
+                Our <AreaLink name="Whitworth">Whitworth workshop</AreaLink> at Peel Mill, Market Street, <AreaLink name="Shawforth" /> OL12 8HN is around 8 miles from Littleborough centre. Book free collection, or drive over for a free assessment. Click the map to open us in Google Maps.
             </>
         ),
     },
@@ -73,7 +73,7 @@ const content: AreaPageContent = {
         },
         {
             question: 'Can I get a quote without bringing my car in?',
-            answer: `Yes. Send clear photos of the damage on WhatsApp to ${BUSINESS_DETAILS.phone} and we reply with an itemised cash price within the hour.`,
+            answer: `Yes. Send clear photos of the damage on WhatsApp to ${BUSINESS_DETAILS.whatsappDisplay} and we reply with an itemised cash price within the hour.`,
         },
     ],
 };
