@@ -7,13 +7,13 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 const services = [
     {
         title: 'Full Car Respray Services',
-        description: 'Give your vehicle a flawless, factory-quality finish. Our complete respray services tackle deep scratches, fading, and exact color matching with precision.',
+        description: 'Give your vehicle a flawless, factory-quality finish. Our complete respray services tackle deep scratches, fading, and exact colour matching with precision.',
         slug: 'full-car-respray-rochdale',
         image: '/services/full-car-respray.jpg',
     },
     {
         title: 'Trade & Motor Dealer Bodyshop Services',
-        description: 'Fast-turnaround fleet and dealer repair services. We keep your commercial vehicles and stock in pristine condition to maximize resale value.',
+        description: 'Fast-turnaround fleet and dealer repair services. We keep your commercial vehicles and stock in pristine condition to maximise resale value.',
         slug: 'trade-motor-dealer-bodyshop-services',
         image: '/services/trade-dealer-bodyshop.jpg',
     },

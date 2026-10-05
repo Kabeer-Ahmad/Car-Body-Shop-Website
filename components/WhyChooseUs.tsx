@@ -96,11 +96,11 @@ export default function WhyChooseUs({
                         <ComparisonSlider
                             before="/gallery/Before_Car_Fender_Dent.webp"
                             after="/gallery/AfteR_Cad_Fender_paint.webp"
-                            description="Fender dent repair & respray"
+                            description="Wing dent repair & respray"
                             className="relative w-full h-[400px] lg:h-[500px] overflow-hidden cursor-ew-resize select-none group"
                         />
                         <div className="p-4 bg-blue-950/80 border-t border-blue-800 text-center">
-                            <span className="text-sm font-semibold text-blue-200">Real Transformation: Fender Dent Repair &amp; Respray (1-2 Days)</span>
+                            <span className="text-sm font-semibold text-blue-200">Real Transformation: Wing Dent Repair &amp; Respray (1-2 Days)</span>
                         </div>
                     </div>
                 </div>
