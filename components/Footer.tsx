@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import Logo from '@/components/Logo';
+import { hoursGroups } from '@/lib/hours';
 
 export default function Footer() {
     return (
@@ -82,16 +83,16 @@ export default function Footer() {
                             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <a href={`tel:${BUSINESS_DETAILS.phone}`} className="hover:text-white transition-colors">{BUSINESS_DETAILS.phone}</a>
+                            <a href={`tel:${BUSINESS_DETAILS.phone}`} className="hover:text-white transition-colors">{BUSINESS_DETAILS.phoneDisplay}</a>
                         </li>
                         <li className="flex items-start gap-2 mt-2">
                             <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <div>
-                                <p>Mon - Fri: 8:30 AM - 5:30 PM</p>
-                                <p>Saturday: 9:00 AM - 1:00 PM</p>
-                                <p>Sunday: Closed</p>
+                                {hoursGroups().map((g) => (
+                                    <p key={g.label}>{g.label}: {g.hours}</p>
+                                ))}
                             </div>
                         </li>
                     </ul>

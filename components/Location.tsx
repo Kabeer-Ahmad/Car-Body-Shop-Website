@@ -1,6 +1,8 @@
 import { BUSINESS_DETAILS } from '@/app/constants';
 import MapEmbed from '@/components/MapEmbed';
 import AreaLink from '@/components/AreaLink';
+import { SERVED_AREAS } from '@/lib/site-routes';
+import { hoursGroups } from '@/lib/hours';
 
 interface LocationProps {
     title?: string;
@@ -33,9 +35,9 @@ export default function Location({
                         <div className="mb-6">
                             <h3 className="text-xl font-bold text-gray-900 mb-2">Opening Hours</h3>
                             <ul className="text-gray-600 space-y-1">
-                                <li className="flex justify-between max-w-xs mx-auto md:mx-0"><span>Monday - Friday:</span> <span className="font-medium">8:30 AM - 5:30 PM</span></li>
-                                <li className="flex justify-between max-w-xs mx-auto md:mx-0"><span>Saturday:</span> <span className="font-medium">9:00 AM - 1:00 PM</span></li>
-                                <li className="flex justify-between max-w-xs mx-auto md:mx-0"><span>Sunday:</span> <span className="font-medium">Closed</span></li>
+                                {hoursGroups().map((g) => (
+                                    <li key={g.label} className="flex justify-between gap-4 max-w-sm mx-auto md:mx-0"><span>{g.label}:</span> <span className="font-medium">{g.hours}</span></li>
+                                ))}
                             </ul>
                         </div>
 
@@ -43,7 +45,7 @@ export default function Location({
                             <h3 className="text-xl font-bold text-gray-900 mb-2">Service Area</h3>
                             <p className="text-gray-600 mb-2">Serving {BUSINESS_DETAILS.city} and surrounding areas including:</p>
                             <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                                {['Rochdale', 'Whitworth', 'Bacup', 'Littleborough', 'Milnrow', 'Heywood', 'Bury', 'Oldham'].map((area) => (
+                                {SERVED_AREAS.map(({ name: area }) => (
                                     <AreaLink
                                         key={area}
                                         name={area}

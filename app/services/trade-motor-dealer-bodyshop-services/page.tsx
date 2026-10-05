@@ -1015,7 +1015,7 @@ function TradeFinalCTASection({ whatsapp }: { whatsapp: string }) {
                     <p className="text-gray-400 text-sm relative z-10 flex flex-wrap justify-center gap-4">
                         <span>📍 {BUSINESS_DETAILS.address}</span>
                         <span className="hidden sm:inline">·</span>
-                        <span>📞 07471512557</span>
+                        <span>📞 {BUSINESS_DETAILS.phoneDisplay}</span>
                         <span className="hidden sm:inline">·</span>
                         <span>📧 carbodyshopltd@gmail.com</span>
                     </p>

@@ -76,9 +76,15 @@ export interface ServedArea {
 
 /** Every area the business serves. Adding an area page means adding its slug here. */
 export const SERVED_AREAS: readonly ServedArea[] = [
-    { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Our workshop, Peel Mill, Shawforth' },
-    { name: 'Rochdale' },
+    { name: 'Shawforth', slug: 'car-body-shop-shawforth', note: 'Our workshop, Peel Mill' },
+    { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Whitworth Valley, OL12' },
+    { name: 'Facit', slug: 'car-body-shop-facit', note: '1.2 miles up Market Street' },
+    { name: 'Healey' },
+    { name: 'Bacup' },
+    { name: 'Stacksteads' },
     { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Free collection, OL15' },
+    { name: 'Wardle' },
+    { name: 'Rochdale' },
     { name: 'Milnrow' },
     { name: 'Heywood' },
     { name: 'Middleton' },

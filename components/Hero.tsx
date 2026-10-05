@@ -1,13 +1,15 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { motion } from 'framer-motion';
+import { slotsForDate } from '@/lib/hours';
 
 interface HeroProps {
     title?: string;
     highlight?: string;
-    subtitle?: string;
+    subtitle?: React.ReactNode;
     imageAlt?: string;
     formSubtitle?: string;
     locationPlaceholder?: string;
@@ -18,7 +20,7 @@ export default function Hero({
     highlight = 'Expert Car Body Shop & Accident Repairs',
     subtitle = 'Professional car body repair and vehicle bodywork services in Rochdale. From dents and scratches to accident repairs and full resprays, we restore your vehicle to showroom condition.',
     imageAlt = 'CBS Car Body Shop Workshop',
-    formSubtitle = 'Free estimate — no obligation. We\'ll confirm within the hour.',
+    formSubtitle = 'Free estimate, no obligation. We\'ll confirm within the hour.',
     locationPlaceholder = 'e.g. Rochdale, OL12',
 }: HeroProps = {}) {
     return (
@@ -144,11 +146,8 @@ export function BookingForm({ whatsapp, locationPlaceholder = 'e.g. Rochdale, OL
         'Other',
     ];
 
-    const times = [
-        '08:30 – 09:30', '09:30 – 10:30', '10:30 – 11:30',
-        '11:30 – 12:30', '13:00 – 14:00', '14:00 – 15:00',
-        '15:00 – 16:00', '16:00 – 17:00',
-    ];
+    const [date, setDate] = useState('');
+    const times = slotsForDate(date);
 
     const today = new Date().toISOString().split('T')[0];
 
@@ -207,12 +206,12 @@ export function BookingForm({ whatsapp, locationPlaceholder = 'e.g. Rochdale, OL
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label htmlFor="hf-date" className={label}>Preferred Date</label>
-                    <input id="hf-date" name="date" type="date" required min={today} className={input + ' [color-scheme:dark]'} />
+                    <input id="hf-date" name="date" type="date" required min={today} value={date} onChange={(e) => setDate(e.target.value)} className={input + ' [color-scheme:dark]'} />
                 </div>
                 <div>
                     <label htmlFor="hf-time" className={label}>Preferred Time</label>
-                    <select id="hf-time" name="time" required defaultValue="" className={input + ' appearance-none cursor-pointer'}>
-                        <option value="" disabled className="bg-gray-800">Select a slot…</option>
+                    <select key={date} id="hf-time" name="time" required defaultValue="" disabled={!date} className={input + ' appearance-none cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed'}>
+                        <option value="" disabled className="bg-gray-800">{date ? 'Select a slot…' : 'Pick a date first'}</option>
                         {times.map(t => (
                             <option key={t} value={t} className="bg-gray-800">{t}</option>
                         ))}

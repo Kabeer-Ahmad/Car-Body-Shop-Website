@@ -91,7 +91,7 @@ export function HubHero() {
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 md:p-8 shadow-2xl">
                             <div className="mb-5">
                                 <h2 className="text-2xl font-extrabold text-white mb-1">Book Your Appointment</h2>
-                                <p className="text-gray-300 text-sm">Free estimate — no obligation. We&apos;ll confirm within the hour.</p>
+                                <p className="text-gray-300 text-sm">Free estimate, no obligation. We&apos;ll confirm within the hour.</p>
                             </div>
                             <BookingForm whatsapp={BUSINESS_DETAILS.whatsapp} />
                         </div>

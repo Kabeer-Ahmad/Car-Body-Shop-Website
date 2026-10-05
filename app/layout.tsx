@@ -4,6 +4,7 @@ import "./globals.css";
 import { BUSINESS_DETAILS } from "./constants";
 import StickyMobileBar from "@/components/StickyMobileBar";
 import { businessNode } from "@/lib/schema";
+import { schemaOpeningHours } from '@/lib/hours';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.carbodyshop.org"), // Fallback/Canonical URL
@@ -81,20 +82,7 @@ export default function RootLayout({
           { "@type": "City", "name": "Manchester" },
           { "@type": "City", "name": "Bolton" }
         ],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:30",
-            "closes": "17:30"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "13:00"
-          }
-        ],
+        "openingHoursSpecification": schemaOpeningHours(),
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Car Body Repair Services",

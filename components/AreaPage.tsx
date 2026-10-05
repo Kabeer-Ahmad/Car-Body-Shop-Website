@@ -12,6 +12,7 @@ import CTA from '@/components/CTA';
 import EstimateForm from '@/components/EstimateForm';
 import FAQ, { type FaqItem } from '@/components/FAQ';
 import AnimatedSection from '@/components/AnimatedSection';
+import LocalSection, { type LocalSectionContent } from '@/components/LocalSection';
 import { HubEstimator } from '@/app/services/ClientSections';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import { BASE_URL } from '@/lib/site-routes';
@@ -24,14 +25,16 @@ export interface AreaPageContent {
     /** Full <title>, used as-is (skips the site-wide suffix). */
     title: string;
     description: string;
-    hero: { title: string; highlight: string; subtitle: string; imageAlt: string; locationPlaceholder: string };
+    hero: { title: string; highlight: string; subtitle: React.ReactNode; imageAlt: string; locationPlaceholder: string };
     services: { title: string; subtitle: string };
     gallery: { title: string; subtitle: string };
-    why: { title: string; description: string; points: { title: string; text: string }[] };
+    why: { title: string; description: string; points: { title: string; text: React.ReactNode }[] };
     location: { title: string; description: React.ReactNode };
     cta: { title: string; subtitle: string };
     faqs: FaqItem[];
     faqSubtitle: string;
+    /** Two sections that only make sense for this area: one under the stats bar, one after the gallery. */
+    localSections?: [LocalSectionContent, LocalSectionContent];
 }
 
 const pageUrl = (slug: string) => `${BASE_URL}/areas/${slug}`;
@@ -92,13 +95,25 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             />
             <StatsBar />
 
+            {content.localSections && (
+                <AnimatedSection delay={0.1}>
+                    <LocalSection section={content.localSections[0]} />
+                </AnimatedSection>
+            )}
+
             <AnimatedSection delay={0.1}>
-                <Services {...content.services} ctaLabel={`Call for Free Advice: ${BUSINESS_DETAILS.phone}`} />
+                <Services {...content.services} ctaLabel={`Call for Free Advice: ${BUSINESS_DETAILS.phoneDisplay}`} />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
                 <Gallery {...content.gallery} />
             </AnimatedSection>
+
+            {content.localSections && (
+                <AnimatedSection delay={0.1}>
+                    <LocalSection section={content.localSections[1]} />
+                </AnimatedSection>
+            )}
 
             <AnimatedSection delay={0.1}>
                 <WhyChooseUs {...content.why} />
@@ -113,10 +128,6 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <Location {...content.location} />
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.1}>
                 <CTA {...content.cta} estimateHref="#estimate-form" />
             </AnimatedSection>
 
@@ -126,6 +137,10 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
 
             <AnimatedSection delay={0.1}>
                 <EstimateForm />
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+                <Location {...content.location} />
             </AnimatedSection>
 
             <Footer />

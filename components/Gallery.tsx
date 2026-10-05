@@ -7,7 +7,7 @@ const galleryItems = [
         id: 1,
         before: "/gallery/Before_Car_Fender_Dent.webp",
         after: "/gallery/AfteR_Cad_Fender_paint.webp",
-        description: "Fender dent repair & respray, 1-2 days",
+        description: "Wing dent repair & respray, 1-2 days",
     },
     {
         id: 2,

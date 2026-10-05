@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { BUSINESS_DETAILS } from '@/app/constants';
 
 export const metadata: Metadata = {
     title: 'Privacy Policy | Car Body Shop Rochdale',
@@ -225,7 +226,7 @@ export default function PrivacyPolicyPage() {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Phone</p>
-                                        <a href="tel:07471512557" className="text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">07471 512 557</a>
+                                        <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">{BUSINESS_DETAILS.phoneDisplay}</a>
                                     </div>
                                 </div>
                             </div>
