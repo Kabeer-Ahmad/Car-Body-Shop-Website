@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import Logo from '@/components/Logo';
+import { hoursGroups } from '@/lib/hours';
 
 export default function Footer() {
     return (
@@ -89,9 +90,9 @@ export default function Footer() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <div>
-                                <p>Mon - Fri: 8:30 AM - 5:30 PM</p>
-                                <p>Saturday: 9:00 AM - 1:00 PM</p>
-                                <p>Sunday: Closed</p>
+                                {hoursGroups().map((g) => (
+                                    <p key={g.label}>{g.label}: {g.hours}</p>
+                                ))}
                             </div>
                         </li>
                     </ul>

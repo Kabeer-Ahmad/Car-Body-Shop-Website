@@ -36,7 +36,7 @@ const content: AreaPageContent = {
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
             { title: 'Enclosed Spray Booth', text: 'Panels are primed and painted inside our booth, not on a driveway.' },
             { title: 'Kerbed Alloys Refurbished', text: 'Scuffed and kerbed alloy wheels repaired and refinished.' },
-            { title: 'Saturday Mornings', text: 'Open Saturday 9am to 1pm as well as weekdays 8:30am to 5:30pm.' },
+            { title: 'Open Seven Days', text: 'Until 7pm Monday to Thursday, until 9pm on Friday, and 11am to 6pm at weekends.' },
         ],
     },
     localSections: [
@@ -45,7 +45,7 @@ const content: AreaPageContent = {
             title: 'Closer Than Any Trip Into Rochdale',
             intro: 'From Facit, Peel Mill is 1.2 miles up one road. Rochdale town centre is 4.5 miles the other way. Facit drivers heading north on the A671 pass our door.',
             points: [
-                { title: 'Drop off on your way past', text: 'Leave the car in the morning and collect it on the way home. Most dents, scratches and bumper scuffs are ready the same day.' },
+                { title: 'Drop off on your way past', text: 'Leave the car as you pass and pick it up on the way back. Most dents, scratches and bumper scuffs are ready the same day.' },
                 { title: 'Walk home downhill', text: 'Market Street drops about 45 metres from Peel Mill to Facit, so the 25 minute walk back is downhill all the way.' },
                 { title: 'Or stay put', text: 'We collect from Facit and bring the car back, free.' },
             ],
@@ -65,7 +65,7 @@ const content: AreaPageContent = {
             intro: 'Facit station opened in 1870 on the Rochdale to Bacup line and closed to passengers in 1947, with goods trains running until 1963. Since then the valley has moved on the A671. A damaged car still needs to get you about, so we keep it off the road for as little time as possible.',
             points: [
                 { title: 'Price before you book', text: 'Send photos on WhatsApp and know the cash price before the car leaves your drive.' },
-                { title: 'Booked around you', text: 'Pick a drop-off slot that fits your week, including Saturday mornings.' },
+                { title: 'Booked around you', text: 'Pick a drop-off slot that fits your week, including weekends and Friday evenings.' },
                 { title: 'Same day on most repairs', text: 'Dents, scratches and bumper scuffs are usually finished the same day.' },
                 { title: 'Collected and returned', text: 'Free collection from Facit means no lift needed to or from the workshop.' },
             ],

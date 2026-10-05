@@ -1,6 +1,7 @@
 import AreaPage, { areaMetadata, type AreaPageContent } from '@/components/AreaPage';
 import AreaLink from '@/components/AreaLink';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { hoursSentence } from '@/lib/hours';
 
 // Sources: Shawforth is a ward of Whitworth, Rossendale, on the River Spodden
 // and the A671 (Wikipedia). Elevation ~273 m vs ~130 m in Rochdale town centre
@@ -100,7 +101,7 @@ const content: AreaPageContent = {
     faqs: [
         {
             question: 'Where is your workshop in Shawforth?',
-            answer: 'Our workshop is at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN, on the A671 through the Whitworth Valley. It is open Monday to Friday 8:30am to 5:30pm and Saturday 9am to 1pm.',
+            answer: `Our workshop is at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN, on the A671 through the Whitworth Valley. It is open ${hoursSentence()}.`,
         },
         {
             question: 'Can I drop my car off and walk home?',

@@ -8,6 +8,7 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 import AreaLink from '@/components/AreaLink';
 import { SERVED_AREAS } from '@/lib/site-routes';
 import MapEmbed from '@/components/MapEmbed';
+import { hoursGroups } from '@/lib/hours';
 
 // Image URLs for real workshop feel
 const IMAGES = {
@@ -808,8 +809,9 @@ export default function AboutPage() {
                                     <p className="text-xs text-gray-600">{BUSINESS_DETAILS.address}</p>
                                 </div>
                                 <div className="text-xs text-gray-600 border-t sm:border-t-0 sm:border-l border-gray-200 pt-2 sm:pt-0 sm:pl-4">
-                                    <p><span className="font-bold text-gray-800">Mon–Fri:</span> 8:30 – 5:30</p>
-                                    <p><span className="font-bold text-gray-800">Sat:</span> 9:00 – 1:00</p>
+                                    {hoursGroups().map((g) => (
+                                        <p key={g.label}><span className="font-bold text-gray-800">{g.label}:</span> {g.hours}</p>
+                                    ))}
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 import AreaPage, { areaMetadata, type AreaPageContent } from '@/components/AreaPage';
 import AreaLink from '@/components/AreaLink';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { hoursSentence } from '@/lib/hours';
 
 const content: AreaPageContent = {
     slug: 'car-body-shop-whitworth',
@@ -46,7 +47,7 @@ const content: AreaPageContent = {
     faqs: [
         {
             question: 'Where is your car body shop in Whitworth?',
-            answer: 'Car Body Shop is at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN, on the Whitworth side between Rochdale and Bacup. The workshop is open Monday to Friday 8:30am to 5:30pm and Saturday 9am to 1pm.',
+            answer: `Car Body Shop is at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN, on the Whitworth side between Rochdale and Bacup. The workshop is open ${hoursSentence()}.`,
         },
         {
             question: 'How much does car body repair cost in Whitworth?',
