@@ -33,8 +33,30 @@ export interface AreaPageContent {
     cta: { title: string; subtitle: string };
     faqs: FaqItem[];
     faqSubtitle: string;
-    /** Two sections that only make sense for this area: one under the stats bar, one after the gallery. */
-    localSections?: [LocalSectionContent, LocalSectionContent];
+    /** Sections that only make sense for this area: the first under the stats bar, the second after the gallery. */
+    localSections?: [LocalSectionContent, LocalSectionContent?];
+    /** Keyword headings for the shared sections. Defaults are built from the area name. */
+    headings?: Partial<AreaHeadings>;
+}
+
+export interface AreaHeadings {
+    form: string;
+    estimator: string;
+    estimatorSubtitle: string;
+    reviews: string;
+    faq: string;
+    estimateForm: string;
+}
+
+function defaultHeadings(name: string): AreaHeadings {
+    return {
+        form: `Book Car Body Repairs in ${name}`,
+        estimator: `Car Body Repair Cost Calculator for ${name}`,
+        estimatorSubtitle: `Get a guide price for dent removal, scratch repair, bumper repair or a full respray in ${name}. For an exact cash quote, send photos on WhatsApp.`,
+        reviews: `Car Body Shop Reviews From Local Drivers`,
+        faq: `Car Body Repair FAQs for ${name}`,
+        estimateForm: `Get a Free Car Body Repair Quote in ${name}`,
+    };
 }
 
 const pageUrl = (slug: string) => `${BASE_URL}/areas/${slug}`;
@@ -65,6 +87,7 @@ export function areaMetadata(content: AreaPageContent): Metadata {
 
 export default function AreaPage({ content }: { content: AreaPageContent }) {
     const url = pageUrl(content.slug);
+    const h = { ...defaultHeadings(content.name), ...content.headings };
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -91,6 +114,7 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
 
             <Hero
                 {...content.hero}
+                formTitle={h.form}
                 formSubtitle="Free estimate, no obligation. We confirm within the hour."
             />
             <StatsBar />
@@ -109,7 +133,7 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
                 <Gallery {...content.gallery} />
             </AnimatedSection>
 
-            {content.localSections && (
+            {content.localSections?.[1] && (
                 <AnimatedSection delay={0.1}>
                     <LocalSection section={content.localSections[1]} />
                 </AnimatedSection>
@@ -120,11 +144,11 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <HubEstimator whatsapp={BUSINESS_DETAILS.whatsapp} />
+                <HubEstimator whatsapp={BUSINESS_DETAILS.whatsapp} title={h.estimator} subtitle={h.estimatorSubtitle} />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <Reviews />
+                <Reviews title={h.reviews} />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
@@ -132,16 +156,15 @@ export default function AreaPage({ content }: { content: AreaPageContent }) {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <FAQ faqs={content.faqs} subtitle={content.faqSubtitle} />
+                <FAQ title={h.faq} faqs={content.faqs} subtitle={content.faqSubtitle} />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-                <EstimateForm />
+                <EstimateForm title={h.estimateForm} />
             </AnimatedSection>
 
-            <AnimatedSection delay={0.1}>
-                <Location {...content.location} />
-            </AnimatedSection>
+            {/* Not animated: the map must show even if the fade-in never fires. */}
+            <Location {...content.location} />
 
             <Footer />
         </main>

@@ -80,7 +80,7 @@ export const SERVED_AREAS: readonly ServedArea[] = [
     { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Whitworth Valley, OL12' },
     { name: 'Facit', slug: 'car-body-shop-facit', note: '1.2 miles up Market Street' },
     { name: 'Healey' },
-    { name: 'Bacup', slug: 'car-body-shop-bacup', note: '2.1 miles down the A671' },
+    { name: 'Bacup', slug: 'car-body-shop-bacup', note: 'Free collection, OL13' },
     { name: 'Stacksteads' },
     { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Free collection, OL15' },
     { name: 'Wardle' },

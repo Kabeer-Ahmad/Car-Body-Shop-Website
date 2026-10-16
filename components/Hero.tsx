@@ -13,6 +13,7 @@ interface HeroProps {
     imageAlt?: string;
     formSubtitle?: string;
     locationPlaceholder?: string;
+    formTitle?: string;
 }
 
 export default function Hero({
@@ -22,6 +23,7 @@ export default function Hero({
     imageAlt = 'CBS Car Body Shop Workshop',
     formSubtitle = 'Free estimate, no obligation. We\'ll confirm within the hour.',
     locationPlaceholder = 'e.g. Rochdale, OL12',
+    formTitle = 'Book Your Appointment',
 }: HeroProps = {}) {
     return (
         <section className="relative bg-gray-900 text-white min-h-[90vh] flex items-center overflow-hidden pt-20">
@@ -119,7 +121,7 @@ export default function Hero({
                     >
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 md:p-8 shadow-2xl">
                             <div className="mb-5">
-                                <h2 className="text-2xl font-extrabold text-white mb-1">Book Your Appointment</h2>
+                                <h2 className="text-2xl font-extrabold text-white mb-1">{formTitle}</h2>
                                 <p className="text-gray-300 text-sm">{formSubtitle}</p>
                             </div>
                             <BookingForm whatsapp={BUSINESS_DETAILS.whatsapp} locationPlaceholder={locationPlaceholder} />
