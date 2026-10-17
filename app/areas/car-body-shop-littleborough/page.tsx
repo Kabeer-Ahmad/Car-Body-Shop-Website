@@ -13,7 +13,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Repairs Littleborough',
         highlight: 'Free Collection and Delivery Across OL15',
-        subtitle: <>Our workshop at Peel Mill, <AreaLink name="Shawforth" /> is about 20 minutes from Littleborough. We collect your car free of charge, repair it and bring it back, with cash prices and no insurance claim.</>,
+        subtitle: <>Our workshop at Peel Mill, Shawforth is about 20 minutes from Littleborough. We collect your car free of charge, repair it and bring it back, with cash prices and no insurance claim.</>,
         imageAlt: 'Car body repair workshop serving Littleborough',
         locationPlaceholder: 'e.g. Littleborough, OL15',
     },

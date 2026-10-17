@@ -31,11 +31,13 @@ const DEFAULT_FAQS: FaqItem[] = [
 ];
 
 interface FAQProps {
+    title?: string;
     faqs?: FaqItem[];
     subtitle?: string;
 }
 
 export default function FAQ({
+    title = 'Frequently Asked Questions',
     faqs = DEFAULT_FAQS,
     subtitle = 'Common questions about car body repair in Rochdale, answered by our team.',
 }: FAQProps = {}) {
@@ -69,7 +71,7 @@ export default function FAQ({
                         FAQs
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-                        Frequently Asked Questions
+                        {title}
                     </h2>
                     <p className="text-gray-500 text-base max-w-xl mx-auto">
                         {subtitle}

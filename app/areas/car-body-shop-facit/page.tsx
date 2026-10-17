@@ -15,7 +15,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Repairs Facit',
         highlight: '1.2 Miles Up Market Street',
-        subtitle: <>Our workshop at Peel Mill, <AreaLink name="Shawforth" /> is three minutes from Facit, straight up Market Street (the A671). Drive in, or we collect your car free and bring it back. Cash prices, no insurance claim.</>,
+        subtitle: <>Our workshop at Peel Mill, Shawforth is three minutes from Facit, straight up Market Street (the A671). Drive in, or we collect your car free and bring it back. Cash prices, no insurance claim.</>,
         imageAlt: 'Car body repair workshop serving Facit, Whitworth',
         locationPlaceholder: 'e.g. Facit, OL12',
     },
