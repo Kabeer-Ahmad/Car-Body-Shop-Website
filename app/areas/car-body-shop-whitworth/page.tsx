@@ -11,7 +11,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Shop Whitworth',
         highlight: 'Dent, Scratch, Bumper & Accident Repairs',
-        subtitle: <>Our workshop is at Peel Mill, Market Street, <AreaLink name="Shawforth" />, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery.</>,
+        subtitle: <>Our workshop is at Peel Mill, Market Street, Shawforth, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery.</>,
         imageAlt: 'Car body shop workshop in Whitworth, Rochdale',
         locationPlaceholder: 'e.g. Whitworth, OL12',
     },

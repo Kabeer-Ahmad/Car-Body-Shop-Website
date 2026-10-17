@@ -11,7 +11,7 @@ import {
     validatePhotos,
 } from '@/lib/estimate-validation';
 
-export default function EstimateForm() {
+export default function EstimateForm({ title = 'Get a Free Estimate' }: { title?: string } = {}) {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -166,7 +166,7 @@ export default function EstimateForm() {
         <section className="py-20 bg-white" id="estimate-form">
             <div className="max-w-2xl mx-auto px-4 md:px-8">
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Estimate</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
                     <p className="text-gray-600 max-w-lg mx-auto">
                         Upload 1-3 photos of the damage for the most accurate price. We usually reply within 24 hours.
                     </p>

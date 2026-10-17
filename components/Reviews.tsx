@@ -43,11 +43,11 @@ const reviews = [
     }
 ];
 
-export default function Reviews() {
+export default function Reviews({ title = 'What Our Customers Say' }: { title?: string } = {}) {
     return (
         <section className="py-20 bg-gray-50 overflow-hidden" id="reviews">
             <div className="max-w-full mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 px-4">What Our Customers Say</h2>
+                <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 px-4">{title}</h2>
 
                 <div className="relative w-full">
                     {/* Gradient Masks for smooth edges */}

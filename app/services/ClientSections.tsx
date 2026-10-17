@@ -189,7 +189,11 @@ export function HubContactForm({ whatsapp }: { whatsapp: string }) {
     );
 }
 
-export function HubEstimator({ whatsapp }: { whatsapp: string }) {
+export function HubEstimator({
+    whatsapp,
+    title = 'Get an Instant Repair Estimate',
+    subtitle = 'Use our tool to get a rough guide price for your car body repair. For an exact quote, just send us a few photos on WhatsApp.',
+}: { whatsapp: string; title?: string; subtitle?: string }) {
     const basePricing = {
         'Full Respray': 1200,
         'Accident Repair': 150,
@@ -221,10 +225,10 @@ export function HubEstimator({ whatsapp }: { whatsapp: string }) {
                             Instant Calculator
                         </div>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                            Get an Instant Repair Estimate
+                            {title}
                         </h2>
                         <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                            Use our tool to get a rough guide price for your car body repair. For an exact quote, just send us a few photos on WhatsApp.
+                            {subtitle}
                         </p>
                         
                         <div className="space-y-6 bg-gray-50 p-8 rounded-3xl border border-gray-100">
