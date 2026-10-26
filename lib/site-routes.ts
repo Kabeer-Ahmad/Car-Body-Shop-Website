@@ -79,7 +79,7 @@ export const SERVED_AREAS: readonly ServedArea[] = [
     { name: 'Shawforth', slug: 'car-body-shop-shawforth', note: 'Our workshop, Peel Mill' },
     { name: 'Whitworth', slug: 'car-body-shop-whitworth', note: 'Whitworth Valley, OL12' },
     { name: 'Facit', slug: 'car-body-shop-facit', note: '1.2 miles up Market Street' },
-    { name: 'Healey' },
+    { name: 'Healey', slug: 'car-body-shop-healey', note: 'Free collection, OL12' },
     { name: 'Bacup', slug: 'car-body-shop-bacup', note: 'Free collection, OL13' },
     { name: 'Stacksteads', slug: 'car-body-shop-stacksteads', note: 'Free collection, OL13' },
     { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Free collection, OL15' },
