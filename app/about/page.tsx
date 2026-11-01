@@ -23,11 +23,11 @@ const IMAGES = {
     step3Prep: "/gallery/Middlestage_Car_Fender_Putene.webp",
     step4Paint: "/gallery/AfteR_Cad_Fender_paint.webp",
     step5Inspect: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=1000",
-    service1: "/services/accident-collision-repair.jpg",
-    service2: "/services/full-car-respray.jpg",
-    service3: "/services/dent-removal.jpg",
-    service4: "/services/car-scratch-repair.jpg",
-    service5: "/services/bumper-repair.jpg",
+    service1: "/services/accident-collision-repair-rochdale.jpg",
+    service2: "/services/full-car-respray-rochdale.jpg",
+    service3: "/services/dent-removal-rochdale.jpg",
+    service4: "/services/car-scratch-repair-rochdale.jpg",
+    service5: "/services/bumper-repair-rochdale.jpg",
     service6: "/services/minor-accident-repair.jpg",
 };
 
@@ -533,7 +533,7 @@ export default function AboutPage() {
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service1} alt="Car Body Repairs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service1} alt="Car body repairs in Rochdale, technician repairing a crushed rear bumper and boot lid" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>
@@ -556,7 +556,7 @@ export default function AboutPage() {
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service2} alt="Full Car Resprays" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service2} alt="Full car respray in Rochdale, saloon masked up and primed in the spray booth" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>
@@ -579,7 +579,7 @@ export default function AboutPage() {
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service3} alt="Dent Removal" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service3} alt="Dent removal in Rochdale, technician using a hammer and dolly on a dented car door" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>
@@ -602,7 +602,7 @@ export default function AboutPage() {
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service4} alt="Scratch Repairs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service4} alt="Car scratch repair in Rochdale, machine polishing scratches out of a red car rear quarter panel" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>
@@ -625,7 +625,7 @@ export default function AboutPage() {
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service5} alt="Bumper Repairs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service5} alt="Bumper repair in Rochdale, front bumper removed to repair crash damage at our car body shop" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>
@@ -644,11 +644,11 @@ export default function AboutPage() {
 
                         {/* Card 6 */}
                         <Link
-                            href="/services/lease-return-repairs-rochdale"
+                            href="/services/minor-accident-repair-rochdale"
                             className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
                         >
                             <div className="h-48 overflow-hidden relative">
-                                <img src={IMAGES.service6} alt="Minor Accident Repairs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <img src={IMAGES.service6} alt="Minor accident repair in Rochdale" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                                 <div>

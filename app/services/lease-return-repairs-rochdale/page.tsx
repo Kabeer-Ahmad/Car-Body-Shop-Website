@@ -8,6 +8,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 const WHATSAPP_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z";
@@ -91,14 +92,6 @@ const jsonLd = {
                         "text": "Light scuffs and scratches start from around £150. Kerbed alloy wheels start from around £80 each. Combination repairs covering multiple areas start from around £300. Send photos on WhatsApp for an exact price."
                     }
                 },
-                {
-                    "@type": "Question",
-                    "name": "Do you offer collection and delivery for lease return repairs?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton, so your car can be prepared without disrupting your schedule before the return deadline."
-                    }
-                }
             ]
         }
     ]
@@ -711,7 +704,6 @@ const whyPoints = [
     'Fast turnaround to fit tight return deadlines.',
     'Computer colour matching for a seamless finish.',
     'Proper workshop, not a van on your driveway.',
-    'Free collection and delivery across Greater Manchester.',
     'Honest, itemised quotes. No hidden charges.',
     '10+ years preparing vehicles for lease return in Rochdale.',
 ];
@@ -763,12 +755,12 @@ function WhyChooseSection() {
 // S8 — Related Services
 // ─────────────────────────────────────────────────────────────────────────────
 const relatedServices = [
-    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
-    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
+    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
+    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
     { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
-    { title: 'Accident & Collision Repair', desc: 'Larger collision damage restored to pre-accident condition.', href: '/services/accident-collision-repair-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
-    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
+    { title: 'Accident & Collision Repair', desc: 'Larger collision damage restored to pre-accident condition.', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
+    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
 ];
 
 function RelatedServicesSection() {
@@ -786,7 +778,7 @@ function RelatedServicesSection() {
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -827,7 +819,7 @@ function CoverageSection() {
                             Lease Return Repair Coverage Across Greater Manchester
                         </h2>
                         <p className="text-gray-500 leading-relaxed mb-8">
-                            Wherever you are across Greater Manchester, we offer the same fast turnaround and free collection and delivery before your lease return.
+                            Wherever you are across Greater Manchester, we offer the same fast turnaround before your lease return.
                         </p>
                         <div className="flex flex-wrap gap-3 mb-8">
                             {areas.map((a) => (
@@ -843,7 +835,7 @@ function CoverageSection() {
                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <p className="text-gray-900 font-bold text-lg mb-2">Lease Return Repairs in {activeArea}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">
-                                We prepare vehicles for lease return from customers in {activeArea} at our Whitworth, Rochdale workshop. Same day on most jobs. Free collection and delivery available before your return deadline.
+                                We prepare vehicles for lease return from customers in {activeArea} at our Whitworth, Rochdale workshop. Same day on most jobs.
                             </p>
                             <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
@@ -877,10 +869,6 @@ const faqs = [
     {
         q: 'How much does lease return repair cost?',
         a: 'Light scuffs and scratches start from around £150. Kerbed alloy wheels start from around £80 each. Combination repairs covering multiple areas start from around £300. Send photos on WhatsApp for an exact price.',
-    },
-    {
-        q: 'Do you offer collection and delivery for lease return repairs?',
-        a: 'Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton, so your car can be prepared without disrupting your schedule before the return deadline.',
     },
 ];
 
@@ -918,7 +906,7 @@ function FaqSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // S11 — Final CTA
 // ─────────────────────────────────────────────────────────────────────────────
-const trustBadges = ['5 Star Rated', 'Avoid Dealer Charges', 'Free Collection & Delivery', 'Cash Prices', 'Free Quotations'];
+const trustBadges = ['5 Star Rated', 'Avoid Dealer Charges', 'Cash Prices', 'Free Quotations'];
 
 function FinalCtaSection({ whatsapp }: { whatsapp: string }) {
     return (

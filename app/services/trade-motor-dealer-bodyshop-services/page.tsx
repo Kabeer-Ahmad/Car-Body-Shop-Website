@@ -9,6 +9,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
@@ -535,14 +536,14 @@ const tradeServiceTabs = [
     {
         label: 'Panel & Touch-Up',
         heading: 'Panel & Touch-Up',
-        img: '/services/car-scratch-repair.jpg',
+        img: '/services/car-scratch-repair-rochdale.jpg',
         body: "Fast, colour-matched repair for single-panel damage — ideal where a full respray isn't justified but the finish still needs to meet retail standard.",
         perks: ['Minor forecourt damage', 'Single-panel scuffs and scratches', 'Quick turnaround before a sale date'],
     },
     {
         label: 'Fleet & Lease Return',
         heading: 'Fleet & Lease Return',
-        img: '/services/lease-return-repairs.jpg',
+        img: '/services/lease-return-repairs-rochdale.jpg',
         body: "Bodywork and paint repairs for company fleets and lease vehicles ahead of handover, designed to help fleet managers avoid end-of-lease damage charges.",
         perks: ['Fleet operators of any size', 'Leasing companies', 'Vehicles approaching lease-return inspection'],
     },
@@ -832,12 +833,12 @@ function TradeCustomerStoriesSection() {
 }
 
 const tradeOtherServices = [
-    { title: 'Full Car Respray', desc: 'Complete vehicle resprays with full colour matching, ideal for pre-sale preparation or a complete colour change before a vehicle goes on display.', cta: 'Learn More', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray.jpg' },
-    { title: 'Accident & Collision Repair', desc: 'Comprehensive repairs after collisions, from structural bodywork and panel straightening to final paint refinishing, with priority turnaround for trade accounts.', cta: 'Learn More', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair.jpg' },
-    { title: 'Bumper Repair', desc: 'Repair cracked, scratched and damaged bumpers to a factory standard without unnecessary panel replacements — fast enough for forecourt deadlines.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Dent Removal', desc: 'Repair dents, dings and creases while preserving original paintwork, keeping vehicles retail-ready without a full respray.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
-    { title: 'Car Scratch Repair', desc: 'Professional paint correction and scratch repairs using precision colour matching, essential for maintaining forecourt presentation.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
-    { title: 'Lease Return Repairs', desc: 'Scuffs, dents and scratches repaired before handover to help fleet and leasing companies avoid costly end-of-lease penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs.jpg' },
+    { title: 'Full Car Respray', desc: 'Complete vehicle resprays with full colour matching, ideal for pre-sale preparation or a complete colour change before a vehicle goes on display.', cta: 'Learn More', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Accident & Collision Repair', desc: 'Comprehensive repairs after collisions, from structural bodywork and panel straightening to final paint refinishing, with priority turnaround for trade accounts.', cta: 'Learn More', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
+    { title: 'Bumper Repair', desc: 'Repair cracked, scratched and damaged bumpers to a factory standard without unnecessary panel replacements — fast enough for forecourt deadlines.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Dent Removal', desc: 'Repair dents, dings and creases while preserving original paintwork, keeping vehicles retail-ready without a full respray.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
+    { title: 'Car Scratch Repair', desc: 'Professional paint correction and scratch repairs using precision colour matching, essential for maintaining forecourt presentation.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
+    { title: 'Lease Return Repairs', desc: 'Scuffs, dents and scratches repaired before handover to help fleet and leasing companies avoid costly end-of-lease penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
 ];
 
 function TradeOtherServicesSection() {
@@ -856,7 +857,7 @@ function TradeOtherServicesSection() {
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-400 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -915,7 +916,7 @@ function TradeServiceAreasSection() {
 
                         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
                             <p className="text-gray-400 text-sm leading-relaxed">
-                                Wherever your forecourt, dealership or fleet is based in or around Rochdale, our team delivers the same priority turnaround, trade pricing and consistent finish — with collection and delivery available so vehicles can be sent directly from your site without disrupting daily operations.
+                                Wherever your forecourt, dealership or fleet is based in or around Rochdale, our team delivers the same priority turnaround, trade pricing and consistent finish.
                             </p>
                         </div>
                     </div>
@@ -930,7 +931,6 @@ const tradeFaqs = [
     { q: 'How quickly can you turn around trade repair jobs?', a: 'Most trade repairs and dealer preparation work are completed within one to three working days. Minor cosmetic touch-ups can often be turned around the same day when pre-booked, so your stock isn\'t held up before a sale.' },
     { q: 'Is there a minimum vehicle volume to open a trade account?', a: 'No minimum is required. We work with independent traders moving a handful of vehicles a month through to larger dealerships and fleets — pricing and priority access scale with your typical volume.' },
     { q: 'Can you handle multiple vehicles for a dealership at once?', a: 'Yes. We regularly prepare several vehicles in parallel for dealers and fleets, with consistent colour matching and finish across the whole batch, not just one car at a time.' },
-    { q: 'Do you offer collection and delivery for trade customers?', a: 'Yes, across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton. Vehicles can be sent directly from your site without disrupting daily operations.' },
     { q: 'How is trade invoicing different from a standard quote?', a: 'Trade accounts can be set up with flexible monthly invoicing rather than per-job payment, making it easier to factor repair costs into your buying and stock-turnover decisions.' },
 ];
 

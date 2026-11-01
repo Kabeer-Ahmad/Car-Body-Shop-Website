@@ -33,7 +33,7 @@ const content: AreaPageContent = {
         points: [
             { title: 'Drop Off and Walk Home', text: 'The workshop is under half a mile from the centre of Shawforth. Leave the car with us and we call when it is ready.' },
             { title: 'Same Day on Most Repairs', text: 'Most dents, scratches and bumper scuffs are finished the same day.' },
-            { title: 'Free Collection and Delivery', text: <>Across the Whitworth Valley, from <AreaLink name="Facit" /> up to Bacup.</> },
+            { title: 'Serving the Whitworth Valley', text: <>Car body repairs for drivers from <AreaLink name="Facit" /> up to <AreaLink name="Bacup" />.</> },
             { title: 'Cash Prices, No Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code in our enclosed spray booth.' },
             { title: 'Photo Quotes Within the Hour', text: 'Send photos on WhatsApp for an itemised cash price.' },
@@ -94,7 +94,6 @@ const content: AreaPageContent = {
                     [<AreaLink key="wa" name="Wardle" />, 'Over Whitworth Rake to Market Street', '18 min, 4.4 mi'],
                 ],
             },
-            outro: <>Would rather not drive a damaged car? Collection and delivery is free from every place on this list, and from <AreaLink name="Littleborough" />.</>,
         },
     ],
     faqSubtitle: 'Common questions from Shawforth drivers, answered by our team.',
@@ -105,7 +104,7 @@ const content: AreaPageContent = {
         },
         {
             question: 'Can I drop my car off and walk home?',
-            answer: 'Yes. The workshop is under half a mile from the centre of Shawforth, so most local drivers drop the car off and walk home, and we call when it is ready. Collection and delivery is also free.',
+            answer: 'Yes. The workshop is under half a mile from the centre of Shawforth, so most local drivers drop the car off and walk home, and we call when it is ready.',
         },
         {
             question: 'Do you repair stone chips from winter roads?',

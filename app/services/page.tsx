@@ -158,7 +158,6 @@ function WhyChooseUsHub() {
         'Fast turnaround. Most repairs done in 1 to 4 days.',
         'Honest quotes via WhatsApp. Send photos, get a price fast.',
         'Enclosed spray booth and computer colour matching.',
-        'Free collection and delivery across Greater Manchester.',
         'Local, trusted and 10+ years in Rochdale.',
     ];
     return (
@@ -226,7 +225,7 @@ function HowItWorks() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
                         { title: '1. Send Photos', desc: 'WhatsApp us photos of the damage. We reply within the hour with a cash price.', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
-                        { title: '2. Book It In', desc: 'Drop off at our Whitworth workshop, or we collect from you free.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+                        { title: '2. Book It In', desc: 'Drop your car off at our Whitworth workshop at a time that suits you.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
                         { title: '3. Collect Your Car', desc: 'Most repairs are ready in 1 to 4 days, finished to factory standard.', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
                     ].map((step, i) => (
                         <div key={i} className="flex flex-col items-center">
@@ -255,7 +254,7 @@ function AreasCovered() {
                     </div>
                     <div>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Areas We Cover</h2>
-                        <p className="text-gray-400 leading-relaxed mb-8">Free collection and delivery available across all areas, so your car comes to us and returns to you.</p>
+                        <p className="text-gray-400 leading-relaxed mb-8">Drivers from across Rochdale and Greater Manchester bring their cars to our Whitworth workshop.</p>
                         <div className="flex flex-wrap gap-3">
                             {areas.map(a => (
                                 <AreaLink key={a} name={a} className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-800 border border-gray-700 text-gray-300" linkClassName="underline decoration-blue-400 underline-offset-2 hover:border-blue-500 hover:text-white transition-colors">

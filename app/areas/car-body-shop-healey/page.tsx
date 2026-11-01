@@ -10,11 +10,11 @@ const content: AreaPageContent = {
     slug: 'car-body-shop-healey',
     name: 'Healey',
     title: 'Car Body Repairs Healey, Rochdale | Dent, Scratch & Bumper Repair OL12',
-    description: 'Car body repairs in Healey, Rochdale OL12, covering Shawclough, Syke and Nook Farm. Dent removal and scratch repair from £80, bumper repair from £150. Free collection.',
+    description: 'Car body repairs in Healey, Rochdale OL12, covering Shawclough, Syke and Nook Farm. Dent removal and scratch repair from £80, bumper repair from £150. Cash prices.',
     hero: {
         title: 'Car Body Repairs Healey',
         highlight: 'Dent Removal, Scratch and Bumper Repair in Rochdale OL12',
-        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Healey drivers in Shawclough, Syke and Nook Farm. Free collection and delivery, cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
+        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Healey drivers in Shawclough, Syke and Nook Farm. Cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
         imageAlt: 'Car body repairs for Healey, Rochdale drivers',
         locationPlaceholder: 'e.g. Healey, OL12',
     },
@@ -30,7 +30,7 @@ const content: AreaPageContent = {
         {
             eyebrow: 'Healey, Rochdale OL12',
             title: 'Car Body Repairs in Shawclough, Syke and Nook Farm',
-            intro: 'Healey is the Rochdale ward along Whitworth Road (A671), from Gale Street up to Healey Corner at the Whitworth boundary. It takes in Shawclough, Syke, Nook Farm and the streets around Healey Dell Nature Reserve, home to about 10,400 people across the OL12 6 and OL12 9 postcodes. We collect cars for dent removal, scratch repair and bumper repair from every part of it.',
+            intro: 'Healey is the Rochdale ward along Whitworth Road (A671), from Gale Street up to Healey Corner at the Whitworth boundary. It takes in Shawclough, Syke, Nook Farm and the streets around Healey Dell Nature Reserve, home to about 10,400 people across the OL12 6 and OL12 9 postcodes. We carry out dent removal, scratch repair and bumper repair for drivers in every part of it.',
             table: {
                 caption: 'Car Body Repair Prices and Turnaround in Healey',
                 headers: ['Repair', 'Turnaround', 'From'],
@@ -50,7 +50,7 @@ const content: AreaPageContent = {
         title: 'Why Healey Drivers Choose Our Car Body Shop',
         description: 'Car Body Shop has completed more than 5,000 car body repairs over 10+ years, including car body repairs in Healey, Shawclough and across Rochdale. Every dent removal, scratch repair and bumper repair gets a fixed cash price before work starts.',
         points: [
-            { title: 'Free Collection Across Healey', text: <>From Shawclough, Syke, Nook Farm and Healey Corner up to <AreaLink name="Whitworth" />, returned when the car body repair is done.</> },
+            { title: 'Serving All of Healey', text: <>Car body repairs for Shawclough, Syke, Nook Farm and Healey Corner, up to <AreaLink name="Whitworth" />.</> },
             { title: 'Same Day Dent and Scratch Repair', text: 'Most dents, scratches and bumper scuffs are repaired the same day.' },
             { title: 'Cash Prices, No Insurance Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every scratch, bumper and respray job is matched to your manufacturer paint code.' },
@@ -60,7 +60,7 @@ const content: AreaPageContent = {
     },
     cta: {
         title: 'Fast, Affordable Car Body Repairs in Healey',
-        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or book free collection from Healey.',
+        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or call to book your car in.',
     },
     faqSubtitle: 'Common questions about car body repairs in Healey, Rochdale, answered by our team.',
     faqs: [
@@ -70,15 +70,11 @@ const content: AreaPageContent = {
         },
         {
             question: 'Do you cover Shawclough, Syke and Nook Farm?',
-            answer: 'Yes. We collect from every part of Healey, including Shawclough, Syke, Nook Farm, Healey Corner and Whitworth Road, and bring the car back once the repair is done.',
+            answer: 'Yes. We repair cars for drivers in every part of Healey, including Shawclough, Syke, Nook Farm, Healey Corner and Whitworth Road.',
         },
         {
             question: 'Can you repair a cracked or split bumper?',
             answer: 'Yes. Most cracked and split bumpers are repaired with flexible plastic repair materials and colour matched from £250, usually in one day, so the bumper does not need replacing.',
-        },
-        {
-            question: 'Is collection and delivery free from Healey?',
-            answer: 'Yes. Collection and delivery is free across Healey and the rest of Rochdale OL12. There is no charge on top of the repair price.',
         },
         {
             question: 'How long does car body repair take?',
@@ -91,7 +87,7 @@ const content: AreaPageContent = {
     ],
     location: {
         title: 'Car Body Shop Near Healey, Rochdale',
-        description: 'Our car body shop serving Healey and Rochdale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671. Click the map to open us in Google Maps, or book free collection for car body repairs in Healey.',
+        description: 'Our car body shop serving Healey and Rochdale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671. Click the map to open us in Google Maps, or call to book car body repairs in Healey.',
     },
 };
 

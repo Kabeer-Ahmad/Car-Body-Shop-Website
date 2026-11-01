@@ -118,7 +118,6 @@ export default function Navbar() {
                                                         </li>
                                                     ))}
                                                 </ul>
-                                                <p className="px-2 pt-4 text-xs text-gray-500 leading-relaxed">Free collection and delivery across every area.</p>
                                             </div>
                                         </div>
                                     ) : (

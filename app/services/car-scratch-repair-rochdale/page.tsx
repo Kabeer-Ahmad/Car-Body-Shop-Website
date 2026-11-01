@@ -8,6 +8,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 // ─── Shared SVG path ─────────────────────────────────────────────────────────
@@ -96,7 +97,7 @@ const jsonLd = {
                     "name": "Do you offer a mobile scratch repair service?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "We do not repair scratches on your driveway. Every scratch repair is carried out inside our enclosed workshop in Whitworth, which gives a dust-free, contamination-free finish that a mobile van cannot match. If you cannot get your car to us, we offer free collection and delivery instead, so you still get a proper workshop repair without the inconvenience."
+                        "text": "We do not repair scratches on your driveway. Every scratch repair is carried out inside our enclosed workshop in Whitworth, which gives a dust-free, contamination-free finish that a mobile van cannot match."
                     }
                 }
             ]
@@ -756,7 +757,6 @@ const whyPoints = [
     'Computer colour matching for a seamless blend.',
     'Same day turnaround on most clear coat and base coat scratches.',
     'No insurance needed. Straightforward cash pricing.',
-    'Free collection and delivery if you cannot get to us.',
     'Honest, itemised quotes. No hidden charges.',
     '10+ years repairing scratches in Rochdale.',
 ];
@@ -809,12 +809,12 @@ function WhyWorkshopSection() {
 // S8 — Related Services
 // ─────────────────────────────────────────────────────────────────────────────
 const relatedServices = [
-    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
-    { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
-    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
+    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
+    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
     { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
-    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/gallery/After_Van_Backdoor_Complete.webp' },
+    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
 ];
 
 function RelatedServicesSection() {
@@ -832,7 +832,7 @@ function RelatedServicesSection() {
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -874,7 +874,7 @@ function CoverageSection() {
                             Scratch Repair Coverage Across Greater Manchester
                         </h2>
                         <p className="text-gray-500 leading-relaxed mb-8">
-                            Wherever you are across Greater Manchester, bring your car to our Rochdale workshop or use our free collection and delivery service.
+                            Wherever you are across Greater Manchester, bring your car to our Rochdale workshop.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-8">
@@ -892,7 +892,7 @@ function CoverageSection() {
                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <p className="text-gray-900 font-bold text-lg mb-2">Scratch Repair in {activeArea}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">
-                                We serve scratch repair customers in {activeArea} from our enclosed workshop in Whitworth, Rochdale. Free collection and delivery available. Same day turnaround on most repairs.
+                                We serve scratch repair customers in {activeArea} from our enclosed workshop in Whitworth, Rochdale. Same day turnaround on most repairs.
                             </p>
                             <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
@@ -929,7 +929,7 @@ const faqs = [
     },
     {
         q: 'Do you offer a mobile scratch repair service?',
-        a: 'We do not repair scratches on your driveway. Every scratch repair is carried out inside our enclosed workshop in Whitworth, which gives a dust-free, contamination-free finish that a mobile van cannot match. If you cannot get your car to us, we offer free collection and delivery instead, so you still get a proper workshop repair without the inconvenience.',
+        a: 'We do not repair scratches on your driveway. Every scratch repair is carried out inside our enclosed workshop in Whitworth, which gives a dust-free, contamination-free finish that a mobile van cannot match.',
     },
 ];
 
@@ -967,7 +967,7 @@ function FaqSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // S11 — Final CTA
 // ─────────────────────────────────────────────────────────────────────────────
-const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Free Collection & Delivery', 'Cash Prices', 'Free Quotations'];
+const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Cash Prices', 'Free Quotations'];
 
 function FinalCtaSection({ whatsapp }: { whatsapp: string }) {
     return (

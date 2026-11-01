@@ -129,7 +129,7 @@ function StickyCta() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5">
                 <p className="text-[11px] font-extrabold uppercase tracking-widest text-gray-400 mb-3">Why Choose Us</p>
                 <ul className="space-y-2.5">
-                    {['Proper workshop, not a van', 'Computer colour matching', 'Same day on most repairs', '10+ years experience', 'Free collection & delivery'].map(t => (
+                    {['Proper workshop, not a van', 'Computer colour matching', 'Same day on most repairs', '10+ years experience'].map(t => (
                         <li key={t} className="flex items-start gap-2 text-sm text-gray-600">
                             <svg className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -310,7 +310,7 @@ export default function BlogPostClient({
                             <div className="mt-14 bg-blue-600 rounded-3xl p-8 text-white text-center">
                                 <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-2">Car Body Shop Rochdale</p>
                                 <h3 className="text-2xl font-extrabold mb-2">Ready for a repair?</h3>
-                                <p className="text-blue-100 mb-6 text-sm">Cash prices. Often same day. Free collection and delivery across Greater Manchester.</p>
+                                <p className="text-blue-100 mb-6 text-sm">Cash prices. Often same day.</p>
                                 <div className="flex flex-col sm:flex-row justify-center gap-3">
                                     <a href={`https://wa.me/${BUSINESS_DETAILS.whatsapp}?text=Hi%2C%20I'd%20like%20a%20free%20repair%20quote.`}
                                         target="_blank" rel="noopener noreferrer"

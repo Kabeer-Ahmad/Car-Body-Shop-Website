@@ -9,6 +9,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
@@ -694,12 +695,12 @@ function CostEstimatorSection({ whatsapp }: { whatsapp: string }) {
 }
 
 const otherServices = [
-    { title: 'Full Car Respray', desc: 'Complete resprays where accident damage requires full colour restoration or a colour change.', cta: 'Learn More', href: '/services/full-car-respray-rochdale', img: '/gallery/After_Van_Backdoor_Complete.webp' },
-    { title: 'Bumper Repair', desc: 'Bumper cracks, splits and scuffs repaired and colour-matched. The most common result of a low-speed accident.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Dent Removal', desc: 'Panel dents from collisions removed using paintless and traditional techniques for a seamless finish.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
-    { title: 'Car Scratch Repair', desc: 'Deep scratches and scuffs from side swipes and door scrapes repaired with precision colour matching.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
+    { title: 'Full Car Respray', desc: 'Complete resprays where accident damage requires full colour restoration or a colour change.', cta: 'Learn More', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Bumper Repair', desc: 'Bumper cracks, splits and scuffs repaired and colour-matched. The most common result of a low-speed accident.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Dent Removal', desc: 'Panel dents from collisions removed using paintless and traditional techniques for a seamless finish.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
+    { title: 'Car Scratch Repair', desc: 'Deep scratches and scuffs from side swipes and door scrapes repaired with precision colour matching.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
     { title: 'Minor Accident Repair', desc: 'Fast, affordable repairs for minor bumps and cosmetic collision damage, often completed same day.', cta: 'Learn More', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
-    { title: 'Lease Return Repairs', desc: 'Accident damage repaired before your handover date to avoid end-of-contract penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
+    { title: 'Lease Return Repairs', desc: 'Accident damage repaired before your handover date to avoid end-of-contract penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
 ];
 function OtherServicesSection() {
     return (
@@ -715,7 +716,7 @@ function OtherServicesSection() {
                     {otherServices.map((s) => (
                         <Link key={s.title} href={s.href} className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-400 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -750,7 +751,7 @@ function ServiceAreasSection() {
                         ))}
                     </div>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                        Wherever you are across Greater Manchester, Car Body Shop provides professional car accident repairs with free collection and delivery so your vehicle comes to us and returns to you.
+                        Wherever you are across Greater Manchester, Car Body Shop provides professional car accident repairs from our Rochdale workshop.
                     </p>
                 </div>
                 <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden aspect-[16/9] bg-gray-800 border border-gray-700 shadow-2xl">
@@ -782,10 +783,6 @@ const faqs = [
         q: 'Can you repair accident damage without replacing the whole panel?',
         a: 'In many cases, yes. We assess each panel individually and repair rather than replace wherever the structure allows. If replacement is needed, we tell you upfront in your itemised quote.'
     },
-    {
-        q: 'Do you offer collection and delivery for accident repair?',
-        a: 'Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton. If your car is not driveable, call or WhatsApp us to arrange a pickup time.'
-    }
 ];
 function SplitFaqSection() {
     const [openFaq, setOpenFaq] = useState<number>(0);
@@ -850,7 +847,7 @@ function FinalCTASection({ whatsapp }: { whatsapp: string }) {
                                 Do not leave accident damage unrepaired. Car Body Shop carries out professional car accident repairs in Rochdale with honest cash pricing, a 2-4 day turnaround and a guaranteed finish.
                             </p>
                             <div className="flex flex-wrap gap-4 text-sm font-medium text-blue-200 mb-10">
-                                {['5 Star Rated', 'No Insurance Needed', 'Free Collection and Delivery', 'Cash Prices', 'Free Quotations'].map((b) => (
+                                {['5 Star Rated', 'No Insurance Needed', 'Cash Prices', 'Free Quotations'].map((b) => (
                                     <div key={b} className="flex items-center gap-2">
                                         <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                                         {b}
@@ -892,7 +889,6 @@ function WhyChooseUsSection() {
         '2-4 day turnaround on most accident and collision repairs.',
         'Enclosed spray booth. Workshop repairs, not a mobile van.',
         'Computer colour matching on every panel.',
-        'Free collection and delivery across Greater Manchester.',
         'Honest, itemised quotes. No hidden charges, ever.',
         '10+ years of car accident repairs in Rochdale.'
     ];
