@@ -7,6 +7,7 @@ import Gallery from '@/components/Gallery';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import AreaLink from '@/components/AreaLink';
 import { SERVED_AREAS } from '@/lib/site-routes';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import MapEmbed from '@/components/MapEmbed';
 import { HubEstimator, HubFaq, HubHero, HubReviews } from './ClientSections';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
@@ -82,14 +83,14 @@ export default function ServicesHubPage() {
 
 function ServiceGrid() {
     const services = [
-        { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', image: '/services/full-car-respray.jpg' },
-        { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', image: '/services/accident-collision-repair.jpg' },
-        { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', image: '/services/bumper-repair.jpg' },
-        { title: 'Dent Removal', desc: 'Dents and dings pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', image: '/services/dent-removal.jpg' },
-        { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', image: '/services/car-scratch-repair.jpg' },
-        { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', image: '/services/minor-accident-repair.jpg' },
-        { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', image: '/services/lease-return-repairs.jpg' },
-        { title: 'Trade & Motor Dealer Bodyshop', desc: 'Priority slots and trade pricing for dealers and fleets.', href: '/services/trade-motor-dealer-bodyshop-services', image: '/services/trade-dealer-bodyshop.jpg' },
+        { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale' },
+        { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale' },
+        { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale' },
+        { title: 'Dent Removal', desc: 'Dents and dings pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale' },
+        { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale' },
+        { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale' },
+        { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale' },
+        { title: 'Trade & Motor Dealer Bodyshop', desc: 'Priority slots and trade pricing for dealers and fleets.', href: '/services/trade-motor-dealer-bodyshop-services' },
     ];
 
     return (
@@ -107,8 +108,8 @@ function ServiceGrid() {
                             {/* Image */}
                             <div className="relative h-48 w-full overflow-hidden bg-gray-200 flex-shrink-0">
                                 <Image
-                                    src={s.image}
-                                    alt={s.title}
+                                    src={SERVICE_IMAGES[s.href.replace('/services/', '')].src}
+                                    alt={SERVICE_IMAGES[s.href.replace('/services/', '')].alt}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

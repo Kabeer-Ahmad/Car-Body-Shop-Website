@@ -3,55 +3,48 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BUSINESS_DETAILS } from '@/app/constants';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 
 const services = [
     {
         title: 'Full Car Respray Services',
         description: 'Give your vehicle a flawless, factory-quality finish. Our complete respray services tackle deep scratches, fading, and exact colour matching with precision.',
         slug: 'full-car-respray-rochdale',
-        image: '/services/full-car-respray.jpg',
     },
     {
         title: 'Trade & Motor Dealer Bodyshop Services',
         description: 'Fast-turnaround fleet and dealer repair services. We keep your commercial vehicles and stock in pristine condition to maximise resale value.',
         slug: 'trade-motor-dealer-bodyshop-services',
-        image: '/services/trade-dealer-bodyshop.jpg',
     },
     {
         title: 'Accident & Collision Repair Services',
         description: 'From major structural realignments to minor impact fixes, our team safely restores your vehicle back to manufacturer safety and aesthetic standards.',
         slug: 'accident-collision-repair-rochdale',
-        image: '/services/accident-collision-repair.jpg',
     },
     {
         title: 'Bumper Repair Services',
         description: 'Fix scuffs, cracks, and deep scrapes quickly. Our localized bumper repairs eliminate unsightly damage without needing a costly total replacement.',
         slug: 'bumper-repair-rochdale',
-        image: '/services/bumper-repair.jpg',
     },
     {
         title: 'Dent Removal Services',
         description: 'Erase unsightly door dings, creases, and hail damage. Our precise dent removal techniques smooth out the panels to seamlessly restore clean body lines.',
         slug: 'dent-removal-rochdale',
-        image: '/services/dent-removal.jpg',
     },
     {
         title: 'Car Scratch Repair Services',
         description: "Don't let key scratches or paint scrapes lead to rust. We patch, blend, and polish localized paint damage to match your car's original body paint.",
         slug: 'car-scratch-repair-rochdale',
-        image: '/services/car-scratch-repair.jpg',
     },
     {
         title: 'Minor Accident Repair Services',
         description: 'Fast, affordable fixes for everyday scuffs, scrapes, and minor wing damage. Get your car back on the road looking pristine without the long wait times.',
         slug: 'minor-accident-repair-rochdale',
-        image: '/services/minor-accident-repair.jpg',
     },
     {
         title: 'Lease Return Repair Services',
         description: 'Avoid hefty penalty charges from your leasing company. We fix standard wear-and-tear, scratches, and wheel scuffs to meet strict return guidelines.',
         slug: 'lease-return-repairs-rochdale',
-        image: '/services/lease-return-repairs.jpg',
     },
 ];
 
@@ -105,19 +98,19 @@ export default function Services({
 }
 
 // ── Individual Service Card ────────────────────────────────────────────────────
-function ServiceCard({ title, description, slug, image }: {
+function ServiceCard({ title, description, slug }: {
     title: string;
     description: string;
     slug: string;
-    image: string;
 }) {
+    const image = SERVICE_IMAGES[slug];
     return (
         <div className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             {/* Image */}
             <div className="relative h-48 w-full overflow-hidden bg-gray-200 flex-shrink-0">
                 <Image
-                    src={image}
-                    alt={title}
+                    src={image.src}
+                    alt={image.alt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
