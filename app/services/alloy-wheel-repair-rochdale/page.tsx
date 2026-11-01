@@ -34,7 +34,7 @@ const faqs = [
     },
     {
         q: 'Do you offer mobile alloy wheel repair?',
-        a: 'No. Every alloy wheel repair is done in our workshop, where the paint and lacquer cure away from dust and damp. If you cannot bring the car to us, we collect it for free and bring it back once the wheels are done.',
+        a: 'No. Every alloy wheel repair is done in our workshop, where the paint and lacquer cure away from dust and damp.',
     },
     {
         q: 'How long does an alloy wheel refurb take?',
@@ -130,14 +130,9 @@ export default function AlloyWheelRepairPage() {
                                 <span className="text-blue-400">in Rochdale</span>
                             </h1>
                             <p className="text-base md:text-lg text-gray-300 mb-6 font-light leading-relaxed max-w-lg">
-                                Kerbed, scuffed, corroded, cracked and buckled alloy wheels repaired in our Rochdale workshop. Kerb scuff repair from £80 per wheel, full alloy refurbs, diamond cut refurbs and colour changes. Free collection and delivery, cash prices.
+                                Kerbed, scuffed, corroded, cracked and buckled alloy wheels repaired in our Rochdale workshop. Kerb scuff repair from £80 per wheel, full alloy refurbs, diamond cut refurbs and colour changes. Cash prices, no insurance claim.
                             </p>
 
-                            {/* Price callout */}
-                            <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-2xl px-5 py-3 mb-8">
-                                <span className="text-3xl font-extrabold text-white">£80</span>
-                                <span className="text-sm text-gray-300 leading-tight">per wheel for<br />kerb scuff repair</span>
-                            </div>
 
                             {/* Trust Badges */}
                             <div className="flex flex-wrap gap-4 text-sm font-medium text-gray-300 mb-8">
@@ -150,12 +145,6 @@ export default function AlloyWheelRepairPage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     Same Day Kerb Repairs
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Free Collection &amp; Delivery
                                 </div>
                             </div>
 
@@ -731,7 +720,6 @@ function CostSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 const whyPoints = [
     'Paint and lacquer cure inside an enclosed booth, away from the dust, damp and wind a driveway repair is exposed to.',
-    'Free collection and delivery, so you get workshop results without leaving home.',
     'Same day kerb scuff repair, from £80 per wheel.',
     'Refurbished alloy wheels are colour matched to the original, or painted a new colour if you want a change.',
     'Cracked and buckled rims inspected before we quote, and only repaired when a repair is safe.',
@@ -749,7 +737,7 @@ function WhyWorkshopSection() {
                             Mobile Alloy Wheel Repair or a Workshop Refurb?
                         </h2>
                         <p className="text-gray-500 text-lg mb-10 leading-relaxed">
-                            We do not offer mobile wheel refurbishment from a van. Every car wheel refurbishment is done in our workshop, and we collect your car for free if you cannot bring it in.
+                            We do not offer mobile wheel refurbishment from a van. Every car wheel refurbishment is done in our workshop.
                         </p>
                         <ul className="space-y-4">
                             {whyPoints.map((text, i) => (
@@ -774,7 +762,7 @@ function WhyWorkshopSection() {
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent" />
                         <div className="absolute bottom-5 left-5 bg-white rounded-2xl shadow-xl px-5 py-4">
                             <p className="text-gray-900 font-extrabold text-sm">Workshop Refurbishment</p>
-                            <p className="text-gray-500 text-xs">Free collection and delivery</p>
+                            <p className="text-gray-500 text-xs">Enclosed booth, not a driveway</p>
                         </div>
                     </div>
                 </div>
@@ -852,7 +840,7 @@ function CoverageSection() {
                             Alloy Wheel Repair Across Rochdale and Greater Manchester
                         </h2>
                         <p className="text-gray-500 leading-relaxed mb-8">
-                            We collect cars for alloy wheel repair and alloy wheels refurbishment from across Rochdale and Greater Manchester, and bring them back when the wheels are done.
+                            Drivers from across Rochdale and Greater Manchester bring their cars to our workshop for alloy wheel repair and alloy wheels refurbishment.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-8">
@@ -874,7 +862,7 @@ function CoverageSection() {
                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                             <p className="text-gray-900 font-bold text-lg mb-2">Alloy Wheel Repair in {activeArea}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">
-                                Alloy wheel repairs for {activeArea} drivers get the same cash prices and free collection and delivery as our Rochdale customers. Kerb scuff repair from £80 per wheel.
+                                Alloy wheel repairs for {activeArea} drivers get the same cash prices as our Rochdale customers. Kerb scuff repair from £80 per wheel.
                             </p>
                             <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
@@ -937,7 +925,7 @@ function FinalCtaSection() {
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-10">
-                            {['5-Star Rated on Google', 'No Insurance Needed', 'Free Collection & Delivery', 'Cash Prices', 'Free Quotes'].map((b) => (
+                            {['5-Star Rated on Google', 'No Insurance Needed', 'Cash Prices', 'Free Quotes'].map((b) => (
                                 <span key={b} className="flex items-center gap-2 bg-white/5 border border-white/10 text-white rounded-full px-4 py-2 text-sm font-medium">
                                     <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -1010,7 +998,6 @@ function AlloyQuoteForm({ idPrefix, dark = false }: { idPrefix: string; dark?: b
             `📍 Location: ${fd.get('location')}`,
             `🔧 Repair: ${fd.get('repair')}`,
             `🛞 Wheels: ${fd.get('wheels')}`,
-            `🚚 Free collection: ${fd.get('collection') ? 'Yes please' : 'No, I will drop it off'}`,
             `📝 Extra Info: ${fd.get('notes') || 'None'}`,
             ``,
             `I'll send photos of the wheels in this chat.`,
@@ -1072,10 +1059,6 @@ function AlloyQuoteForm({ idPrefix, dark = false }: { idPrefix: string; dark?: b
                 <textarea id={id('notes')} name="notes" rows={2} placeholder="e.g. 18 inch, front left kerbed, silver" className={input + ' resize-none'} />
             </div>
 
-            <label className="flex items-center gap-3 text-sm text-gray-300 cursor-pointer">
-                <input type="checkbox" name="collection" className="w-4 h-4 accent-blue-500" />
-                Collect my car for free
-            </label>
 
             <button
                 type="submit"
