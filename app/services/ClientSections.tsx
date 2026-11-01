@@ -200,7 +200,7 @@ export function HubEstimator({
         'Bumper Repair': 150,
         'Dent Removal': 80,
         'Scratch Repair': 90,
-        'Alloy Wheel Refurb': 60
+        'Alloy Wheel Refurb': 80
     };
 
     const [serviceType, setServiceType] = useState<keyof typeof basePricing>('Bumper Repair');

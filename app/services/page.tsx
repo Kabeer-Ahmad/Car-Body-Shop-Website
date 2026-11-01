@@ -91,6 +91,7 @@ function ServiceGrid() {
         { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale' },
         { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale' },
         { title: 'Trade & Motor Dealer Bodyshop', desc: 'Priority slots and trade pricing for dealers and fleets.', href: '/services/trade-motor-dealer-bodyshop-services' },
+        { title: 'Alloy Wheel Repair & Refurbishment', desc: 'Kerb scuffs, full refurbs, diamond cut and cracked alloy wheel repair.', href: '/services/alloy-wheel-repair-rochdale' },
     ];
 
     return (

@@ -32,4 +32,8 @@ export const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
         src: '/services/lease-return-repairs-rochdale.jpg',
         alt: 'Lease return repairs in Rochdale, technician checking a car before it goes back to the leasing company',
     },
+    'alloy-wheel-repair-rochdale': {
+        src: '/gallery/AfteR_Rim_Job.webp',
+        alt: 'Alloy wheel repair and refurbishment in Rochdale, alloy wheel refinished in gloss black',
+    },
 };

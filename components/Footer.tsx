@@ -65,6 +65,7 @@ export default function Footer() {
                         <li><Link href="/services/dent-removal-rochdale" className="hover:text-white transition-colors">Dent Removal</Link></li>
                         <li><Link href="/services/full-car-respray-rochdale" className="hover:text-white transition-colors">Full Car Respray</Link></li>
                         <li><Link href="/services/lease-return-repairs-rochdale" className="hover:text-white transition-colors">Lease Returns</Link></li>
+                        <li><Link href="/services/alloy-wheel-repair-rochdale" className="hover:text-white transition-colors">Alloy Wheel Repair</Link></li>
                     </ul>
                 </div>
 

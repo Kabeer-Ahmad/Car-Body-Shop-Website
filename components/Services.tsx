@@ -46,6 +46,11 @@ const services = [
         description: 'Avoid hefty penalty charges from your leasing company. We fix standard wear-and-tear, scratches, and wheel scuffs to meet strict return guidelines.',
         slug: 'lease-return-repairs-rochdale',
     },
+    {
+        title: 'Alloy Wheel Repair & Refurbishment',
+        description: 'Kerbed, scuffed, corroded and cracked alloy wheels repaired and refinished. Kerb scuff repair from £80 per wheel, plus full and diamond cut refurbs.',
+        slug: 'alloy-wheel-repair-rochdale',
+    },
 ];
 
 

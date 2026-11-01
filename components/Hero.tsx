@@ -149,6 +149,7 @@ export function BookingForm({ whatsapp, locationPlaceholder = 'e.g. Rochdale, OL
         'Accident & Collision Repair',
         'Minor Accident Repair',
         'Lease Return Repairs',
+        'Alloy Wheel Repair',
         'Trade / Dealer Bodyshop',
         'Other',
     ];

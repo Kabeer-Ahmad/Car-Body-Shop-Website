@@ -18,6 +18,7 @@ export const SERVICE_SLUGS = [
     'car-scratch-repair-rochdale',
     'minor-accident-repair-rochdale',
     'lease-return-repairs-rochdale',
+    'alloy-wheel-repair-rochdale',
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
