@@ -149,6 +149,7 @@ function StickyCta() {
                         { label: 'Scratch Repair', href: '/services/car-scratch-repair-rochdale' },
                         { label: 'Full Car Respray', href: '/services/full-car-respray-rochdale' },
                         { label: 'Lease Return Repairs', href: '/services/lease-return-repairs-rochdale' },
+                        { label: 'Alloy Wheel Repair', href: '/services/alloy-wheel-repair-rochdale' },
                     ].map(({ label, href }) => (
                         <li key={href}>
                             <Link href={href} className="flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors">

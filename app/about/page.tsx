@@ -664,6 +664,29 @@ export default function AboutPage() {
                                 </span>
                             </div>
                         </Link>
+
+                        {/* Card 7 */}
+                        <Link
+                            href="/services/alloy-wheel-repair-rochdale"
+                            className="md:col-span-2 md:justify-self-center md:w-[calc(50%-1rem)] group bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-blue-500 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col min-h-[360px]"
+                        >
+                            <div className="h-48 overflow-hidden relative">
+                                <img src="/gallery/AfteR_Rim_Job.webp" alt="Alloy wheel repair and refurbishment in Rochdale, alloy wheel refinished in gloss black" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                                        Alloy Wheel Repairs
+                                    </h3>
+                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                                        Kerbed, corroded, cracked and buckled alloy wheels repaired and refinished, with kerb scuff repair from £80 per wheel.
+                                    </p>
+                                </div>
+                                <span className="inline-flex items-center text-blue-600 font-extrabold text-sm group-hover:translate-x-1 transition-transform">
+                                    View Alloy Wheel Repairs &rarr;
+                                </span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </section>
