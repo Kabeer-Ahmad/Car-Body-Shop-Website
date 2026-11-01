@@ -839,6 +839,7 @@ const tradeOtherServices = [
     { title: 'Dent Removal', desc: 'Repair dents, dings and creases while preserving original paintwork, keeping vehicles retail-ready without a full respray.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
     { title: 'Car Scratch Repair', desc: 'Professional paint correction and scratch repairs using precision colour matching, essential for maintaining forecourt presentation.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
     { title: 'Lease Return Repairs', desc: 'Scuffs, dents and scratches repaired before handover to help fleet and leasing companies avoid costly end-of-lease penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
+    { title: 'Alloy Wheel Repair', desc: 'Kerbed and corroded alloys refurbished so stock is ready for the forecourt.', cta: 'Learn More', href: '/services/alloy-wheel-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
 ];
 
 function TradeOtherServicesSection() {
@@ -852,7 +853,7 @@ function TradeOtherServicesSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2 md:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center md:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {tradeOtherServices.map((s) => (
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-400 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">

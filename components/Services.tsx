@@ -78,7 +78,7 @@ export default function Services({
                 </div>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:[&>*:last-child:nth-child(4n+1)]:col-start-2 lg:[&>*:last-child:nth-child(4n+1)]:col-span-2 lg:[&>*:last-child:nth-child(4n+1)]:justify-self-center lg:[&>*:last-child:nth-child(4n+1)]:w-[calc(50%-0.75rem)] sm:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 sm:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center sm:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {services.map((service) => (
                         <ServiceCard key={service.slug} {...service} />
                     ))}

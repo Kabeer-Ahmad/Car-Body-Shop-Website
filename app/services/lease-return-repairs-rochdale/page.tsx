@@ -761,6 +761,7 @@ const relatedServices = [
     { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
     { title: 'Accident & Collision Repair', desc: 'Larger collision damage restored to pre-accident condition.', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
     { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Alloy Wheel Repair', desc: 'Kerbed alloys repaired before handover, from £80 per wheel.', href: '/services/alloy-wheel-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
 ];
 
 function RelatedServicesSection() {
@@ -773,7 +774,7 @@ function RelatedServicesSection() {
                         Whatever your lease return needs, we handle every type of car bodywork from our Rochdale workshop.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2 md:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center md:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {relatedServices.map((s) => (
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
