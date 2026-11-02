@@ -7,6 +7,7 @@ import Gallery from '@/components/Gallery';
 import { BUSINESS_DETAILS } from '@/app/constants';
 import AreaLink from '@/components/AreaLink';
 import { SERVED_AREAS } from '@/lib/site-routes';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import MapEmbed from '@/components/MapEmbed';
 import { HubEstimator, HubFaq, HubHero, HubReviews } from './ClientSections';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
@@ -82,14 +83,15 @@ export default function ServicesHubPage() {
 
 function ServiceGrid() {
     const services = [
-        { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', image: '/services/full-car-respray.jpg' },
-        { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', image: '/services/accident-collision-repair.jpg' },
-        { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', image: '/services/bumper-repair.jpg' },
-        { title: 'Dent Removal', desc: 'Dents and dings pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', image: '/services/dent-removal.jpg' },
-        { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', image: '/services/car-scratch-repair.jpg' },
-        { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', image: '/services/minor-accident-repair.jpg' },
-        { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', image: '/services/lease-return-repairs.jpg' },
-        { title: 'Trade & Motor Dealer Bodyshop', desc: 'Priority slots and trade pricing for dealers and fleets.', href: '/services/trade-motor-dealer-bodyshop-services', image: '/services/trade-dealer-bodyshop.jpg' },
+        { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale' },
+        { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale' },
+        { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale' },
+        { title: 'Dent Removal', desc: 'Dents and dings pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale' },
+        { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale' },
+        { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale' },
+        { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale' },
+        { title: 'Trade & Motor Dealer Bodyshop', desc: 'Priority slots and trade pricing for dealers and fleets.', href: '/services/trade-motor-dealer-bodyshop-services' },
+        { title: 'Alloy Wheel Repair & Refurbishment', desc: 'Kerb scuffs, full refurbs, diamond cut and cracked alloy wheel repair.', href: '/services/alloy-wheel-repair-rochdale' },
     ];
 
     return (
@@ -101,14 +103,14 @@ function ServiceGrid() {
                         From a single scratch to a full respray, we handle every car bodywork repair in-house at our Rochdale workshop.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:[&>*:last-child:nth-child(4n+1)]:col-start-2 lg:[&>*:last-child:nth-child(4n+1)]:col-span-2 lg:[&>*:last-child:nth-child(4n+1)]:justify-self-center lg:[&>*:last-child:nth-child(4n+1)]:w-[calc(50%-0.75rem)] sm:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 sm:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center sm:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {services.map(s => (
                         <div key={s.title} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             {/* Image */}
                             <div className="relative h-48 w-full overflow-hidden bg-gray-200 flex-shrink-0">
                                 <Image
-                                    src={s.image}
-                                    alt={s.title}
+                                    src={SERVICE_IMAGES[s.href.replace('/services/', '')].src}
+                                    alt={SERVICE_IMAGES[s.href.replace('/services/', '')].alt}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -156,7 +158,6 @@ function WhyChooseUsHub() {
         'Fast turnaround. Most repairs done in 1 to 4 days.',
         'Honest quotes via WhatsApp. Send photos, get a price fast.',
         'Enclosed spray booth and computer colour matching.',
-        'Free collection and delivery across Greater Manchester.',
         'Local, trusted and 10+ years in Rochdale.',
     ];
     return (
@@ -224,7 +225,7 @@ function HowItWorks() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
                         { title: '1. Send Photos', desc: 'WhatsApp us photos of the damage. We reply within the hour with a cash price.', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
-                        { title: '2. Book It In', desc: 'Drop off at our Whitworth workshop, or we collect from you free.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+                        { title: '2. Book It In', desc: 'Drop your car off at our Whitworth workshop at a time that suits you.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
                         { title: '3. Collect Your Car', desc: 'Most repairs are ready in 1 to 4 days, finished to factory standard.', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
                     ].map((step, i) => (
                         <div key={i} className="flex flex-col items-center">
@@ -253,7 +254,7 @@ function AreasCovered() {
                     </div>
                     <div>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Areas We Cover</h2>
-                        <p className="text-gray-400 leading-relaxed mb-8">Free collection and delivery available across all areas, so your car comes to us and returns to you.</p>
+                        <p className="text-gray-400 leading-relaxed mb-8">Drivers from across Rochdale and Greater Manchester bring their cars to our Whitworth workshop.</p>
                         <div className="flex flex-wrap gap-3">
                             {areas.map(a => (
                                 <AreaLink key={a} name={a} className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-800 border border-gray-700 text-gray-300" linkClassName="underline decoration-blue-400 underline-offset-2 hover:border-blue-500 hover:text-white transition-colors">

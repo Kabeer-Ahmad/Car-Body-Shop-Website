@@ -8,18 +8,18 @@ import { BUSINESS_DETAILS } from '@/app/constants';
 const content: AreaPageContent = {
     slug: 'car-body-shop-littleborough',
     name: 'Littleborough',
-    title: 'Car Body Repairs Littleborough | Free Collection, OL15',
-    description: 'Car body repairs for Littleborough, OL15, with free collection and delivery. Dents from £80, bumpers from £150, resprays from £800. Cash prices.',
+    title: 'Car Body Repairs Littleborough | Dent, Scratch & Bumper Repair OL15',
+    description: 'Car body repairs for Littleborough, OL15. Dents from £80, bumpers from £150, resprays from £800. Cash prices.',
     hero: {
         title: 'Car Body Repairs Littleborough',
-        highlight: 'Free Collection and Delivery Across OL15',
-        subtitle: <>Our workshop at Peel Mill, Shawforth is about 20 minutes from Littleborough. We collect your car free of charge, repair it and bring it back, with cash prices and no insurance claim.</>,
+        highlight: 'Dent, Scratch and Bumper Repair for OL15',
+        subtitle: <>Our workshop at Peel Mill, Shawforth is about 20 minutes from Littleborough. Cash prices, no insurance claim, and same day on most dents, scratches and scuffs.</>,
         imageAlt: 'Car body repair workshop serving Littleborough',
         locationPlaceholder: 'e.g. Littleborough, OL15',
     },
     services: {
         title: 'Car Body Repair Services for Littleborough',
-        subtitle: 'Every repair is carried out in our enclosed workshop, from a single dent to a full respray, with free collection from Littleborough.',
+        subtitle: 'Every repair is carried out in our enclosed workshop, from a single dent to a full respray.',
     },
     gallery: {
         title: 'Before and After Car Body Repairs',
@@ -27,9 +27,9 @@ const content: AreaPageContent = {
     },
     why: {
         title: 'Why Littleborough Drivers Use Car Body Shop',
-        description: 'Car Body Shop has completed more than 5,000 repairs over 10+ years. Littleborough customers pay the same fixed cash prices as drivers who visit the workshop, with collection and return included free.',
+        description: 'Car Body Shop has completed more than 5,000 repairs over 10+ years. Littleborough customers pay the same fixed cash prices, with no insurance claim.',
         points: [
-            { title: 'Free Collection and Delivery', text: 'From Littleborough, Smithy Bridge, Summit and Hollingworth Lake, returned when the repair is done.' },
+            { title: 'Serving All of OL15', text: 'Car body repairs for drivers in Littleborough, Smithy Bridge, Summit and Hollingworth Lake.' },
             { title: 'Same Day on Most Repairs', text: 'Most dents, scratches and bumper scuffs are finished the same day.' },
             { title: 'Cash Prices, No Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
@@ -41,27 +41,23 @@ const content: AreaPageContent = {
         title: 'Our Workshop, 20 Minutes From Littleborough',
         description: (
             <>
-                Our <AreaLink name="Whitworth">Whitworth workshop</AreaLink> at Peel Mill, Market Street, <AreaLink name="Shawforth" /> OL12 8HN is around 8 miles from Littleborough centre. Book free collection, or drive over for a free assessment. Click the map to open us in Google Maps.
+                Our <AreaLink name="Whitworth">Whitworth workshop</AreaLink> at Peel Mill, Market Street, <AreaLink name="Shawforth" /> OL12 8HN is around 8 miles from Littleborough centre. Drive over for a free assessment. Click the map to open us in Google Maps.
             </>
         ),
     },
     cta: {
         title: 'Car Body Repairs for Littleborough',
-        subtitle: 'Send photos on WhatsApp for a cash price within the hour, then book free collection from Littleborough.',
+        subtitle: 'Send photos on WhatsApp for a cash price within the hour, then book your car in.',
     },
     faqSubtitle: 'Common questions from Littleborough drivers, answered by our team.',
     faqs: [
-        {
-            question: 'Do you collect cars from Littleborough?',
-            answer: 'Yes. Collection and delivery is free across Littleborough, including Smithy Bridge, Summit and Hollingworth Lake. We collect the car, repair it at our workshop and bring it back.',
-        },
         {
             question: 'How far is your workshop from Littleborough?',
             answer: 'Our workshop at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN is around 8 miles from Littleborough centre, about a 20 minute drive.',
         },
         {
             question: 'How much does car body repair cost in Littleborough?',
-            answer: 'Dent removal starts from £80, scratch repair from £80, bumper repair from £150, minor accident repair from £150 and a full respray from £800. Collection and delivery is included at no extra cost.',
+            answer: 'Dent removal starts from £80, scratch repair from £80, bumper repair from £150, minor accident repair from £150 and a full respray from £800.',
         },
         {
             question: 'How long do car body repairs take?',

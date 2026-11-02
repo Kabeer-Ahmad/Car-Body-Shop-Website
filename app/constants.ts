@@ -11,6 +11,7 @@ export const BUSINESS_DETAILS = {
   city: "Rochdale",
   whatsapp: "447471512557", // International format without +. Mobile: the landline above cannot take WhatsApp.
   whatsappDisplay: "07471 512557",
+  gbpLink: 'https://share.google/FSCywxXVf61zL449e', // Google Business Profile
   mapsLink: `https://maps.google.com/maps?q=${MAPS_QUERY}&z=16&output=embed`,
   mapsPlaceLink: `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`,
   mapsDirectionLink: `https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`,

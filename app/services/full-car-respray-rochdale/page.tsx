@@ -9,6 +9,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
@@ -593,12 +594,13 @@ function CustomerStoriesSection() {
 // S7: Other Services
 // ─────────────────────────────────────────────────────────────────────────────
 const otherServices = [
-    { title: 'Dent Removal Services', desc: 'Repair dents, dings and creases while preserving your vehicle\'s original paintwork and appearance.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
-    { title: 'Car Scratch Repair Services', desc: 'Professional paint correction and scratch repairs using precision colour matching and OEM quality materials.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
-    { title: 'Bumper Repair Services', desc: 'Repair cracked, scratched and damaged bumpers to a factory standard without unnecessary panel replacements.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Accident & Collision Repair', desc: 'Comprehensive repairs after collisions, from structural bodywork and panel straightening to final paint refinishing.', cta: 'Learn More', href: '/services/accident-collision-repair-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
+    { title: 'Dent Removal Services', desc: 'Repair dents, dings and creases while preserving your vehicle\'s original paintwork and appearance.', cta: 'Learn More', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
+    { title: 'Car Scratch Repair Services', desc: 'Professional paint correction and scratch repairs using precision colour matching and OEM quality materials.', cta: 'Learn More', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
+    { title: 'Bumper Repair Services', desc: 'Repair cracked, scratched and damaged bumpers to a factory standard without unnecessary panel replacements.', cta: 'Learn More', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Accident & Collision Repair', desc: 'Comprehensive repairs after collisions, from structural bodywork and panel straightening to final paint refinishing.', cta: 'Learn More', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
     { title: 'Minor Accident Repair Services', desc: 'Fast, affordable repairs for minor bumps, scrapes and cosmetic damage with no insurance claim necessary.', cta: 'Learn More', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
-    { title: 'Lease Return Repair Services', desc: 'Scuffs, dents and scratches repaired before your handover date to help avoid costly end-of-lease penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/gallery/After_Van_Backdoor_Complete.webp' },
+    { title: 'Lease Return Repair Services', desc: 'Scuffs, dents and scratches repaired before your handover date to help avoid costly end-of-lease penalty charges.', cta: 'Learn More', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
+    { title: 'Alloy Wheel Repair & Refurbishment', desc: 'Full alloy wheel refurbishment and colour changes to finish off a respray.', cta: 'Learn More', href: '/services/alloy-wheel-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
 ];
 
 function OtherServicesSection() {
@@ -612,13 +614,13 @@ function OtherServicesSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2 md:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center md:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {otherServices.map((s) => (
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-400 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             {/* Background image */}
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">

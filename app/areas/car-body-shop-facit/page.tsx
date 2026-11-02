@@ -11,11 +11,11 @@ const content: AreaPageContent = {
     slug: 'car-body-shop-facit',
     name: 'Facit',
     title: 'Car Body Repairs Facit | 1.2 Miles Up Market Street',
-    description: 'Car body repairs for Facit, OL12, at Peel Mill 1.2 miles up Market Street. Dents from £80, bumpers from £150, resprays from £800. Free collection.',
+    description: 'Car body repairs for Facit, OL12, at Peel Mill 1.2 miles up Market Street. Dents from £80, bumpers from £150, resprays from £800. Cash prices.',
     hero: {
         title: 'Car Body Repairs Facit',
         highlight: '1.2 Miles Up Market Street',
-        subtitle: <>Our workshop at Peel Mill, Shawforth is three minutes from Facit, straight up Market Street (the A671). Drive in, or we collect your car free and bring it back. Cash prices, no insurance claim.</>,
+        subtitle: <>Our workshop at Peel Mill, Shawforth is three minutes from Facit, straight up Market Street (the A671). Cash prices, no insurance claim.</>,
         imageAlt: 'Car body repair workshop serving Facit, Whitworth',
         locationPlaceholder: 'e.g. Facit, OL12',
     },
@@ -29,7 +29,7 @@ const content: AreaPageContent = {
     },
     why: {
         title: 'Why Facit Drivers Use Car Body Shop',
-        description: 'Car Body Shop has completed more than 5,000 repairs over 10+ years. Facit drivers pay the same fixed cash price whether they drive in or book collection.',
+        description: 'Car Body Shop has completed more than 5,000 repairs over 10+ years. Every repair gets a fixed cash price before work starts.',
         points: [
             { title: 'In Your Own Ward', text: 'Facit and Shawforth make up one Rossendale council ward, and Peel Mill is in it.' },
             { title: 'Cash Prices, No Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
@@ -47,7 +47,6 @@ const content: AreaPageContent = {
             points: [
                 { title: 'Drop off on your way past', text: 'Leave the car as you pass and pick it up on the way back. Most dents, scratches and bumper scuffs are ready the same day.' },
                 { title: 'Walk home downhill', text: 'Market Street drops about 45 metres from Peel Mill to Facit, so the 25 minute walk back is downhill all the way.' },
-                { title: 'Or stay put', text: 'We collect from Facit and bring the car back, free.' },
             ],
             table: {
                 caption: 'Trips From Facit',
@@ -67,7 +66,6 @@ const content: AreaPageContent = {
                 { title: 'Price before you book', text: 'Send photos on WhatsApp and know the cash price before the car leaves your drive.' },
                 { title: 'Booked around you', text: 'Pick a drop-off slot that fits your week, including weekends and Friday evenings.' },
                 { title: 'Same day on most repairs', text: 'Dents, scratches and bumper scuffs are usually finished the same day.' },
-                { title: 'Collected and returned', text: 'Free collection from Facit means no lift needed to or from the workshop.' },
             ],
         },
     ],
@@ -81,17 +79,13 @@ const content: AreaPageContent = {
     },
     cta: {
         title: 'Car Body Repairs for Facit',
-        subtitle: 'Send photos on WhatsApp for a cash price within the hour, then drive up or book free collection.',
+        subtitle: 'Send photos on WhatsApp for a cash price within the hour, then drive up to Peel Mill.',
     },
     faqSubtitle: 'Common questions from Facit drivers, answered by our team.',
     faqs: [
         {
             question: 'How far is your workshop from Facit?',
             answer: 'Our workshop at Peel Mill, Market Street, Shawforth, Rochdale OL12 8HN is 1.2 miles north of Facit on the A671, about a three minute drive.',
-        },
-        {
-            question: 'Do you collect cars from Facit?',
-            answer: 'Yes. Collection and delivery is free from Facit and across the Whitworth Valley. We collect the car, repair it at Peel Mill and bring it back.',
         },
         {
             question: 'Can I drop my car off and walk home to Facit?',

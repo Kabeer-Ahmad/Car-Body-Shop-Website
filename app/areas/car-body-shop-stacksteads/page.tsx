@@ -9,11 +9,11 @@ const content: AreaPageContent = {
     slug: 'car-body-shop-stacksteads',
     name: 'Stacksteads',
     title: 'Car Body Repairs Stacksteads | Dent, Scratch & Bumper Repair OL13',
-    description: 'Car body repairs in Stacksteads, OL13. Dent removal and scratch repair from £80, bumper repair from £150, resprays from £800. Free collection, cash prices.',
+    description: 'Car body repairs in Stacksteads, OL13. Dent removal and scratch repair from £80, bumper repair from £150, resprays from £800. Cash prices, no insurance claim.',
     hero: {
         title: 'Car Body Repairs Stacksteads',
         highlight: 'Dent Removal, Scratch and Bumper Repair in OL13',
-        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Stacksteads drivers. Free collection and delivery across Stacksteads, cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
+        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Stacksteads drivers. Cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
         imageAlt: 'Car body repairs for Stacksteads drivers',
         locationPlaceholder: 'e.g. Stacksteads, OL13',
     },
@@ -48,7 +48,7 @@ const content: AreaPageContent = {
         title: 'Why Stacksteads Drivers Choose Our Car Body Shop',
         description: 'Car Body Shop has completed more than 5,000 car body repairs over 10+ years, including car body repairs in Stacksteads, OL13 and across the Rossendale valley. Every dent removal, scratch repair and bumper repair gets a fixed cash price before work starts.',
         points: [
-            { title: 'Free Collection Across Stacksteads', text: <>From Newchurch Road, Waterbarn and the streets towards <AreaLink name="Bacup" />, returned when the car body repair is done.</> },
+            { title: 'Serving Stacksteads and Bacup', text: <>Car body repairs for drivers on Newchurch Road, in Waterbarn and across to <AreaLink name="Bacup" />.</> },
             { title: 'Same Day Dent and Scratch Repair', text: 'Most dents, scratches and bumper scuffs are repaired the same day.' },
             { title: 'Cash Prices, No Insurance Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every scratch, bumper and respray job is matched to your manufacturer paint code.' },
@@ -58,7 +58,7 @@ const content: AreaPageContent = {
     },
     cta: {
         title: 'Fast, Affordable Car Body Repairs in Stacksteads',
-        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or book free collection from Stacksteads.',
+        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or call to book your car in.',
     },
     faqSubtitle: 'Common questions about car body repairs in Stacksteads, answered by our team.',
     faqs: [
@@ -75,10 +75,6 @@ const content: AreaPageContent = {
             answer: 'Yes. If the paint is unbroken, paintless dent removal starts from £80 with no filler or repainting. Dents with chipped paint are repaired and colour matched from £180.',
         },
         {
-            question: 'Do you collect cars from Stacksteads for repair?',
-            answer: 'Yes. Collection and delivery is free from anywhere in Stacksteads and Bacup. We collect the car, carry out the repair and bring it back.',
-        },
-        {
             question: 'How long does car body repair take?',
             answer: 'Most dents, scratches and bumper scuffs are finished the same day. Cracked bumpers and multi-panel repairs take 1 to 2 days, and a full respray takes 2 to 5 working days.',
         },
@@ -89,7 +85,7 @@ const content: AreaPageContent = {
     ],
     location: {
         title: 'Car Body Shop Near Stacksteads',
-        description: 'Our car body shop serving Stacksteads and Rossendale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671. Click the map to open us in Google Maps, or book free collection for car body repairs in Stacksteads.',
+        description: 'Our car body shop serving Stacksteads and Rossendale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671. Click the map to open us in Google Maps, or call to book car body repairs in Stacksteads.',
     },
 };
 

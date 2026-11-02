@@ -116,7 +116,7 @@ export function HubFaq() {
     const faqs = [
         { q: 'Can you repair my car without going through insurance?', a: 'Yes. Most of our customers prefer to pay cash to avoid losing their no-claims bonus and paying high excesses. Our cash prices are often lower than your insurance excess.' },
         { q: 'How long does a typical repair take?', a: 'Most repairs, including bumper scuffs, dents, and scratches, take 1 to 3 days. Full resprays and heavy accident damage can take 1 to 2 weeks depending on parts.' },
-        { q: 'Do you offer a courtesy car?', a: 'We do not currently offer courtesy cars. However, we provide a free collection and delivery service across Greater Manchester so you are not left stranded.' },
+        { q: 'Do you offer a courtesy car?', a: 'We do not currently offer courtesy cars. Most dents, scratches and bumper scuffs are finished the same day, so you are not without your car for long.' },
         { q: 'Do you guarantee your paintwork?', a: 'Yes, all our paintwork and repairs come with a standard bodyshop guarantee. We use a professional enclosed spray booth and computerised colour matching.' },
         { q: 'Can you match my cars exact paint colour?', a: 'Yes. We use a computerised spectrophotometer to scan your cars current paint, ensuring a perfect match even if the paint has naturally faded over time.' },
     ];
@@ -200,7 +200,7 @@ export function HubEstimator({
         'Bumper Repair': 150,
         'Dent Removal': 80,
         'Scratch Repair': 90,
-        'Alloy Wheel Refurb': 60
+        'Alloy Wheel Refurb': 80
     };
 
     const [serviceType, setServiceType] = useState<keyof typeof basePricing>('Bumper Repair');

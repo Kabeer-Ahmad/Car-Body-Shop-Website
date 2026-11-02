@@ -48,6 +48,7 @@ export default function Navbar() {
                 { name: 'Car Scratch Repair Rochdale', href: '/services/car-scratch-repair-rochdale' },
                 { name: 'Minor Accident Repair Rochdale', href: '/services/minor-accident-repair-rochdale' },
                 { name: 'Lease Return Repairs Rochdale', href: '/services/lease-return-repairs-rochdale' },
+                { name: 'Alloy Wheel Repair Rochdale', href: '/services/alloy-wheel-repair-rochdale' },
             ]
         },
         { name: 'Areas', href: `/areas/${AREA_PAGES[0].slug}`, mega: true },
@@ -117,7 +118,6 @@ export default function Navbar() {
                                                         </li>
                                                     ))}
                                                 </ul>
-                                                <p className="px-2 pt-4 text-xs text-gray-500 leading-relaxed">Free collection and delivery across every area.</p>
                                             </div>
                                         </div>
                                     ) : (

@@ -8,6 +8,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 const WHATSAPP_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z";
@@ -83,14 +84,6 @@ const jsonLd = {
                         "text": "Most minor accident repairs are completed the same day. Jobs involving two panels or a full colour match may take one working day."
                     }
                 },
-                {
-                    "@type": "Question",
-                    "name": "Do you offer collection and delivery for minor accident repairs?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton."
-                    }
-                }
             ]
         }
     ]
@@ -687,7 +680,6 @@ const whyPoints = [
     'Same day turnaround on most minor repairs.',
     'Cash prices, no excess, no premium increase.',
     'Computer colour matching for a seamless finish.',
-    'Free collection and delivery across Greater Manchester.',
     'Honest, itemised quotes. No upselling to a bigger job than you need.',
     '10+ years repairing minor accident damage in Rochdale.',
 ];
@@ -739,12 +731,13 @@ function WhyChooseSection() {
 // S8 — Related Services (Accident & Collision first)
 // ─────────────────────────────────────────────────────────────────────────────
 const relatedServices = [
-    { title: 'Accident & Collision Repair', desc: 'For multi-panel or structural collision damage. Vehicles restored to pre-accident condition.', href: '/services/accident-collision-repair-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
-    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/gallery/Before_Car_Fender_Dent.webp' },
-    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
-    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
-    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/gallery/After_Van_Backdoor_Complete.webp' },
+    { title: 'Accident & Collision Repair', desc: 'For multi-panel or structural collision damage. Vehicles restored to pre-accident condition.', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
+    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Dent Removal', desc: 'Panel dents pulled and refinished, paintless where possible.', href: '/services/dent-removal-rochdale', img: '/services/dent-removal-rochdale.jpg' },
+    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
+    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
+    { title: 'Alloy Wheel Repair', desc: 'Kerbed and scuffed alloy wheels repaired and refinished, from £80 per wheel.', href: '/services/alloy-wheel-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
 ];
 
 function RelatedServicesSection() {
@@ -757,12 +750,12 @@ function RelatedServicesSection() {
                         If your damage covers more than one or two panels, or your car is not driveable, our full accident repair team can help.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2 md:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center md:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {relatedServices.map((s) => (
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -803,7 +796,7 @@ function CoverageSection() {
                             Minor Accident Repair Coverage Across Greater Manchester
                         </h2>
                         <p className="text-gray-500 leading-relaxed mb-8">
-                            Wherever you are across Greater Manchester, we offer the same fast turnaround and free collection and delivery on every minor accident repair.
+                            Wherever you are across Greater Manchester, we offer the same fast turnaround and cash pricing on every minor accident repair.
                         </p>
                         <div className="flex flex-wrap gap-3 mb-8">
                             {areas.map((a) => (
@@ -819,7 +812,7 @@ function CoverageSection() {
                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <p className="text-gray-900 font-bold text-lg mb-2">Minor Accident Repair in {activeArea}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">
-                                We serve minor accident repair customers in {activeArea} from our workshop in Whitworth, Rochdale. Same day turnaround on most jobs. Free collection and delivery available.
+                                We serve minor accident repair customers in {activeArea} from our workshop in Whitworth, Rochdale. Same day turnaround on most jobs.
                             </p>
                             <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
@@ -849,10 +842,6 @@ const faqs = [
     {
         q: 'How long does a minor accident repair take?',
         a: 'Most minor accident repairs are completed the same day. Jobs involving two panels or a full colour match may take one working day.',
-    },
-    {
-        q: 'Do you offer collection and delivery for minor accident repairs?',
-        a: 'Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton.',
     },
 ];
 
@@ -890,7 +879,7 @@ function FaqSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // S11 — Final CTA
 // ─────────────────────────────────────────────────────────────────────────────
-const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Free Collection & Delivery', 'Cash Prices', 'Free Quotations'];
+const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Cash Prices', 'Free Quotations'];
 
 function FinalCtaSection({ whatsapp }: { whatsapp: string }) {
     return (

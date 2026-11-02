@@ -10,11 +10,11 @@ const content: AreaPageContent = {
     slug: 'car-body-shop-bacup',
     name: 'Bacup',
     title: 'Car Body Repairs Bacup | Dent, Scratch & Bumper Repair OL13',
-    description: 'Car body repairs in Bacup, OL13. Dent removal and scratch repair from £80, bumper repair from £150, resprays from £800. Free collection, cash prices.',
+    description: 'Car body repairs in Bacup, OL13. Dent removal and scratch repair from £80, bumper repair from £150, resprays from £800. Cash prices, no insurance claim.',
     hero: {
         title: 'Car Body Repairs Bacup',
         highlight: 'Dent Removal, Scratch and Bumper Repair in OL13',
-        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Bacup drivers. Free collection and delivery across Bacup, cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
+        subtitle: 'Dent removal, scratch repair, bumper repair, accident repair and full resprays for Bacup drivers. Cash prices with no insurance claim, and same day on most dents, scratches and scuffs.',
         imageAlt: 'Car body repairs for Bacup drivers',
         locationPlaceholder: 'e.g. Bacup, OL13',
     },
@@ -48,7 +48,7 @@ const content: AreaPageContent = {
         title: 'Why Bacup Drivers Choose Our Car Body Shop',
         description: 'Car Body Shop has completed more than 5,000 car body repairs over 10+ years, including car body repairs in Bacup, OL13 and across the Rossendale valley. Every dent removal, scratch repair and bumper repair gets a fixed cash price before work starts.',
         points: [
-            { title: 'Free Collection Across Bacup', text: <>From Bacup town centre, Britannia and <AreaLink name="Stacksteads" />, returned when the car body repair is done.</> },
+            { title: 'Serving Bacup and Stacksteads', text: <>Car body repairs for drivers in Bacup town centre, Britannia and <AreaLink name="Stacksteads" />.</> },
             { title: 'Same Day Dent and Scratch Repair', text: 'Most dents, scratches and bumper scuffs are repaired the same day.' },
             { title: 'Cash Prices, No Insurance Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every scratch, bumper and respray job is matched to your manufacturer paint code.' },
@@ -58,7 +58,7 @@ const content: AreaPageContent = {
     },
     cta: {
         title: 'Fast, Affordable Car Body Repairs in Bacup',
-        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or book free collection from Bacup.',
+        subtitle: 'Send photos on WhatsApp for a cash quote on dent removal, scratch repair or bumper repair within the hour, or call to book your car in.',
     },
     faqSubtitle: 'Common questions about car body repairs in Bacup, answered by our team.',
     faqs: [
@@ -75,10 +75,6 @@ const content: AreaPageContent = {
             answer: 'Yes. Car scratch repair starts from £80 and is colour matched to your paint code. Kerbed alloy wheels are repaired from £80 per wheel.',
         },
         {
-            question: 'Do you collect cars from Bacup for repair?',
-            answer: 'Yes. Collection and delivery is free from Bacup, Britannia and Stacksteads. We collect the car, carry out the repair and bring it back.',
-        },
-        {
             question: 'How long does car body repair take?',
             answer: 'Most dents, scratches and bumper scuffs are finished the same day. Cracked bumpers and multi-panel repairs take 1 to 2 days, and a full respray takes 2 to 5 working days.',
         },
@@ -89,7 +85,7 @@ const content: AreaPageContent = {
     ],
     location: {
         title: 'Car Body Shop Near Bacup',
-        description: 'Our car body shop serving Bacup and Rossendale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671 just south of Bacup. Click the map to open us in Google Maps, or book free collection for car body repairs in Bacup.',
+        description: 'Our car body shop serving Bacup and Rossendale is at Peel Mill, Market Street, Shawforth OL12 8HN, on the A671 just south of Bacup. Click the map to open us in Google Maps, or call to book car body repairs in Bacup.',
     },
 };
 

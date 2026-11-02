@@ -8,6 +8,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { SERVICE_IMAGES } from '@/lib/service-images';
 import { businessNode, breadcrumbList, BUSINESS_ID } from '@/lib/schema';
 
 // ─── Shared SVG path ─────────────────────────────────────────────────────────
@@ -91,14 +92,6 @@ const jsonLd = {
                         "text": "No. PDR does not involve filling, sanding or repainting, so the original factory finish and any manufacturer warranty are unaffected."
                     }
                 },
-                {
-                    "@type": "Question",
-                    "name": "Do you offer collection and delivery for dent removal?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton."
-                    }
-                }
             ]
         }
     ]
@@ -749,7 +742,6 @@ const whyPoints = [
     'Proper workshop, not a van on your driveway.',
     'No insurance needed. Straightforward cash pricing.',
     'Computer colour matching for traditional repairs.',
-    'Free collection and delivery across Greater Manchester.',
     '10+ years removing dents in Rochdale.',
 ];
 
@@ -801,12 +793,13 @@ function WhyChooseSection() {
 // S8 — Related Services
 // ─────────────────────────────────────────────────────────────────────────────
 const relatedServices = [
-    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/gallery/AfteR_Cad_Fender_paint.webp' },
-    { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', img: '/gallery/Middlestage_Van_backdoor_Putene.webp' },
-    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/gallery/Bumper Lip After.webp' },
-    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
+    { title: 'Full Car Respray', desc: 'Complete resprays and colour changes with factory-matched paint.', href: '/services/full-car-respray-rochdale', img: '/services/full-car-respray-rochdale.jpg' },
+    { title: 'Accident & Collision Repair', desc: 'Collision damage restored to pre-accident condition. No insurance needed.', href: '/services/accident-collision-repair-rochdale', img: '/services/accident-collision-repair-rochdale.jpg' },
+    { title: 'Bumper Repair', desc: 'Scuffs, cracks and splits repaired and colour-matched.', href: '/services/bumper-repair-rochdale', img: '/services/bumper-repair-rochdale.jpg' },
+    { title: 'Car Scratch Repair', desc: 'Deep scratches and paint damage corrected and blended.', href: '/services/car-scratch-repair-rochdale', img: '/services/car-scratch-repair-rochdale.jpg' },
     { title: 'Minor Accident Repair', desc: 'Fast, affordable fixes for bumps and cosmetic damage.', href: '/services/minor-accident-repair-rochdale', img: '/gallery/Middlestage_Car_Fender_Putene.webp' },
-    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/gallery/After_Van_Backdoor_Complete.webp' },
+    { title: 'Lease Return Repairs', desc: 'Repairs before handover to avoid end-of-lease charges.', href: '/services/lease-return-repairs-rochdale', img: '/services/lease-return-repairs-rochdale.jpg' },
+    { title: 'Alloy Wheel Repair', desc: 'Kerbed, cracked and buckled alloy wheels repaired and refinished, from £80 per wheel.', href: '/services/alloy-wheel-repair-rochdale', img: '/gallery/AfteR_Rim_Job.webp' },
 ];
 
 function RelatedServicesSection() {
@@ -819,12 +812,12 @@ function RelatedServicesSection() {
                         If your car needs more than dent removal, we handle every type of car bodywork from our Rochdale workshop.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2 md:max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>*:last-child:nth-child(odd)]:justify-self-center md:max-lg:[&>*:last-child:nth-child(odd)]:w-[calc(50%-0.75rem)]">
                     {relatedServices.map((s) => (
                         <Link key={s.title} href={s.href}
                             className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1.5">
                             <div className="relative h-44 overflow-hidden">
-                                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
+                                <Image src={s.img} alt={SERVICE_IMAGES[s.href.replace('/services/', '')]?.alt ?? s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
                             </div>
                             <div className="p-7">
@@ -868,7 +861,7 @@ function CoverageSection() {
                             Dent Removal Coverage Across Greater Manchester
                         </h2>
                         <p className="text-gray-500 leading-relaxed mb-8">
-                            Wherever you are across Greater Manchester, we offer the same fast turnaround and free collection and delivery on every dent removal job.
+                            Wherever you are across Greater Manchester, we offer the same fast turnaround and cash pricing on every dent removal job.
                         </p>
 
                         {/* Area chips */}
@@ -887,7 +880,7 @@ function CoverageSection() {
                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                             <p className="text-gray-900 font-bold text-lg mb-2">Dent Removal in {activeArea}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">
-                                We serve dent removal customers in {activeArea} with the same fast turnaround and cash pricing as our Rochdale workshop. Paintless dent removal available. Free collection and delivery available.
+                                We serve dent removal customers in {activeArea} with the same fast turnaround and cash pricing as our Rochdale workshop. Paintless dent removal available.
                             </p>
                             <AreaPageLinks className="text-blue-600 hover:text-blue-700" />
                         </div>
@@ -921,10 +914,6 @@ const faqs = [
     {
         q: "Will paintless dent removal affect my car's warranty?",
         a: 'No. PDR does not involve filling, sanding or repainting, so the original factory finish and any manufacturer warranty are unaffected.',
-    },
-    {
-        q: 'Do you offer collection and delivery for dent removal?',
-        a: 'Yes. Free collection and delivery across Rochdale, Oldham, Bury, Heywood, Middleton, Manchester and Bolton.',
     },
 ];
 
@@ -964,7 +953,7 @@ function FaqSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // S11 — Final CTA
 // ─────────────────────────────────────────────────────────────────────────────
-const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Free Collection & Delivery', 'Cash Prices', 'Free Quotations'];
+const trustBadges = ['5 Star Rated', 'No Insurance Needed', 'Cash Prices', 'Free Quotations'];
 
 function FinalCtaSection({ whatsapp }: { whatsapp: string }) {
     return (

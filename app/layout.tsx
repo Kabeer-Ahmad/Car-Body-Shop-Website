@@ -94,6 +94,7 @@ export default function RootLayout({
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Scratch Repair", "url": "https://www.carbodyshop.org/services/car-scratch-repair-rochdale" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Minor Accident Repair", "url": "https://www.carbodyshop.org/services/minor-accident-repair-rochdale" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lease Return Repairs", "url": "https://www.carbodyshop.org/services/lease-return-repairs-rochdale" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Alloy Wheel Repair & Refurbishment", "url": "https://www.carbodyshop.org/services/alloy-wheel-repair-rochdale" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trade & Motor Dealer Bodyshop Services", "url": "https://www.carbodyshop.org/services/trade-motor-dealer-bodyshop-services" } }
           ]
         }

@@ -11,7 +11,7 @@ const content: AreaPageContent = {
     hero: {
         title: 'Car Body Shop Whitworth',
         highlight: 'Dent, Scratch, Bumper & Accident Repairs',
-        subtitle: <>Our workshop is at Peel Mill, Market Street, Shawforth, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, same day on most dents, scratches and scuffs, and free collection and delivery.</>,
+        subtitle: <>Our workshop is at Peel Mill, Market Street, Shawforth, in Whitworth between Rochdale and Bacup. Cash prices with no insurance claim, and same day on most dents, scratches and scuffs.</>,
         imageAlt: 'Car body shop workshop in Whitworth, Rochdale',
         locationPlaceholder: 'e.g. Whitworth, OL12',
     },
@@ -32,7 +32,7 @@ const content: AreaPageContent = {
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
             { title: 'Enclosed Spray Booth', text: 'Panels are primed and painted inside our workshop booth, not on a driveway.' },
             { title: 'Photo Quotes Within the Hour', text: 'Send photos on WhatsApp for an itemised cash price.' },
-            { title: 'Free Collection and Delivery', text: <>Across Whitworth, <AreaLink name="Facit" />, <AreaLink name="Shawforth" />, Healey and the rest of OL12.</> },
+            { title: 'Serving All of OL12', text: <>Car body repairs across Whitworth, <AreaLink name="Facit" />, <AreaLink name="Shawforth" />, <AreaLink name="Healey" /> and the rest of OL12.</> },
         ],
     },
     location: {
@@ -56,10 +56,6 @@ const content: AreaPageContent = {
         {
             question: 'How long do car body repairs take?',
             answer: 'Most dents, scratches and bumper scuffs are finished the same day. Cracked bumpers and multi-panel repairs take 1 to 2 days, and a full respray takes 2 to 5 working days.',
-        },
-        {
-            question: 'Do you offer collection and delivery in Whitworth?',
-            answer: 'Yes. Collection and delivery is free across Whitworth, Facit, Shawforth and Healey, and across the rest of Rochdale, Littleborough, Milnrow and Heywood.',
         },
         {
             question: 'Do I need to claim on my insurance?',
