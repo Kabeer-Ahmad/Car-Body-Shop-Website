@@ -84,7 +84,7 @@ export const SERVED_AREAS: readonly ServedArea[] = [
     { name: 'Bacup', slug: 'car-body-shop-bacup', note: 'Rossendale, OL13' },
     { name: 'Stacksteads', slug: 'car-body-shop-stacksteads', note: 'Rossendale, OL13' },
     { name: 'Littleborough', slug: 'car-body-shop-littleborough', note: 'Rochdale, OL15' },
-    { name: 'Wardle' },
+    { name: 'Wardle', slug: 'car-body-shop-wardle', note: 'Rochdale, OL12' },
     { name: 'Rochdale' },
     { name: 'Milnrow' },
     { name: 'Heywood' },

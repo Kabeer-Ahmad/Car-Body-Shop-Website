@@ -29,7 +29,7 @@ const content: AreaPageContent = {
         title: 'Why Littleborough Drivers Use Car Body Shop',
         description: 'Car Body Shop has completed more than 5,000 repairs over 10+ years. Littleborough customers pay the same fixed cash prices, with no insurance claim.',
         points: [
-            { title: 'Serving All of OL15', text: 'Car body repairs for drivers in Littleborough, Smithy Bridge, Summit and Hollingworth Lake.' },
+            { title: 'Serving All of OL15', text: <>Car body repairs for drivers in Littleborough, Smithy Bridge, Summit and Hollingworth Lake, and neighbouring <AreaLink name="Wardle" />.</> },
             { title: 'Same Day on Most Repairs', text: 'Most dents, scratches and bumper scuffs are finished the same day.' },
             { title: 'Cash Prices, No Claim', text: 'A fixed price before work starts, with no excess and no claim on your policy.' },
             { title: 'Computer Colour Matching', text: 'Every repair is matched to your manufacturer paint code.' },
