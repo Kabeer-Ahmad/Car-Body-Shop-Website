@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node init && next dev",
+    "dev": "next dev",
     "prebuild": "node scripts/check-postcss-clean.mjs",
-    "build": "node init && next build",
-    "start": "node init && next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint",
     "check:postcss": "node scripts/check-postcss-clean.mjs"
   },
